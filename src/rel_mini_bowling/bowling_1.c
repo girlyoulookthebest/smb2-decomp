@@ -9,8 +9,7 @@
 #include "sound.h"
 #ifndef __MWERKS__
 /* pc_port: the original calls these undeclared; on x86 an implicit
- * declaration passes the float argument as a double, so PSVECScale read
- * garbage and the lane collision pushed the ball miles into the air. */
+ * declaration passes the float argument as a double. */
 void PSVECAdd(Vec *a, Vec *b, Vec *out);
 void PSVECSubtract(Vec *a, Vec *b, Vec *out);
 void PSVECScale(Vec *in, Vec *out, float scale);

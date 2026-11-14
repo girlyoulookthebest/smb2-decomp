@@ -7227,12 +7227,11 @@ struct HowToArrow
 #ifndef __MWERKS__
 /* PC port: lbl_1_data_41A50 (HowToTooltip), lbl_1_data_3D3D8 (HowToBmp) and
  * lbl_1_data_42FA4 (HowToArrow) are images of the big-endian GameCube data,
- * written as u32 words / bytes. Read through the structs on a little-endian
- * host they give garbage (a tooltip's bmpIdx indexes far past the HowToBmp
- * table, so draw_sprite_draw_request reads a bogus TPL and crashes). Convert
- * the HowToBmp words in place and decode the tooltips and arrows into native
- * tables (the arrow byte array is one byte short of 72 entries: its trailing
- * zero byte was dropped). The tooltip table is a void *[] of 3 words per entry
+ * written as u32 words / bytes, so they can't be read through the structs on
+ * a little-endian host. Convert the HowToBmp words in place and decode the
+ * tooltips and arrows into native tables (the arrow byte array is one byte
+ * short of 72 entries: its trailing zero byte is missing). The tooltip table
+ * is a void *[] of 3 words per entry
  * (two packed words + the lines pointer); its elements are pointer-sized, so
  * on x64 neither its stride nor HowToTooltip's size is 0xC and it can't be
  * converted in place. */

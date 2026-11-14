@@ -25,9 +25,8 @@ extern s16 lbl_10_bss_122C;
 extern u32 lbl_10_bss_2D34;
 #else
 /* PC: s32 as defined in race2.c.  The replay sets it to -1 before its first
- * frame; read as u32, &lbl_10_bss_1228[-1] became an index of 0xFFFFFFFF,
- * which only wraps back to element -1 with 32-bit pointers (x64: crash in
- * Race's replay, harness mode raceend) */
+ * frame; as a u32, &lbl_10_bss_1228[-1] would index 0xFFFFFFFF, which only
+ * wraps back to element -1 with 32-bit pointers. */
 extern s32 lbl_10_bss_2D34;
 #endif
 extern u32 lbl_10_bss_2D38;

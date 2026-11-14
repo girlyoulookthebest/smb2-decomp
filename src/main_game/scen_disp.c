@@ -769,9 +769,9 @@ void sprite_story_stage_select_tick(s8 *status, struct Sprite *sprite)
     ball = sel->balls;
     for (i = 0; i < g_are_story_select_sprites_visible.stageCount; i++, ball++)
     {
-        /* float -> s32 -> s8: the GC (fctiwz + extsb) and GCC wrap the
-         * out-of-range values; a direct float -> s8 cast is UB in C and clang
-         * drops the 8-bit wrap (x64 stage-select balls spun differently). */
+        /* float -> s32 -> s8: the GC (fctiwz + extsb) wraps out-of-range
+         * values; a direct float -> s8 cast is UB in C and clang does not
+         * wrap. */
         ball->velY = (s8)(s32)(0.98f * ball->velY);
         ball->velZ = (s8)(s32)(0.98f * ball->velZ);
         if (i == scen_info.unk6)

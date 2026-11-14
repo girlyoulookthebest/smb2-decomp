@@ -8505,9 +8505,8 @@ void g_something_with_name_entry_get_course(int a)
 /* PC port: the save file holds the ranking tables lbl_1_data_6C440..6CCE4 as
  * one 0x8A4-byte block, copied with a single memcpy on GC because the tables
  * are contiguous there. On PC they are separate objects in an order and with
- * padding chosen by the compiler (GCC places them in reverse), so the single
- * copy overran into lbl_1_data_6C2B4 / 6C200 (pointer tables) and other data.
- * Copy each table at its GC offset instead. */
+ * padding chosen by the compiler (GCC places them in reverse), so a single
+ * copy would overrun into other data. Copy each table at its GC offset. */
 static const struct { void *ptr; u32 size; } s_pcRankBlock[] = {
     { &lbl_1_data_6C440, sizeof(lbl_1_data_6C440) },
     { &lbl_1_data_6C47C, sizeof(lbl_1_data_6C47C) },

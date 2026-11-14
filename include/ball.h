@@ -79,10 +79,9 @@ struct Ball
 }; /* size = 0x1B0 */
 
 /* The ape's animation state (bodyAnim, faceAnim, ...) is a struct Skeleton
- * followed by its Bone array (skeleton.h). It used to be described here by an
- * overlay with 32-bit offsets (joints at +0x08, frame at +0x4C, joint stride
- * 0x174), which is wrong on x64 where Skeleton/Bone grow. Kept incomplete so
- * that every access has to go through struct Skeleton / struct Bone. */
+ * followed by its Bone array (skeleton.h). Left incomplete so that every
+ * access goes through struct Skeleton / struct Bone, whose layout differs
+ * on x64. */
 struct ApeAnim;
 
 struct ApeFlagInfo

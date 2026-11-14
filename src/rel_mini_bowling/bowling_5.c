@@ -9,7 +9,7 @@
 
 #ifndef __MWERKS__
 /* pc_port: undeclared in the original; an implicit declaration passes the
- * float scale as a double on x86 (garbage trail offsets). */
+ * float scale as a double on x86. */
 void PSVECAdd(Vec *a, Vec *b, Vec *out);
 void PSVECSubtract(Vec *a, Vec *b, Vec *out);
 void PSVECScale(Vec *in, Vec *out, float scale);

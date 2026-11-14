@@ -216,9 +216,9 @@ struct BgPotOrdNode
     Mtx mtx;
 };
 
-/* Sun lens flare node: only the work pointer follows the list node (the
- * original allocates 0xC = sizeof on GC; a literal 0xC is 12 of the 24 bytes
- * on x64, so the next allocation overwrote drawFunc/work). */
+/* Sun lens flare node: only the work pointer follows the list node.  The
+ * original allocates a literal 0xC (sizeof on GC); on x64 the node is 24
+ * bytes, hence sizeof(*node). */
 struct BgPotSunOrdNode
 {
     struct OrdTblNode node;

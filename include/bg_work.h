@@ -2,9 +2,8 @@
 #define _BG_WORK_H_
 
 /* world_theme.work layouts that effect.c reads as well as the owning
- * bg_*.c file.  They used to be read through hard-coded 32-bit offsets
- * (BG_WORK(void **)[99], bgWork + 0xB0C, ...); sharing the definitions keeps
- * those reads right on x64, where the pointer fields grow. */
+ * bg_*.c file.  Shared (rather than read at fixed 32-bit offsets) so those
+ * reads stay right on x64, where the pointer fields grow. */
 
 #include "types.h"
 #include "gx.h"

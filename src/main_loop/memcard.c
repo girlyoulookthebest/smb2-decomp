@@ -2281,9 +2281,9 @@ void g_something_with_card12(struct MemcardInfo *info)
 #ifdef __MWERKS__
             if (*(u16 *)info->job->buffer != fn_800648C8(info->job->size - 2, info->job->buffer + 2))
 #else
-            /* pc_port: PC builds before the checksum (fn_800648C8) was
-             * implemented wrote 0 here; accept those files (they get a real
-             * checksum on the next save) instead of calling them corrupt. */
+            /* pc_port: early PC builds wrote a 0 checksum (fn_800648C8);
+             * accept those files (the next save writes a real checksum)
+             * instead of calling them corrupt. */
             if (*(u16 *)info->job->buffer != fn_800648C8(info->job->size - 2, info->job->buffer + 2)
              && *(u16 *)info->job->buffer != 0)
 #endif

@@ -1031,9 +1031,8 @@ void g_something_with_init_or_maybe_leftover_from_smb1(int bgId)
     char *bgName;
 
 #ifndef __MWERKS__
-    /* stage.c declares this (void) and calls it with no argument; on PPC
-     * the stale r3 happened to be benign, on x86 the stack garbage would
-     * index bg_filename_list wildly. */
+    /* stage.c declares this (void) and calls it with no argument: on PPC
+     * bgId is a stale r3, on x86 it is stack garbage, so range-check it. */
     if (bgId < 0 || bgId >= (int)(sizeof(bg_filename_list) / sizeof(bg_filename_list[0])))
         return;
 #endif

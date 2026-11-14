@@ -62,8 +62,7 @@ typedef signed long long sptr;
 #ifndef __MWERKS__
 /* PC: the GC's `psq_st f, 0(p), 1, 2` (GQR2 = u8 quantized store, scale 0)
  * saturates to 0..255 and truncates toward zero.  A plain float -> u8 cast
- * is undefined out of range and wraps on x86 (300 -> 44): additive glow
- * colours computed as 1.2 * 255 * brightness turned blue / purple. */
+ * is undefined out of range and wraps on x86 (300 -> 44). */
 static inline u8 pc_psq_st_u8(float v)
 {
     return v > 0.0f ? (v < 255.0f ? (u8)v : (u8)255) : (u8)0;

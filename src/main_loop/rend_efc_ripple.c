@@ -684,10 +684,9 @@ void fn_1_DF174(struct RenderEffect *rendEfc)
 
 #ifndef __MWERKS__
 /* PC: the pil/pil2 sea reflection RenderEffectFuncs tables (main_loop .data,
- * not decompiled; bg_pil.c / bg_pil2.c pass them to fn_1_D8130). They used
- * to be u32 word tables in pc_port data_init_gen.c, which on x64 does not
- * match rend_efc.c's struct of four function pointers. Same layout as
- * rend_efc.c's struct RenderEffectFuncs. */
+ * not decompiled; bg_pil.c / bg_pil2.c pass them to fn_1_D8130), typed
+ * with the layout of rend_efc.c's struct RenderEffectFuncs so they also
+ * match on x64 (u32 word tables would not). */
 struct PcRenderEffectFuncs
 {
     void (*init)(struct RenderEffect *);
