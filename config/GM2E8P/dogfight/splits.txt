@@ -1,0 +1,52 @@
+Sections:
+	.text       type:code align:4
+	.ctors      type:rodata align:4
+	.dtors      type:rodata align:4
+	.rodata     type:rodata align:8
+	.data       type:data align:8
+	.bss        type:bss align:8
+
+dogfight/dogfight.c:
+	.text       start:0x00000000 end:0x00007750
+	.rodata     start:0x00000000 end:0x000002C0
+	.data       start:0x00000000 end:0x00000B28
+	.bss        start:0x00000000 end:0x00000380
+
+dogfight/dogfight_1.c:
+	.text       start:0x00007750 end:0x000097C0
+	.rodata     start:0x000002C0 end:0x000003B8
+	.data       start:0x00000B28 end:0x00000F68
+	.bss        start:0x00000380 end:0x000003C0
+
+dogfight/dogfight_2.c:
+	.text       start:0x000097C0 end:0x0000A8AC
+	.rodata     start:0x000003B8 end:0x000004D0
+
+dogfight/dogfight_3.c:
+	.text       start:0x0000A8AC end:0x0000F404
+	.rodata     start:0x000004D0 end:0x00000838
+	.data       start:0x00000F68 end:0x00001190
+
+dogfight/dogfight_4.c:
+	.text       start:0x0000F404 end:0x00010660
+	.rodata     start:0x00000838 end:0x000008E8
+	.data       start:0x00001190 end:0x000011D0
+	.bss        start:0x000003C0 end:0x000003D0
+
+dogfight/item_dogfight.c:
+	.text       start:0x00010660 end:0x000116EC
+	.rodata     start:0x000008E8 end:0x00000980
+	.data       start:0x000011D0 end:0x000013F8
+	.bss        start:0x000003D0 end:0x000003D8
+
+dogfight/dogfight_6.c:
+	.text       start:0x000116EC end:0x00014938
+	.rodata     start:0x00000980 end:0x00000A88
+	.data       start:0x000013F8 end:0x00001410
+	.bss        start:0x000003D8 end:0x00012B30
+
+dogfight/dogfight_7.c:
+	.text       start:0x00014938 end:0x00016F90
+	.rodata     start:0x00000A88 end:0x00000BBC
+	.data       start:0x00001410 end:0x00001728
+	.bss        start:0x00012B30 end:0x00012B34

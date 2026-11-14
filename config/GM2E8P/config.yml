@@ -1,0 +1,118 @@
+object: sys/main.dol
+hash: 4546cbc7c0c2ed7610b9cce3ce90c7ad0034a8a3
+object_base: orig/GM2E8P
+symbols: config/GM2E8P/symbols.txt
+splits: config/GM2E8P/splits.txt
+mw_comment_version: 8
+quick_analysis: false
+detect_objects: true
+detect_strings: true
+write_asm: true
+fill_gaps: true
+# Sega's hand-written math library (locked-cache matrix stack at 0xE0000000).
+# Its routines fall/branch into each other's bodies, which breaks function boundary analysis.
+skip_cfa_ranges:
+- start: .text:0x80061C54
+  end: .text:0x800648C8
+
+modules:
+- object: files/mkb2.main_loop.rel  # module 1
+  hash: 0ea37ce9c9dd7c083aa1b42fc317a6bbe52b2516
+  name: main_loop
+  symbols: config/GM2E8P/main_loop/symbols.txt
+  splits: config/GM2E8P/main_loop/splits.txt
+- object: files/mkb2.main_game.rel  # module 2
+  hash: 5f0a8aa10db2c6f8dbd26cda4a79787350c410a6
+  name: main_game
+  symbols: config/GM2E8P/main_game/symbols.txt
+  splits: config/GM2E8P/main_game/splits.txt
+- object: files/mkb2.sel_ngc.rel  # module 3
+  hash: d47726bf6c1048989b0250bfa94328ae0aadb0d5
+  name: sel_ngc
+  symbols: config/GM2E8P/sel_ngc/symbols.txt
+  splits: config/GM2E8P/sel_ngc/splits.txt
+- object: files/mkb2.sel_stage.rel  # module 4
+  hash: 52e5f2508033fcabaa036aec2f56ed01148ce038
+  name: sel_stage
+  symbols: config/GM2E8P/sel_stage/symbols.txt
+  splits: config/GM2E8P/sel_stage/splits.txt
+- object: files/mkb2.rel_mini_bowling.rel  # module 5
+  hash: 1a14f32e10c8801abdfc3a7c5349718b2efde03f
+  name: rel_mini_bowling
+  symbols: config/GM2E8P/rel_mini_bowling/symbols.txt
+  splits: config/GM2E8P/rel_mini_bowling/splits.txt
+- object: files/mkb2.rel_mini_billiards.rel  # module 6
+  hash: d5e335ea55d15cb2d2d38e7172b3489cc4111239
+  name: rel_mini_billiards
+  symbols: config/GM2E8P/rel_mini_billiards/symbols.txt
+  splits: config/GM2E8P/rel_mini_billiards/splits.txt
+- object: files/mkb2.rel_sample.rel  # module 7
+  hash: f1e2f54b44e158d38a4e6d6d6b1a48dfecc0ffe1
+  name: rel_sample
+  symbols: config/GM2E8P/rel_sample/symbols.txt
+  splits: config/GM2E8P/rel_sample/splits.txt
+- object: files/mkb2.test_mode.rel  # module 8
+  hash: 292f55fdab076b43a93c539444a1957f5bd16a0e
+  name: test_mode
+  symbols: config/GM2E8P/test_mode/symbols.txt
+  splits: config/GM2E8P/test_mode/splits.txt
+- object: files/mkb2.option.rel  # module 9
+  hash: 741f690f491e7c1a25fba9b10b7d4286a676bc96
+  name: option
+  symbols: config/GM2E8P/option/symbols.txt
+  splits: config/GM2E8P/option/splits.txt
+- object: files/mkb2.race2.rel  # module 10
+  hash: f8099779a98b5e1e31aadac2aba82751387c2f06
+  name: race2
+  symbols: config/GM2E8P/race2/symbols.txt
+  splits: config/GM2E8P/race2/splits.txt
+- object: files/mkb2.golf2.rel  # module 11
+  hash: f2c6f38a2f7f4f90c577c897fb316f2074392829
+  name: golf2
+  symbols: config/GM2E8P/golf2/symbols.txt
+  splits: config/GM2E8P/golf2/splits.txt
+- object: files/mkb2.mini_fight2.rel  # module 12
+  hash: 6282643cbbee91425503354e715c732ad4f960cc
+  name: mini_fight2
+  symbols: config/GM2E8P/mini_fight2/symbols.txt
+  splits: config/GM2E8P/mini_fight2/splits.txt
+- object: files/mkb2.pilot2.rel  # module 13
+  hash: 663f1b5152bb351bc155d2afb663c30ec7b48a47
+  name: pilot2
+  symbols: config/GM2E8P/pilot2/symbols.txt
+  splits: config/GM2E8P/pilot2/splits.txt
+- object: files/mkb2.boat.rel  # module 14
+  hash: 62105e7774f04829ab34705be6b8604aae429194
+  name: boat
+  symbols: config/GM2E8P/boat/symbols.txt
+  splits: config/GM2E8P/boat/splits.txt
+- object: files/mkb2.shooting.rel  # module 15
+  hash: 580791a5e3306b72b862c19c67fd448168bfe97e
+  name: shooting
+  symbols: config/GM2E8P/shooting/symbols.txt
+  splits: config/GM2E8P/shooting/splits.txt
+- object: files/mkb2.rel_mini_futsal.rel  # module 16
+  hash: 9d6b5316086c376ad588a1f122f9a6589f308bf5
+  name: rel_mini_futsal
+  symbols: config/GM2E8P/rel_mini_futsal/symbols.txt
+  splits: config/GM2E8P/rel_mini_futsal/splits.txt
+- object: files/mkb2.dogfight.rel  # module 17
+  hash: 7c341d9de61daa6ca102bebb7ade16fa6a11519a
+  name: dogfight
+  symbols: config/GM2E8P/dogfight/symbols.txt
+  splits: config/GM2E8P/dogfight/splits.txt
+- object: files/mkb2.baseball.rel  # module 18
+  hash: 6eae6667d6b77347013dcec507e2b2007bb0dd6b
+  name: baseball
+  symbols: config/GM2E8P/baseball/symbols.txt
+  splits: config/GM2E8P/baseball/splits.txt
+- object: files/mkb2.tennis.rel  # module 19
+  hash: 84ad8df8d730029b3b6d2d726fdd779779fac186
+  name: tennis
+  symbols: config/GM2E8P/tennis/symbols.txt
+  splits: config/GM2E8P/tennis/splits.txt
+- object: files/mkb2.exoption.rel  # module 20
+  hash: 2971f8584b737511962f2a972bb376d85abaacbf
+  name: exoption
+  symbols: config/GM2E8P/exoption/symbols.txt
+  splits: config/GM2E8P/exoption/splits.txt

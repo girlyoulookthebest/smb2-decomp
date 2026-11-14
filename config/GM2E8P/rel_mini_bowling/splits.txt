@@ -1,0 +1,54 @@
+Sections:
+	.text       type:code align:4
+	.ctors      type:rodata align:4
+	.dtors      type:rodata align:4
+	.rodata     type:rodata align:8
+	.data       type:data align:8
+	.bss        type:bss align:8
+
+rel_mini_bowling/bowling.c:
+	.text       start:0x00000000 end:0x0000C734
+	.rodata     start:0x00000000 end:0x00002618
+	.data       start:0x00000000 end:0x000015E0
+	.bss        start:0x00000000 end:0x000001E0
+
+rel_mini_bowling/bowling_1.c:
+	.text       start:0x0000C734 end:0x0000D710
+	.rodata     start:0x00002618 end:0x00002728
+	.data       start:0x000015E0 end:0x000015E8
+	.bss        start:0x000001E0 end:0x00000720
+
+rel_mini_bowling/bowling_2.c:
+	.text       start:0x0000D710 end:0x00010B98
+	.rodata     start:0x00002728 end:0x00002948
+	.data       start:0x000015E8 end:0x00001640
+
+rel_mini_bowling/bowling_3.c:
+	.text       start:0x00010B98 end:0x000119B0
+	.rodata     start:0x00002948 end:0x00005CA8
+	.bss        start:0x00000720 end:0x00018750
+
+rel_mini_bowling/bowling_4.c:
+	.text       start:0x000119B0 end:0x00011A48
+	.rodata     start:0x00005CA8 end:0x00005CB0
+
+rel_mini_bowling/bowling_5.c:
+	.text       start:0x00011A48 end:0x00012234
+	.rodata     start:0x00005CB0 end:0x00005D18
+	.bss        start:0x00018750 end:0x00019170
+
+rel_mini_bowling/bowling_6.c:
+	.text       start:0x00012234 end:0x00014B74
+	.rodata     start:0x00005D18 end:0x00005F98
+	.bss        start:0x00019170 end:0x0001BB50
+
+rel_mini_bowling/bowling_7.c:
+	.text       start:0x00014B74 end:0x00015F2C
+	.rodata     start:0x00005F98 end:0x000060F8
+	.data       start:0x00001640 end:0x000017B8
+
+rel_mini_bowling/bowling_8.c:
+	.text       start:0x00015F2C end:0x0001A350
+	.rodata     start:0x000060F8 end:0x000064A7
+	.data       start:0x000017B8 end:0x00001858
+	.bss        start:0x0001BB50 end:0x0001BB98

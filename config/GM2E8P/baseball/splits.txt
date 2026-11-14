@@ -1,0 +1,178 @@
+Sections:
+	.text       type:code align:4
+	.ctors      type:rodata align:4
+	.dtors      type:rodata align:4
+	.rodata     type:rodata align:8
+	.data       type:data align:8
+	.bss        type:bss align:8
+
+baseball/baseball_0.c:
+	.text       start:0x00000000 end:0x000003C0
+	.data       start:0x00000000 end:0x00000180
+	.bss        start:0x00000000 end:0x00000970
+
+baseball/baseball_0b.c:
+	.text       start:0x000003C0 end:0x000009F4
+	.rodata     start:0x00000000 end:0x00000030
+	.data       start:0x00000180 end:0x000001F8
+
+baseball/baseball_1.c:
+	.text       start:0x000009F4 end:0x00000E9C
+	.rodata     start:0x00000030 end:0x00000040
+
+baseball/baseball_2.c:
+	.text       start:0x00000E9C end:0x000016D4
+	.rodata     start:0x00000040 end:0x00000050
+
+baseball/baseball_3.c:
+	.text       start:0x000016D4 end:0x000028B0
+	.rodata     start:0x00000050 end:0x00000058
+	.data       start:0x000001F8 end:0x00000468
+	.bss        start:0x00000970 end:0x00000BE8
+
+baseball/baseball_4.c:
+	.text       start:0x000028B0 end:0x00003A90
+	.rodata     start:0x00000058 end:0x00000060
+	.data       start:0x00000468 end:0x00000700
+	.bss        start:0x00000BE8 end:0x00000BF0
+
+baseball/baseball_5.c:
+	.text       start:0x00003A90 end:0x00003BB0
+	.rodata     start:0x00000060 end:0x00000070
+
+baseball/baseball_6.c:
+	.text       start:0x00003BB0 end:0x000081B0
+	.rodata     start:0x00000070 end:0x00000118
+	.data       start:0x00000700 end:0x00000A70
+	.bss        start:0x00000BF0 end:0x00000D68
+
+baseball/baseball_7.c:
+	.text       start:0x000081B0 end:0x00008CD4
+	.rodata     start:0x00000118 end:0x00000178
+	.data       start:0x00000A70 end:0x00000AB0
+
+baseball/baseball_8.c:
+	.text       start:0x00008CD4 end:0x0000A1E4
+	.rodata     start:0x00000178 end:0x000001C8
+	.data       start:0x00000AB0 end:0x00000B50
+
+baseball/baseball_9.c:
+	.text       start:0x0000A1E4 end:0x0000A368
+	.rodata     start:0x000001C8 end:0x000001D0
+
+baseball/baseball_10.c:
+	.text       start:0x0000A368 end:0x0000C394
+	.rodata     start:0x000001D0 end:0x000002A8
+	.data       start:0x00000B50 end:0x00000BF8
+
+baseball/baseball_11.c:
+	.text       start:0x0000C394 end:0x0000DD38
+	.rodata     start:0x000002A8 end:0x00000318
+	.data       start:0x00000BF8 end:0x00000FC8
+
+baseball/baseball_12.c:
+	.text       start:0x0000DD38 end:0x0000DE1C
+	.rodata     start:0x00000318 end:0x00000330
+
+baseball/baseball_13.c:
+	.text       start:0x0000DE1C end:0x0000DF60
+	.rodata     start:0x00000330 end:0x00000340
+
+baseball/baseball_14.c:
+	.text       start:0x0000DF60 end:0x0000E06C
+	.rodata     start:0x00000340 end:0x00000348
+
+baseball/baseball_15.c:
+	.text       start:0x0000E06C end:0x0000E540
+	.rodata     start:0x00000348 end:0x00000388
+
+baseball/baseball_16.c:
+	.text       start:0x0000E540 end:0x0000E8C8
+	.rodata     start:0x00000388 end:0x000003D8
+
+baseball/baseball_17.c:
+	.text       start:0x0000E8C8 end:0x00011584
+	.rodata     start:0x000003D8 end:0x00000548
+	.data       start:0x00000FC8 end:0x000013E0
+	.bss        start:0x00000D68 end:0x00001090
+
+baseball/baseball_18.c:
+	.text       start:0x00011584 end:0x00011C7C
+	.rodata     start:0x00000548 end:0x00000598
+	.data       start:0x000013E0 end:0x00001480
+
+baseball/baseball_19.c:
+	.text       start:0x00011C7C end:0x00012AD8
+	.rodata     start:0x00000598 end:0x000005D0
+	.data       start:0x00001480 end:0x00001570
+	.bss        start:0x00001090 end:0x000011A8
+
+baseball/baseball_20.c:
+	.text       start:0x00012AD8 end:0x000134B0
+	.data       start:0x00001570 end:0x00078C10
+	.bss        start:0x000011A8 end:0x000011E8
+
+baseball/baseball_21.c:
+	.text       start:0x000134B0 end:0x00015A08
+	.rodata     start:0x000005D0 end:0x000006E8
+	.data       start:0x00078C10 end:0x00078E40
+
+baseball/baseball_22.c:
+	.text       start:0x00015A08 end:0x00015E38
+	.rodata     start:0x000006E8 end:0x00000720
+
+baseball/baseball_23.c:
+	.text       start:0x00015E38 end:0x00016740
+	.rodata     start:0x00000720 end:0x00000730
+	.bss        start:0x000011E8 end:0x000011F0
+
+baseball/baseball_24.c:
+	.text       start:0x00016740 end:0x00017E40
+	.rodata     start:0x00000730 end:0x000007B0
+	.data       start:0x00078E40 end:0x00079208
+	.bss        start:0x000011F0 end:0x00001240
+
+baseball/baseball_25.c:
+	.text       start:0x00017E40 end:0x0001A040
+	.rodata     start:0x000007B0 end:0x00003AE8
+	.data       start:0x00079208 end:0x0007F460
+	.bss        start:0x00001240 end:0x00019270
+
+baseball/baseball_26.c:
+	.text       start:0x0001A040 end:0x00021768
+	.rodata     start:0x00003AE8 end:0x00003E38
+	.data       start:0x0007F460 end:0x000800E0
+	.bss        start:0x00019270 end:0x00019278
+
+baseball/baseball_27.c:
+	.text       start:0x00021768 end:0x00021A34
+	.rodata     start:0x00003E38 end:0x00003E40
+	.bss        start:0x00019278 end:0x000197B0
+
+baseball/baseball_28.c:
+	.text       start:0x00021A34 end:0x00022664
+	.rodata     start:0x00003E40 end:0x00003E50
+	.data       start:0x000800E0 end:0x00080310
+	.bss        start:0x000197B0 end:0x0001A2C0
+
+baseball/baseball_30.c:
+	.text       start:0x00022664 end:0x00022CE0
+	.rodata     start:0x00003E50 end:0x00003E88
+	.bss        start:0x0001A2C0 end:0x0001A2D0
+
+baseball/baseball_32.c:
+	.text       start:0x00022CE0 end:0x00025298
+	.rodata     start:0x00003E88 end:0x000040E8
+	.data       start:0x00080310 end:0x00082680
+	.bss        start:0x0001A2D0 end:0x0001A320
+
+baseball/baseball_33.c:
+	.text       start:0x00025298 end:0x000260BC
+	.rodata     start:0x000040E8 end:0x000040F0
+	.bss        start:0x0001A320 end:0x0001A330
+
+baseball/baseball_34.c:
+	.text       start:0x000260BC end:0x00027B44
+	.rodata     start:0x000040F0 end:0x00004160
+	.data       start:0x00082680 end:0x00082F4C
+	.bss        start:0x0001A330 end:0x0001A3E8

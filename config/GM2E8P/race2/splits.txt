@@ -1,0 +1,55 @@
+Sections:
+	.text       type:code align:4
+	.ctors      type:rodata align:4
+	.dtors      type:rodata align:4
+	.rodata     type:rodata align:8
+	.data       type:data align:8
+	.bss        type:bss align:8
+
+race2/race2_0.c:
+	.text       start:0x00000000 end:0x00007C5C
+	.rodata     start:0x00000000 end:0x000003B0
+	.data       start:0x00000000 end:0x000000A8
+
+race2/race2_1.c:
+	.text       start:0x00007C5C end:0x0000A78C
+	.rodata     start:0x000003B0 end:0x00000518
+	.data       start:0x000000A8 end:0x000009D0
+	.bss        start:0x00000000 end:0x00000058
+
+race2/race2_2.c:
+	.text       start:0x0000A78C end:0x0000E008
+	.rodata     start:0x00000518 end:0x00000758
+	.data       start:0x000009D0 end:0x00000F48
+	.bss        start:0x00000058 end:0x000011D8
+
+race2/race2_3.c:
+	.text       start:0x0000E008 end:0x00010764
+	.rodata     start:0x00000758 end:0x00000968
+	.data       start:0x00000F48 end:0x00000F98
+
+race2/race2_4.c:
+	.text       start:0x00010764 end:0x00013978
+	.rodata     start:0x00000968 end:0x00000B48
+	.data       start:0x00000F98 end:0x00001120
+	.bss        start:0x000011D8 end:0x00001208
+
+race2/race2.c:
+	.text       start:0x00013978 end:0x00018CAC
+	.rodata     start:0x00000B48 end:0x00000CC8
+	.data       start:0x00001120 end:0x00001748
+	.bss        start:0x00001208 end:0x00004260
+
+race2/race2_ape.c:
+	.text       start:0x00018CAC end:0x00019420
+	.rodata     start:0x00000CC8 end:0x00000D50
+
+race2/race2_5.c:
+	.text       start:0x00019420 end:0x00021114
+	.rodata     start:0x00000D50 end:0x000010A8
+	.data       start:0x00001748 end:0x00002DF9
+
+race2/race2_6.c:
+	.text       start:0x00021114 end:0x00021318
+	.rodata     start:0x000010A8 end:0x000010E0
+	.bss        start:0x00004260 end:0x000042C0

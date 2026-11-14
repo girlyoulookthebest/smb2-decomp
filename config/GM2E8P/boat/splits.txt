@@ -1,0 +1,97 @@
+Sections:
+	.text       type:code align:4
+	.ctors      type:rodata align:4
+	.dtors      type:rodata align:4
+	.rodata     type:rodata align:8
+	.data       type:data align:8
+	.bss        type:bss align:8
+
+boat/boat_0.c:
+	.text       start:0x00000000 end:0x000032FC
+	.rodata     start:0x00000000 end:0x000000D0
+	.data       start:0x00000000 end:0x000002C0
+	.bss        start:0x00000000 end:0x00000208
+
+boat/boat_1.c:
+	.text       start:0x000032FC end:0x000066DC
+	.rodata     start:0x000000D0 end:0x00000358
+	.data       start:0x000002C0 end:0x00000818
+	.bss        start:0x00000208 end:0x000029A8
+
+boat/boat_2.c:
+	.text       start:0x000066DC end:0x0000E0FC
+	.rodata     start:0x00000358 end:0x000006F0
+	.data       start:0x00000818 end:0x00000B58
+	.bss        start:0x000029A8 end:0x00002A08
+
+boat/boat_3.c:
+	.text       start:0x0000E0FC end:0x000108A4
+	.rodata     start:0x000006F0 end:0x00000888
+	.data       start:0x00000B58 end:0x00001340
+	.bss        start:0x00002A08 end:0x00002A80
+
+boat/boat_4.c:
+	.text       start:0x000108A4 end:0x00011524
+	.rodata     start:0x00000888 end:0x000009A8
+
+boat/boat_5.c:
+	.text       start:0x00011524 end:0x00012C7C
+	.rodata     start:0x000009A8 end:0x00000A18
+	.data       start:0x00001340 end:0x00001348
+
+boat/boat_6.c:
+	.text       start:0x00012C7C end:0x000153B4
+	.rodata     start:0x00000A18 end:0x00000B90
+	.data       start:0x00001348 end:0x00001558
+	.bss        start:0x00002A80 end:0x00002AE8
+
+boat/boat_7.c:
+	.text       start:0x000153B4 end:0x00015624
+	.rodata     start:0x00000B90 end:0x00000BB8
+	.data       start:0x00001558 end:0x000019D0
+	.bss        start:0x00002AE8 end:0x00002B48
+
+boat/boat_8.c:
+	.text       start:0x00015624 end:0x0001864C
+	.rodata     start:0x00000BB8 end:0x00000D08
+	.data       start:0x000019D0 end:0x00001A90
+	.bss        start:0x00002B48 end:0x00004350
+
+boat/boat_9.c:
+	.text       start:0x0001864C end:0x00019618
+	.rodata     start:0x00000D08 end:0x00000D88
+	.data       start:0x00001A90 end:0x00001AF0
+	.bss        start:0x00004350 end:0x00006350
+
+boat/boat_10.c:
+	.text       start:0x00019618 end:0x00021098
+	.rodata     start:0x00000D88 end:0x000010A8
+	.data       start:0x00001AF0 end:0x00002068
+	.bss        start:0x00006350 end:0x00006360
+
+boat/boat_11.c:
+	.text       start:0x00021098 end:0x00021A04
+	.rodata     start:0x000010A8 end:0x000010D8
+	.data       start:0x00002068 end:0x000021F8
+	.bss        start:0x00006360 end:0x000063A8
+
+boat/boat_12.c:
+	.text       start:0x00021A04 end:0x00022A9C
+	.rodata     start:0x000010D8 end:0x00001160
+
+boat/boat_13.c:
+	.text       start:0x00022A9C end:0x000234F4
+	.rodata     start:0x00001160 end:0x000011C0
+	.bss        start:0x000063A8 end:0x0000B7E8
+
+boat/boat_14.c:
+	.text       start:0x000234F4 end:0x000239C0
+	.rodata     start:0x000011C0 end:0x000011D8
+	.data       start:0x000021F8 end:0x00002218
+	.bss        start:0x0000B7E8 end:0x0000BCE8
+
+boat/boat_15.c:
+	.text       start:0x000239C0 end:0x00024894
+	.rodata     start:0x000011D8 end:0x00001240
+	.data       start:0x00002218 end:0x00002246
+	.bss        start:0x0000BCE8 end:0x0000C114

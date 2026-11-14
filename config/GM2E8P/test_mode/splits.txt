@@ -1,0 +1,55 @@
+Sections:
+	.text       type:code align:4
+	.ctors      type:rodata align:4
+	.dtors      type:rodata align:4
+	.rodata     type:rodata align:8
+	.data       type:data align:8
+	.bss        type:bss align:8
+
+test_mode/test_mode.c:
+	.text       start:0x00000000 end:0x0000FDF0
+	.rodata     start:0x00000000 end:0x00000250
+	.data       start:0x00000000 end:0x00005D28
+	.bss        start:0x00000000 end:0x00001150
+
+test_mode/shadow_test.c:
+	.text       start:0x0000FDF0 end:0x0001226C
+	.rodata     start:0x00000250 end:0x000002E8
+	.data       start:0x00005D28 end:0x00005D38
+	.bss        start:0x00001150 end:0x000012C0
+
+test_mode/focus_test.c:
+	.text       start:0x0001226C end:0x00012F1C
+	.rodata     start:0x000002E8 end:0x00000310
+	.data       start:0x00005D38 end:0x00005EE8
+	.bss        start:0x000012C0 end:0x000012F8
+
+test_mode/indirect_test.c:
+	.text       start:0x00012F1C end:0x00014284
+	.rodata     start:0x00000310 end:0x000003A0
+	.data       start:0x00005EE8 end:0x00005F08
+	.bss        start:0x000012F8 end:0x00003F48
+
+test_mode/mot_edit.c:
+	.text       start:0x00014284 end:0x00016EEC
+	.rodata     start:0x000003A0 end:0x00000470
+	.data       start:0x00005F08 end:0x00007258
+	.bss        start:0x00003F48 end:0x00004018
+
+test_mode/adx_test.c:
+	.text       start:0x00016EEC end:0x000175E0
+	.rodata     start:0x00000470 end:0x00000498
+	.data       start:0x00007258 end:0x00007438
+	.bss        start:0x00004018 end:0x00004140
+
+test_mode/newmotion_test.c:
+	.text       start:0x000175E0 end:0x0001960C
+	.rodata     start:0x00000498 end:0x00000518
+	.data       start:0x00007438 end:0x0000ACD8
+	.bss        start:0x00004140 end:0x00004998
+
+test_mode/motedit.c:
+	.text       start:0x0001960C end:0x000202D4
+	.rodata     start:0x00000518 end:0x00000608
+	.data       start:0x0000ACD8 end:0x000112A2
+	.bss        start:0x00004998 end:0x00005AE4

@@ -1,0 +1,40 @@
+Sections:
+	.text       type:code align:4
+	.ctors      type:rodata align:4
+	.dtors      type:rodata align:4
+	.rodata     type:rodata align:8
+	.data       type:data align:8
+	.bss        type:bss align:32
+
+sel_ngc/sel_ngc_rel.c:
+	.text       start:0x00000000 end:0x00000198
+	.data       start:0x00000000 end:0x00000228
+
+sel_ngc/sel_ngc.c:
+	.text       start:0x00000198 end:0x000140CC
+	.rodata     start:0x00000000 end:0x00000388
+	.data       start:0x00000228 end:0x0000C7C0
+	.bss        start:0x00000000 end:0x00000190
+
+sel_ngc/sel_ngc_sprite.c:
+	.text       start:0x000140CC end:0x0001CA80
+	.rodata     start:0x00000388 end:0x00000848
+	.data       start:0x0000C7C0 end:0x0000D310
+	.bss        start:0x00000190 end:0x00000198
+
+sel_ngc/sel_ngc_bg.c:
+	.text       start:0x0001CA80 end:0x0001DC5C
+	.rodata     start:0x00000848 end:0x000008C8
+	.bss        start:0x00000198 end:0x000001B8
+
+sel_ngc/sel_ngc_preview.c:
+	.text       start:0x0001DC5C end:0x0001EF94
+	.rodata     start:0x000008C8 end:0x00000990
+	.data       start:0x0000D310 end:0x0000EDC0
+	.bss        start:0x000001B8 end:0x00000800
+
+sel_ngc/sel_ngc_option.c:
+	.text       start:0x0001EF94 end:0x000290F0
+	.rodata     start:0x00000990 end:0x00001050
+	.data       start:0x0000EDC0 end:0x0001188F
+	.bss        start:0x00000800 end:0x00008BD4

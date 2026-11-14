@@ -1,0 +1,719 @@
+Sections:
+	.text       type:code align:4
+	.ctors      type:rodata align:4
+	.dtors      type:rodata align:4
+	.rodata     type:rodata align:8
+	.data       type:data align:32
+	.bss        type:bss align:32
+
+main_loop/relocation.c:
+	.text       start:0x00000000 end:0x00000380
+	.data       start:0x00000000 end:0x00000050
+	.bss        start:0x00000000 end:0x00000030
+
+main_loop/main_loop.c:
+	.text       start:0x00000380 end:0x00000E0C
+	.rodata     start:0x00000000 end:0x00000018
+	.data       start:0x00000050 end:0x000002A8
+	.bss        start:0x00000030 end:0x00001328
+
+main_loop/alloc.c:
+	.text       start:0x00000E0C end:0x000016E8
+	.data       start:0x000002A8 end:0x000005E0
+	.bss        start:0x00001328 end:0x00001350
+
+main_loop/mode.c:
+	.text       start:0x000016E8 end:0x00002CA0
+	.data       start:0x000005E0 end:0x00002840
+	.bss        start:0x00001350 end:0x000013C8
+
+main_loop/pause_menu.c:
+	.text       start:0x00002CA0 end:0x00005038
+	.rodata     start:0x00000018 end:0x00000028
+	.data       start:0x00002840 end:0x000029B0
+	.bss        start:0x000013C8 end:0x00001400
+
+main_loop/event.c:
+	.text       start:0x00005038 end:0x00005388
+	.data       start:0x000029B0 end:0x00002CC8
+
+main_loop/polydisp.c:
+	.text       start:0x00005388 end:0x0000A38C
+	.rodata     start:0x00000028 end:0x00000168
+	.data       start:0x00002CC8 end:0x00002F68
+	.bss        start:0x00001400 end:0x00001530
+
+main_loop/adv.c:
+	.text       start:0x0000A38C end:0x0000EDC4
+	.rodata     start:0x00000168 end:0x000004D0
+	.data       start:0x00002F68 end:0x000049B8
+	.bss        start:0x00001530 end:0x00001580
+
+main_loop/adv_demo.c:
+	.text       start:0x0000EDC4 end:0x000121B4
+	.rodata     start:0x000004D0 end:0x000005F8
+	.data       start:0x000049B8 end:0x00006B70
+	.bss        start:0x00001580 end:0x00001640
+
+main_loop/sel.c:
+	.text       start:0x000121B4 end:0x00012D5C
+	.rodata     start:0x000005F8 end:0x00000610
+	.data       start:0x00006B70 end:0x00006C50
+	.bss        start:0x00001640 end:0x00001768
+
+main_loop/camera.c:
+	.text       start:0x00012D5C end:0x00022D64
+	.rodata     start:0x00000610 end:0x00000F40
+	.data       start:0x00006C50 end:0x000071C0
+	.bss        start:0x00001768 end:0x000024F8
+
+main_loop/frustum.c:
+	.text       start:0x00022D64 end:0x00023610
+	.rodata     start:0x00000F40 end:0x00000F70
+	.bss        start:0x000024F8 end:0x00002568
+
+main_loop/light.c:
+	.text       start:0x00023610 end:0x00025DA8
+	.rodata     start:0x00000F70 end:0x000010C8
+	.data       start:0x000071C0 end:0x00011EE8
+	.bss        start:0x00002568 end:0x00006F18
+
+main_loop/render.c:
+	.text       start:0x00025DA8 end:0x00026360
+	.rodata     start:0x000010C8 end:0x000010E0
+	.data       start:0x00011EE8 end:0x00011F20
+	.bss        start:0x00006F88 end:0x00007090
+
+main_loop/info.c:
+	.text       start:0x00026360 end:0x00028778
+	.rodata     start:0x000010E0 end:0x00001178
+	.data       start:0x00011F20 end:0x00012120
+	.bss        start:0x00007090 end:0x000071E0
+
+main_loop/load.c:
+	.text       start:0x00028778 end:0x00028B78
+	.data       start:0x00012120 end:0x00012548
+	.bss        start:0x000071E0 end:0x00007200
+
+main_loop/input.c:
+	.text       start:0x00028B78 end:0x000293D4
+
+main_loop/bitmap.c:
+	.text       start:0x000293D4 end:0x0002BB30
+	.rodata     start:0x00001178 end:0x00001220
+	.data       start:0x00012548 end:0x000166C8
+	.bss        start:0x00007200 end:0x00015E60
+
+main_loop/perf.c:
+	.text       start:0x0002BB30 end:0x0002C118
+	.rodata     start:0x00001220 end:0x00001230
+	.data       start:0x000166C8 end:0x00016868
+	.bss        start:0x00015E60 end:0x00015F20 align:32
+
+main_loop/sound.c:
+	.text       start:0x0002C118 end:0x000371C8
+	.rodata     start:0x00001230 end:0x00007098
+	.data       start:0x00016868 end:0x00024138
+	.bss        start:0x00015F20 end:0x00025C30
+
+main_loop/world_sound.c:
+	.text       start:0x000371C8 end:0x000375A8
+	.rodata     start:0x00007098 end:0x000070B8
+	.data       start:0x00024138 end:0x00024168
+	.bss        start:0x00025C30 end:0x00025C40
+
+main_loop/smgr.c:
+	.text       start:0x000375A8 end:0x00039CE8
+	.rodata     start:0x000070B8 end:0x000070D8
+	.data       start:0x00024168 end:0x00024240
+	.bss        start:0x00025C40 end:0x000263A8
+
+main_loop/adx.c:
+	.text       start:0x00039CE8 end:0x0003BA00
+	.rodata     start:0x000070D8 end:0x00007110
+	.data       start:0x00024240 end:0x00024470
+	.bss        start:0x000263A8 end:0x0006C7A8
+
+main_loop/window.c:
+	.text       start:0x0003BA00 end:0x00040138
+	.rodata     start:0x00007110 end:0x000071D0
+	.data       start:0x00024470 end:0x0002D770
+	.bss        start:0x0006C7A8 end:0x0006FB90
+
+main_loop/dip.c:
+	.text       start:0x00040138 end:0x00040484
+	.data       start:0x0002D770 end:0x0002DDE8
+	.bss        start:0x0006FB90 end:0x0006FBA0
+
+main_loop/pool.c:
+	.text       start:0x00040484 end:0x000408A0
+	.data       start:0x0002DDE8 end:0x0002DED0
+	.bss        start:0x0006FBA0 end:0x0007002C
+
+main_loop/nl2ngc.c:
+	.text       start:0x000408A0 end:0x00044DC8
+	.rodata     start:0x000071D0 end:0x000071E8
+	.data       start:0x0002DED0 end:0x0002E1E8
+	.bss        start:0x00070040 end:0x000700B0
+
+main_loop/mot_joint.c:
+	.text       start:0x00044DC8 end:0x000456F4
+	.rodata     start:0x000071E8 end:0x00007218
+
+main_loop/ball.c:
+	.text       start:0x000456F4 end:0x0004CEDC
+	.rodata     start:0x00007218 end:0x00007600
+	.data       start:0x0002E1E8 end:0x0002E700
+	.bss        start:0x000700B8 end:0x00070F28
+
+main_loop/ball_draw.c:
+	.text       start:0x0004CEDC end:0x0004F710
+	.rodata     start:0x00007600 end:0x00007688
+	.data       start:0x0002E700 end:0x0002E950
+	.bss        start:0x00070F28 end:0x00070F38
+
+main_loop/stcoli.c:
+	.text       start:0x0004F710 end:0x00054B64
+	.rodata     start:0x00007688 end:0x00007728
+	.data       start:0x0002E950 end:0x0002EA10
+
+main_loop/world.c:
+	.text       start:0x00054B64 end:0x00055D34
+	.rodata     start:0x00007728 end:0x00007790
+	.data       start:0x0002EA10 end:0x0002EE10
+	.bss        start:0x00070F38 end:0x00071038
+
+main_loop/keyframe.c:
+	.text       start:0x00055D34 end:0x00055EB4
+	.rodata     start:0x00007790 end:0x000077B0
+
+main_loop/stage.c:
+	.text       start:0x00055EB4 end:0x0005913C
+	.rodata     start:0x000077B0 end:0x00007860
+	.data       start:0x0002EE10 end:0x0002F060
+	.bss        start:0x00071038 end:0x000711D4
+
+main_loop/stage_draw.c:
+	.text       start:0x0005913C end:0x0005BB14
+	.rodata     start:0x00007860 end:0x00007938
+	.data       start:0x0002F060 end:0x0002F200
+
+main_loop/shadows.c:
+	.text       start:0x0005BB14 end:0x0005CB48
+	.rodata     start:0x00007938 end:0x00007980
+	.data       start:0x0002F200 end:0x0002F228
+	.bss        start:0x000711F8 end:0x00071210
+
+main_loop/stage_name.c:
+	.text       start:0x0005CB48 end:0x0005CF98
+	.data       start:0x0002F228 end:0x0002F278
+	.bss        start:0x00071210 end:0x000718E0
+
+main_loop/stage_load.c:
+	.text       start:0x0005CF98 end:0x0005FBE4
+	.rodata     start:0x00007980 end:0x00007988
+	.data       start:0x0002F278 end:0x0002F3A0
+	.bss        start:0x000718E0 end:0x00071900
+
+main_loop/recplay.c:
+	.text       start:0x0005FBE4 end:0x00063F8C
+	.rodata     start:0x00007988 end:0x00007A08
+	.data       start:0x0002F3A0 end:0x0002F428
+	.bss        start:0x00071900 end:0x00071EE0
+
+main_loop/cmp_recplay.c:
+	.text       start:0x00063F8C end:0x00068078
+	.rodata     start:0x00007A08 end:0x00007A48
+	.data       start:0x0002F428 end:0x0002F438
+	.bss        start:0x00071EE0 end:0x00071F00
+
+main_loop/effect.c:
+	.text       start:0x00068078 end:0x0006F824
+	.rodata     start:0x00007A48 end:0x00007DD0
+	.data       start:0x0002F438 end:0x0002FF48
+	.bss        start:0x00071F00 end:0x00087F08
+
+main_loop/background.c:
+	.text       start:0x0006F824 end:0x000739E8
+	.rodata     start:0x00007DD0 end:0x00007E50
+	.data       start:0x0002FF48 end:0x000311B8
+	.bss        start:0x00087F08 end:0x00087F50
+
+main_loop/bg_jun.c:
+	.text       start:0x000739E8 end:0x000740D8
+	.rodata     start:0x00007E50 end:0x00007E80
+	.data       start:0x000311B8 end:0x000311D8
+
+main_loop/bg_snd.c:
+	.text       start:0x000740D8 end:0x00076CE0
+	.rodata     start:0x00007E80 end:0x00007F28
+	.data       start:0x000311D8 end:0x00031510
+	.bss        start:0x00087F50 end:0x00087F80
+
+main_loop/bg_wat.c:
+	.text       start:0x00076CE0 end:0x00078948
+	.rodata     start:0x00007F28 end:0x00007F98
+	.data       start:0x00031510 end:0x00031698
+	.bss        start:0x00087F80 end:0x00087FB0
+
+main_loop/bg_spa.c:
+	.text       start:0x00078948 end:0x00079F98
+	.rodata     start:0x00007F98 end:0x00008060
+	.data       start:0x00031698 end:0x00031738
+	.bss        start:0x00087FB0 end:0x00087FE0
+
+main_loop/bg_sun.c:
+	.text       start:0x00079F98 end:0x0007A4FC
+	.rodata     start:0x00008060 end:0x00008090
+	.data       start:0x00031738 end:0x00031768
+
+main_loop/bg_bns.c:
+	.text       start:0x0007A4FC end:0x0007B1CC
+	.rodata     start:0x00008090 end:0x000080F0
+	.data       start:0x00031768 end:0x00031800
+
+main_loop/bg_stm.c:
+	.text       start:0x0007B1CC end:0x0007BF10
+	.rodata     start:0x000080F0 end:0x00008148
+	.data       start:0x00031800 end:0x00031898
+
+main_loop/bg_mst.c:
+	.text       start:0x0007BF10 end:0x0007D2D0
+	.rodata     start:0x00008148 end:0x000081D8
+	.data       start:0x00031898 end:0x000319B0
+
+main_loop/bg_pil.c:
+	.text       start:0x0007D2D0 end:0x0007E700
+	.rodata     start:0x000081D8 end:0x00008250
+	.data       start:0x000319B0 end:0x00031AE0
+
+main_loop/bg_end.c:
+	.text       start:0x0007E700 end:0x0007F278
+	.rodata     start:0x00008250 end:0x000082B0
+	.data       start:0x00031AE0 end:0x00031B78
+
+main_loop/bg_lava.c:
+	.text       start:0x0007F278 end:0x00083238
+	.rodata     start:0x000082B0 end:0x000083D0
+	.data       start:0x00031B78 end:0x00031CA8
+
+main_loop/bg_wat2.c:
+	.text       start:0x00083238 end:0x0008A030
+	.rodata     start:0x000083D0 end:0x00008530
+	.data       start:0x00031CA8 end:0x00031F20
+
+main_loop/bg_pil2.c:
+	.text       start:0x0008A030 end:0x0008C6D0
+	.rodata     start:0x00008530 end:0x00008618
+	.data       start:0x00031F20 end:0x00032298
+
+main_loop/bg_spa2.c:
+	.text       start:0x0008C6D0 end:0x0008E964
+	.rodata     start:0x00008618 end:0x00008670
+	.data       start:0x00032298 end:0x000325C0
+
+main_loop/bg_bil2.c:
+	.text       start:0x0008E964 end:0x0008F1A4
+	.rodata     start:0x00008670 end:0x000086A0
+	.data       start:0x000325C0 end:0x000325E0
+
+main_loop/bg_pot.c:
+	.text       start:0x0008F1A4 end:0x00094B58
+	.rodata     start:0x000086A0 end:0x000087D0
+	.data       start:0x000325E0 end:0x00032968
+
+main_loop/bg_park2.c:
+	.text       start:0x00094B58 end:0x00094E74
+	.rodata     start:0x000087D0 end:0x000087D8
+	.data       start:0x00032968 end:0x00032998
+
+main_loop/bg_whale.c:
+	.text       start:0x00094E74 end:0x00098F30
+	.rodata     start:0x000087D8 end:0x000088F8
+	.data       start:0x00032998 end:0x00032CA8
+
+main_loop/bg_bubble.c:
+	.text       start:0x00098F30 end:0x0009D904
+	.rodata     start:0x000088F8 end:0x00008A00
+	.data       start:0x00032CA8 end:0x00032F28
+
+main_loop/bg_gear.c:
+	.text       start:0x0009D904 end:0x0009F340
+	.rodata     start:0x00008A00 end:0x00008AA0
+	.data       start:0x00032F28 end:0x00033168
+
+main_loop/bg_jun2.c:
+	.text       start:0x0009F340 end:0x0009FE94
+	.rodata     start:0x00008AA0 end:0x00008AE0
+	.data       start:0x00033168 end:0x000331C0
+
+main_loop/bg_guest.c:
+	.text       start:0x0009FE94 end:0x000A0928
+	.rodata     start:0x00008AE0 end:0x00008B10
+	.data       start:0x000331C0 end:0x00033300
+	.bss        start:0x00087FE0 end:0x00088018
+
+main_loop/bg_bns2.c:
+	.text       start:0x000A0928 end:0x000A1B9C
+	.rodata     start:0x00008B10 end:0x00008BA8
+	.data       start:0x00033300 end:0x00033390
+
+main_loop/bg_bow2_author.c:
+	.text       start:0x000A1B9C end:0x000A30C4
+	.rodata     start:0x00008BA8 end:0x00008C10
+	.data       start:0x00033390 end:0x000333C0
+
+main_loop/course.c:
+	.text       start:0x000A30C4 end:0x000A5220
+	.rodata     start:0x00008C10 end:0x00008C48
+	.data       start:0x000333C0 end:0x000375C8
+	.bss        start:0x00088018 end:0x00088468
+
+main_loop/item.c:
+	.text       start:0x000A5220 end:0x000A62B8
+	.rodata     start:0x00008C48 end:0x00008C88
+	.data       start:0x000375C8 end:0x00037C98
+	.bss        start:0x00088468 end:0x00093870
+
+main_loop/item_coin.c:
+	.text       start:0x000A62B8 end:0x000A6EE8
+	.rodata     start:0x00008C88 end:0x00008CD8
+	.data       start:0x00037C98 end:0x00037ED0
+
+main_loop/obj_collision.c:
+	.text       start:0x000A6EE8 end:0x000A7894
+	.rodata     start:0x00008CD8 end:0x00008CE8
+
+main_loop/stobj.c:
+	.text       start:0x000A7894 end:0x000AA884
+	.rodata     start:0x00008CE8 end:0x00008DF8
+	.data       start:0x00037ED0 end:0x000384D8
+	.bss        start:0x00093870 end:0x0009AB78
+
+main_loop/stobj_goal.c:
+	.text       start:0x000AA884 end:0x000AE1F0
+	.rodata     start:0x00008DF8 end:0x00008FA8
+	.data       start:0x000384D8 end:0x00038528
+	.bss        start:0x0009AB78 end:0x0009C7C8
+
+main_loop/stobj_returngate.c:
+	.text       start:0x000AE1F0 end:0x000AE518
+	.rodata     start:0x00008FA8 end:0x00008FD0
+
+main_loop/sprite.c:
+	.text       start:0x000AE518 end:0x000B3E14
+	.rodata     start:0x00008FD0 end:0x00009EA8
+	.data       start:0x00038528 end:0x000394A8
+	.bss        start:0x0009C7C8 end:0x000A0CC0
+
+main_loop/textdraw.c:
+	.text       start:0x000B3E14 end:0x000B7760
+	.rodata     start:0x00009EA8 end:0x0000A2D0
+	.data       start:0x000394A8 end:0x0003A8E8
+	.bss        start:0x000A0CC0 end:0x000A5C40
+
+main_loop/textbox.c:
+	.text       start:0x000B7760 end:0x000BA01C
+	.rodata     start:0x0000A2D0 end:0x0000A388
+	.data       start:0x0003A8E8 end:0x0003A9E8
+	.bss        start:0x000A5C40 end:0x000A8730
+
+main_loop/hud.c:
+	.text       start:0x000BA01C end:0x000C2550
+	.rodata     start:0x0000A388 end:0x0000A838
+	.data       start:0x0003A9E8 end:0x0003BF50
+	.bss        start:0x000A8730 end:0x000A8738
+
+main_loop/hud_monkey.c:
+	.text       start:0x000C2550 end:0x000C3D84
+	.rodata     start:0x0000A838 end:0x0000ACD0
+	.data       start:0x0003BF50 end:0x0003C020
+	.bss        start:0x000A8738 end:0x000A8758
+
+main_loop/how_to.c:
+	.text       start:0x000C3D84 end:0x000C7F74
+	.rodata     start:0x0000ACD0 end:0x0000AF70
+	.data       start:0x0003C020 end:0x0004FEC0
+	.bss        start:0x000A8758 end:0x000A87B0
+
+main_loop/hud_ingame.c:
+	.text       start:0x000C7F74 end:0x000CAE1C
+	.rodata     start:0x0000AF70 end:0x0000B0A8
+	.data       start:0x0004FEC0 end:0x000502E0
+	.bss        start:0x000A87B0 end:0x000A87C0
+
+main_loop/minimap.c:
+	.text       start:0x000CAE1C end:0x000CCAA0
+	.rodata     start:0x0000B0A8 end:0x0000B1F0
+	.data       start:0x000502E0 end:0x00050340
+	.bss        start:0x000A87C0 end:0x000A87D0
+
+main_loop/ord_tbl.c:
+	.text       start:0x000CCAA0 end:0x000CD4C8
+	.rodata     start:0x0000B1F0 end:0x0000B200
+	.data       start:0x00050340 end:0x00050360
+	.bss        start:0x000A87D0 end:0x000C87E0
+
+main_loop/ape_face.c:
+	.text       start:0x000CD4C8 end:0x000CEDC0
+	.rodata     start:0x0000B200 end:0x00063E98
+	.data       start:0x00050360 end:0x000523F8
+	.bss        start:0x000C87E0 end:0x000C8868
+
+main_loop/replay_screen.c:
+	.text       start:0x000CEDC0 end:0x000D1F0C
+	.rodata     start:0x00063E98 end:0x00064448
+	.data       start:0x000523F8 end:0x00052D20
+	.bss        start:0x000C8868 end:0x000C8A60
+
+main_loop/mot_ape.c:
+	.text       start:0x000D1F0C end:0x000D2550
+	.rodata     start:0x00064448 end:0x000644A0
+	.bss        start:0x000C8A60 end:0x000C8AF8
+
+main_loop/interpolate_keyframes.c:
+	.text       start:0x000D2550 end:0x000D26B8
+	.rodata     start:0x000644A0 end:0x000644C8
+
+main_loop/thread.c:
+	.text       start:0x000D26B8 end:0x000D2A88
+	.bss        start:0x000C8AF8 end:0x000C8B48
+
+main_loop/nl2ngc_flags.c:
+	.text       start:0x000D2A88 end:0x000D2B3C
+
+main_loop/lzs_decompress.c:
+	.text       start:0x000D2B3C end:0x000D2CA4
+
+main_loop/disc_load.c:
+	.text       start:0x000D2CA4 end:0x000D3A40
+	.data       start:0x00052D20 end:0x00052D58
+	.bss        start:0x000C8B48 end:0x000C99E0
+
+main_loop/shadow_tex.c:
+	.text       start:0x000D3A40 end:0x000D5CB0
+	.rodata     start:0x000644C8 end:0x00064518
+	.bss        start:0x000C99E0 end:0x000CE0B0
+
+main_loop/mini_mode.c:
+	.text       start:0x000D5CB0 end:0x000D68D4
+	.rodata     start:0x00064518 end:0x00064598
+	.data       start:0x00052D58 end:0x00053328
+	.bss        start:0x000CE0B0 end:0x000CE0D0
+
+main_loop/lens_flare.c:
+	.text       start:0x000D68D4 end:0x000D7194
+	.rodata     start:0x00064598 end:0x000646A0
+	.bss        start:0x000CE0D0 end:0x000CE370
+
+main_loop/shadow_req.c:
+	.text       start:0x000D7194 end:0x000D76A4
+	.rodata     start:0x000646A0 end:0x000646B8
+	.bss        start:0x000CE370 end:0x000CF178
+
+main_loop/mouse.c:
+	.text       start:0x000D76A4 end:0x000D7EBC
+	.rodata     start:0x000646B8 end:0x000646D8
+	.data       start:0x00053328 end:0x00053330
+	.bss        start:0x000CF178 end:0x000CF188
+
+main_loop/rend_efc.c:
+	.text       start:0x000D7EBC end:0x000DAC20
+	.rodata     start:0x000646D8 end:0x00064738
+	.data       start:0x00053330 end:0x000533F0
+	.bss        start:0x000CF188 end:0x000CF1E8
+
+main_loop/rend_efc_mirror.c:
+	.text       start:0x000DAC20 end:0x000DD65C
+	.rodata     start:0x00064738 end:0x00064830
+	.bss        start:0x000CF1E8 end:0x000CF220
+
+main_loop/rend_efc_ripple.c:
+	.text       start:0x000DD65C end:0x000DF26C
+	.rodata     start:0x00064830 end:0x000648F0
+
+main_loop/rend_efc_wormhole.c:
+	.text       start:0x000DF26C end:0x000E2918
+	.rodata     start:0x000648F0 end:0x000649B8
+	.bss        start:0x000CF220 end:0x000CF228
+
+main_loop/fog.c:
+	.text       start:0x000E2918 end:0x000E3908
+	.rodata     start:0x000649B8 end:0x000649E0
+	.data       start:0x00053410 end:0x00053430
+	.bss        start:0x000CF228 end:0x000CF240
+
+main_loop/mini_commend.c:
+	.text       start:0x000E3908 end:0x000E7680
+	.rodata     start:0x000649E0 end:0x00064B70
+	.data       start:0x00053430 end:0x00053A80
+	.bss        start:0x000CF240 end:0x000CF2E0
+
+main_loop/memcard.c:
+	.text       start:0x000E7680 end:0x000F00F0
+	.rodata     start:0x00064B70 end:0x00064D70
+	.data       start:0x0005CB10 end:0x00060B98
+	.bss        start:0x000CF2E0 end:0x000D1320
+
+main_loop/memcard_mkb2.c:
+	.text       start:0x000F00F0 end:0x000F0AEC
+	.data       start:0x00060B98 end:0x00060F60
+	.bss        start:0x000D1320 end:0x000D2B58
+
+main_loop/DEMOPuts.c:
+	.text       start:0x000F0AEC end:0x000F1384
+	.rodata     start:0x00064D70 end:0x00064D90
+	.data       start:0x00060F60 end:0x00061000
+	.bss        start:0x000D2B58 end:0x000D2B88
+
+main_loop/DEMOFont.c:
+	.data       start:0x00061000 end:0x00061C00
+
+main_loop/mini_ranking.c:
+	.text       start:0x000F1384 end:0x000F99D4
+	.rodata     start:0x00064D90 end:0x00064FF8
+	.data       start:0x00061C00 end:0x00062CD0
+	.bss        start:0x000D2B88 end:0x000D2C30
+
+main_loop/preview.c:
+	.text       start:0x000F99D4 end:0x000FA670
+	.rodata     start:0x00064FF8 end:0x00065040
+	.data       start:0x00062CD0 end:0x00062EB8
+	.bss        start:0x000D2C30 end:0x000D2C38
+
+main_loop/name_entry.c:
+	.text       start:0x000FA670 end:0x000FD25C
+	.rodata     start:0x00065040 end:0x000651F8
+	.data       start:0x00062EB8 end:0x00063400
+	.bss        start:0x000D2C38 end:0x000D3330
+
+main_loop/vibration.c:
+	.text       start:0x000FD25C end:0x000FD64C
+	.data       start:0x00063400 end:0x00063408
+	.bss        start:0x000D3330 end:0x000D3350
+
+main_loop/ending.c:
+	.text       start:0x000FD64C end:0x001082D4
+	.rodata     start:0x000651F8 end:0x00065418
+	.data       start:0x00063408 end:0x00063D40
+	.bss        start:0x000D3350 end:0x000D3360
+
+main_loop/ending_camera.c:
+	.text       start:0x001082D4 end:0x00108CF8
+	.rodata     start:0x00065418 end:0x00065430
+	.data       start:0x00063D40 end:0x00063D50
+
+main_loop/ending_ballfrag.c:
+	.text       start:0x00108CF8 end:0x001090E0
+	.rodata     start:0x00065430 end:0x00065458
+	.data       start:0x00063D50 end:0x00063D60
+
+main_loop/ending_msg.c:
+	.text       start:0x001090E0 end:0x001097A0
+	.data       start:0x00063D60 end:0x00065724
+
+main_loop/avdisp_wrap.c:
+	.text       start:0x001097A0 end:0x0010AA54
+	.rodata     start:0x00065458 end:0x00065460
+	.bss        start:0x000D41C0 end:0x000D4290
+
+main_loop/wormhole.c:
+	.text       start:0x0010AA54 end:0x0010B304
+	.rodata     start:0x00065460 end:0x00065470
+	.bss        start:0x000D4290 end:0x000D4328
+
+main_loop/skeleton.c:
+	.text       start:0x0010B304 end:0x0010EB4C
+	.rodata     start:0x00065470 end:0x000654E0
+
+main_loop/ape.c:
+	.text       start:0x0010EB4C end:0x00114C1C
+	.rodata     start:0x000654E0 end:0x00065658
+	.data       start:0x00065988 end:0x0006B440
+	.bss        start:0x000D4D38 end:0x000D5870
+
+main_loop/ape_anim.c:
+	.text       start:0x00114C1C end:0x00117DB0
+	.rodata     start:0x00065658 end:0x00065680
+	.data       start:0x0006B440 end:0x0006B4A0
+
+main_loop/zquery.c:
+	.text       start:0x00117DB0 end:0x00118274
+	.rodata     start:0x00065680 end:0x00065690
+	.bss        start:0x000D5870 end:0x000D5878
+
+main_loop/name_entry2.c:
+	.text       start:0x00118274 end:0x0013FF3C
+	.rodata     start:0x00065690 end:0x000660E0
+	.data       start:0x0006B4A0 end:0x0006EAF0
+	.bss        start:0x000D5878 end:0x000DD4E8
+
+main_loop/ape_motion.c:
+	.text       start:0x0013FF3C end:0x00141204
+	.rodata     start:0x000660E0 end:0x00066148
+	.data       start:0x0006EAF0 end:0x0006EC50
+
+main_loop/rc_names.c:
+	.data       start:0x0006EC50 end:0x0006ECD8
+
+main_loop/scnplay.c:
+	.text       start:0x00141204 end:0x001439F4
+	.rodata     start:0x00066148 end:0x000661B0
+	.data       start:0x0006ECD8 end:0x0006F780
+	.bss        start:0x000DD4E8 end:0x000DD640
+
+main_loop/scnplay_draw.c:
+	.text       start:0x001439F4 end:0x00143CC0
+	.rodata     start:0x000661B0 end:0x000661B8
+
+main_loop/scnplay_fx.c:
+	.text       start:0x00143CC0 end:0x00152BE8
+	.rodata     start:0x000661B8 end:0x00066408
+	.data       start:0x0006F780 end:0x000706A0
+	.bss        start:0x000DD640 end:0x000DD6C8
+
+main_loop/scnplay_effect.c:
+	.text       start:0x00152BE8 end:0x0015F720
+	.rodata     start:0x00066408 end:0x00066620
+	.data       start:0x000706A0 end:0x000709E0
+
+main_loop/scnplay_query.c:
+	.text       start:0x0015F720 end:0x0015FB94
+	.rodata     start:0x00066620 end:0x00066658
+	.data       start:0x000709E0 end:0x00070A10
+
+main_loop/dialog.c:
+	.text       start:0x0015FB94 end:0x00162B3C
+	.rodata     start:0x00066658 end:0x000666E8
+	.data       start:0x00070A10 end:0x00071108
+
+main_loop/scene_sound.c:
+	.text       start:0x00162B3C end:0x0016373C
+	.data       start:0x00071558 end:0x00077E18
+	.bss        start:0x000DD6C8 end:0x000DD6D0
+
+main_loop/lens_flare2.c:
+	.text       start:0x0016373C end:0x00163B5C
+	.rodata     start:0x000666E8 end:0x000667DC
+	.bss        start:0x000DD6D0 end:0x000DD970
+
+main_loop/tennis_effect.c:
+	.text       start:0x00163B5C end:0x00169980
+	.rodata     start:0x000667E0 end:0x00066B2C
+	.data       start:0x00079510 end:0x0007974E
+	.bss        start:0x000DD970 end:0x000DD980
+
+main_loop/author.c:
+	.text       start:0x00169980 end:0x0016B00C
+	.rodata     start:0x00066B30 end:0x00066B40
+	.data       start:0x00079750 end:0x0007FCA0
+	.bss        start:0x000DD980 end:0x000DD9B0
+
+main_loop/quad_draw.c:
+	.text       start:0x0016B00C end:0x0016C30C
+	.rodata     start:0x00066B40 end:0x00066B48
+
+main_loop/unlock.c:
+	.text       start:0x0016C30C end:0x0016D428
+	.data       start:0x0007FCA0 end:0x000806BC
+	.bss        start:0x000DD9B0 end:0x000DDA4C

@@ -1,0 +1,66 @@
+Sections:
+	.text       type:code align:4
+	.ctors      type:rodata align:4
+	.dtors      type:rodata align:4
+	.rodata     type:rodata align:8
+	.data       type:data align:8
+	.bss        type:bss align:8
+
+main_game/game_mode.c:
+	.text       start:0x00000000 end:0x00007198
+	.rodata     start:0x00000000 end:0x000000C8
+	.data       start:0x00000000 end:0x00000AF0
+	.bss        start:0x00000000 end:0x00000048
+
+main_game/challenge.c:
+	.text       start:0x00007198 end:0x00007BD0
+	.rodata     start:0x000000C8 end:0x00000160
+
+main_game/challenge_cam.c:
+	.text       start:0x00007BD0 end:0x000087E0
+	.rodata     start:0x00000160 end:0x000001D0
+
+main_game/scen_mode.c:
+	.text       start:0x000087E0 end:0x0000A918
+	.rodata     start:0x000001D0 end:0x000001E0
+	.data       start:0x00000AF0 end:0x000010B8
+	.bss        start:0x00000048 end:0x00000050
+
+main_game/scen_disp.c:
+	.text       start:0x0000A918 end:0x0000F08C
+	.rodata     start:0x000001E0 end:0x000003F0
+	.data       start:0x000010B8 end:0x00001A28
+	.bss        start:0x00000050 end:0x00000BB8
+
+main_game/scen_stage.c:
+	.text       start:0x0000F08C end:0x00010724
+	.rodata     start:0x000003F0 end:0x00000440
+	.data       start:0x00001A28 end:0x00001B20
+	.bss        start:0x00000BB8 end:0x00000C00
+
+main_game/scen_misc.c:
+	.text       start:0x00010724 end:0x00010928
+	.data       start:0x00001B20 end:0x00001B48
+	.bss        start:0x00000C00 end:0x00000C18
+
+main_game/scen_menu.c:
+	.text       start:0x00010928 end:0x00015D10
+	.rodata     start:0x00000440 end:0x00000678
+	.data       start:0x00001B48 end:0x00003170
+	.bss        start:0x00000C18 end:0x00000D00
+
+main_game/staff_roll.c:
+	.text       start:0x00015D10 end:0x0001E280
+	.rodata     start:0x00000678 end:0x00000A90
+	.data       start:0x00003170 end:0x00056398
+	.bss        start:0x00000D00 end:0x000065A8
+
+main_game/game_continue.c:
+	.text       start:0x0001E280 end:0x0001EBAC
+	.rodata     start:0x00000A90 end:0x00000AF0
+
+main_game/view_stage.c:
+	.text       start:0x0001EBAC end:0x000209F4
+	.rodata     start:0x00000AF0 end:0x00000BC0
+	.data       start:0x00056398 end:0x0005641C
+	.bss        start:0x000065A8 end:0x000065F0
