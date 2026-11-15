@@ -212,10 +212,29 @@ extern s8 lbl_11_bss_CA;
 extern s32 lbl_11_bss_D0;
 extern f32 lbl_11_bss_D4;
 extern f32 lbl_11_bss_D8;
+#ifdef __MWERKS__
 extern f32 lbl_11_bss_180;
 extern f32 lbl_11_bss_184;
 extern Vec lbl_11_bss_18C;
 extern Vec lbl_11_bss_198[];
+#else
+/* the shot trail is drawn from lbl_11_bss_198[count - 1] and [count - 2]
+ * also with count 0, reaching back into lbl_11_bss_18C/180 on GC: keep that
+ * bss run as one object on PC (golf.c) */
+struct GolfBss180
+{
+    /*0x00*/ f32 b180;
+    /*0x04*/ f32 b184;
+    /*0x08*/ u8 b188;
+    /*0x0C*/ Vec b18C;
+    /*0x18*/ Vec b198[200];
+};
+extern struct GolfBss180 lbl_11_bss_180_198;
+#define lbl_11_bss_180 (lbl_11_bss_180_198.b180)
+#define lbl_11_bss_184 (lbl_11_bss_180_198.b184)
+#define lbl_11_bss_18C (lbl_11_bss_180_198.b18C)
+#define lbl_11_bss_198 (lbl_11_bss_180_198.b198)
+#endif
 extern s32 lbl_11_bss_B18;
 extern s32 lbl_11_bss_B38;
 extern s32 lbl_11_bss_B40;

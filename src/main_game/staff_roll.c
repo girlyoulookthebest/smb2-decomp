@@ -242,10 +242,27 @@ s32 B_D4C;
 float B_D50;
 s32 B_D54;
 struct StaffRollFlags B_D58;
+#ifdef __MWERKS__
 float B_D5C;
 s32 B_D60[25];
 s32 B_DC4[25];
 float B_E28;
+#else
+/* fn_2_192FC and the hit counters index these per-second histograms with
+ * 0..25 and n-1 (B_D60[25] is B_DC4[0], B_DC4[25] is B_E28, B_DC4[-1] is
+ * B_D60[24]); on GC they are adjacent bss, on PC one object keeps that. */
+static struct
+{
+    float d5c;
+    s32 d60[25];
+    s32 dc4[25];
+    float e28;
+} B_D5C_E28;
+#define B_D5C B_D5C_E28.d5c
+#define B_D60 B_D5C_E28.d60
+#define B_DC4 B_D5C_E28.dc4
+#define B_E28 B_D5C_E28.e28
+#endif
 struct StaffRollItem B_E2C[0x5A];
 struct StaffRollItem B_2BB4[45];
 Vec B_3A78;

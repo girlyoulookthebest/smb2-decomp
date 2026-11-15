@@ -88,7 +88,7 @@ int fn_5_147D4(float *depth, Vec *prevA, Vec *posA, float radiusA, Vec *prevB, V
 void fn_5_148AC(float *closest, float *end, Vec *prevA, Vec *posA, Vec *prevB, Vec *posB);
 void fn_5_14A80(Vec *pos, const Vec *listener, s16 rotY, u8 *pan, u8 *span);
 
-static const struct PinSphere pinSpheres[7] = {
+static const struct PinSphere pinSpheres[] = {
     {{0.0f, 1.58f, 0.0f}, 0.16f, 0.4f},
     {{0.0f, 1.58f, 0.0f}, 0.16f, 0.4f},
     {{0.0f, 1.3f, 0.0f}, 0.12f, 0.3f},
@@ -96,6 +96,12 @@ static const struct PinSphere pinSpheres[7] = {
     {{0.0f, 0.7f, 0.0f}, 0.24f, 0.4f},
     {{0.0f, 0.5f, 0.0f}, 0.275f, 0.5f},
     {{0.0f, 0.2f, 0.0f}, 0.2f, 0.8f},
+#ifndef __MWERKS__
+    /* fn_5_13DDC reads spheres[7].radius (the loop counters, past the end)
+     * after a pin-pin hit; on GC that is the start of pinConfig, where the
+     * radius word is 0.0f.  Only the radius is ever read. */
+    {{0.0f, 0.0f, 0.8f}, 0.0f, 2.3076923f},
+#endif
 };
 
 static const struct PinConfig pinConfig = {

@@ -40,7 +40,11 @@ extern struct ControllerInfo pad_status_groups[4];
 
 /* Per-pad analog-stick "buttons" ([0] = held), and the player -> pad mapping. */
 extern u16 analog_inputs[][5];
+#ifdef __MWERKS__
 extern s32 player_pad_map[4];
+#else
+extern s32 player_pad_map[4 + 10];  /* + the idle-chatter counters, see ball.c */
+#endif
 extern u16 merged_digital_inputs[];
 extern u16 merged_analog_inputs[];
 extern s32 frames_since_last_input_change[4];

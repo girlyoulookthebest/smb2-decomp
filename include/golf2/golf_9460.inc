@@ -917,7 +917,16 @@ void fn_11_C628(void)
             for (i = 0; i < modeCtrl.playerCount; i++)
             {
                 if (min == score[i])
+#ifdef __MWERKS__
                     score[i] = lbl_11_data_29C[i][lbl_11_bss_C8 - 1];
+#else
+                    /* on the first hole this reads [i][-1]: the previous
+                     * player's row, or for player 0 the byte before the
+                     * table on GC, the low byte of big-endian
+                     * lbl_11_data_260[14] */
+                    score[i] = (lbl_11_bss_C8 == 0 && i == 0) ? (u8)lbl_11_data_260[14]
+                                                              : (&lbl_11_data_29C[0][0])[i * 18 + lbl_11_bss_C8 - 1];
+#endif
                 else
                     score[i] = 1000;
             }

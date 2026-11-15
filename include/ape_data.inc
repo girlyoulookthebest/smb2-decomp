@@ -4987,6 +4987,7 @@ char *lbl_1_data_6A910[15] =
     "EYE_00",
 };
 
+#ifdef __MWERKS__
 u32 lbl_1_data_6A94C[1] =
 {
     0x00000000,
@@ -5060,6 +5061,47 @@ u32 lbl_1_data_6AA70[1] =
 {
     0x00000006,
 };
+#else
+/* ape.c reads ape_eye_frames[lbl_1_bss_D4D38] with the frame index of the
+ * previous expression (it is not reset when the baby's expression changes),
+ * past the end of the shorter tables into the following ones on GC. One
+ * array on PC keeps those reads inside the same data. */
+u32 lbl_1_data_6A94C_6AA70[74] =
+{
+    0x00000000, 0x00000001, 0x00000000, 0x00000000,
+    0x00000000, 0x00000000, 0x00000000, 0x00000000,
+    0x00000000, 0x00000000, 0x00000000, 0x00000000,
+    0x00000000, 0x00000000, 0x00000000, 0x00000000,
+    0x00000000, 0x00000001, 0x00000001, 0x00000001,
+    0x00000001, 0x00000001, 0x00000001, 0x00000001,
+    0x00000001, 0x00000001, 0x00000001, 0x00000001,
+    0x00000001, 0x00000001, 0x00000001, 0x00000001,
+    0x00000000, 0x00000000, 0x00000000, 0x00000000,
+    0x00000000, 0x00000000, 0x00000000, 0x00000000,
+    0x00000000, 0x00000000, 0x00000001, 0x00000001,
+    0x00000001, 0x00000001, 0x00000001, 0x00000001,
+    0x00000001, 0x00000001, 0x00000001, 0x00000001,
+    0x00000000, 0x00000000, 0x00000000, 0x00000000,
+    0x00000000, 0x00000001, 0x00000001, 0x00000001,
+    0x00000001, 0x00000001, 0x00000000, 0x00000000,
+    0x00000000, 0x00000001, 0x00000001, 0x00000001,
+    0x00000001, 0x00000001, 0x0000001E, 0x00000014,
+    0x0000000A, 0x00000006,
+};
+
+#define lbl_1_data_6A94C (&lbl_1_data_6A94C_6AA70[0])
+#define lbl_1_data_6A950 (&lbl_1_data_6A94C_6AA70[1])
+#define lbl_1_data_6A954 (&lbl_1_data_6A94C_6AA70[2])
+#define lbl_1_data_6A9CC (&lbl_1_data_6A94C_6AA70[32])
+#define lbl_1_data_6AA1C (&lbl_1_data_6A94C_6AA70[52])
+#define lbl_1_data_6AA44 (&lbl_1_data_6A94C_6AA70[62])
+#define lbl_1_data_6AA5C (&lbl_1_data_6A94C_6AA70[68])
+#define lbl_1_data_6AA60 (&lbl_1_data_6A94C_6AA70[69])
+#define lbl_1_data_6AA64 (&lbl_1_data_6A94C_6AA70[70])
+#define lbl_1_data_6AA68 (&lbl_1_data_6A94C_6AA70[71])
+#define lbl_1_data_6AA6C (&lbl_1_data_6A94C_6AA70[72])
+#define lbl_1_data_6AA70 (&lbl_1_data_6A94C_6AA70[73])
+#endif
 
 s32 *ape_baby_eye_frames[6] =
 {

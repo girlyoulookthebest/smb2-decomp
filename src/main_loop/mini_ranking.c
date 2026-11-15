@@ -95,7 +95,9 @@ char *strncpy(char *a, const char *b, unsigned long n);
 #endif
 
 void call_SoundReqID_arg_0(int id);
-extern s32 player_pad_map[4];
+#ifdef __MWERKS__
+extern s32 player_pad_map[4];  /* PC: input.h's (larger) declaration */
+#endif
 
 void fn_1_F9B04(void *tex, char *path, int a, int b, int c, int d);
 void fn_1_F9CBC(void *tex);

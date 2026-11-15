@@ -732,8 +732,17 @@ void fn_18_26D20(struct BBCpu *cpu)
 
 void fn_18_26EC0(struct BBCpu *cpu)
 {
+#ifdef __MWERKS__
     float sp10[4];
     u8 spC[4];
+#else
+    /* the minimum search below compares up to sp10[r28] and so reads
+     * sp10[4]/spC[4] when all four fielders are candidates.  On GC sp10[4]
+     * is the saved r28 (the caller's small tr28, a float of ~0) and spC[4]
+     * the first byte of sp10[0], 0 once it holds that value. */
+    float sp10[5];
+    u8 spC[5];
+#endif
     u8 sp8[4];
     register float rx;
     register float rz;
@@ -742,6 +751,10 @@ void fn_18_26EC0(struct BBCpu *cpu)
     struct Ball *tr3;
     u8 r28;
 
+#ifndef __MWERKS__
+    sp10[4] = 0.0f;
+    spC[4] = 0;
+#endif
     if (fn_18_3F08() == 1) {
         r28 = 0;
         for (r29 = 0; r29 < 4; r29++) {

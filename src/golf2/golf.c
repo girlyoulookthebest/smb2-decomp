@@ -72,11 +72,16 @@ static f32 lbl_11_bss_168;                           /* 0x0168 */
 static u8 lbl_11_bss_16C;                            /* 0x016C */
 static Vec lbl_11_bss_170;                           /* 0x0170 */
 static u8 lbl_11_bss_17C;                            /* 0x017C */
+#ifdef __MWERKS__
 f32 lbl_11_bss_180;                                  /* 0x0180 */
 f32 lbl_11_bss_184;                                  /* 0x0184 */
 static u8 lbl_11_bss_188;                            /* 0x0188 */
 Vec lbl_11_bss_18C;                                  /* 0x018C */
 Vec lbl_11_bss_198[200];                             /* 0x0198 shot trail points (lbl_11_bss_60 used, max 50) */
+#else
+struct GolfBss180 lbl_11_bss_180_198;                /* 0x0180-0x0AF8, see golf.h */
+#define lbl_11_bss_188 (lbl_11_bss_180_198.b188)
+#endif
 static s32 lbl_11_bss_AF8;                           /* 0x0AF8 */
 static s32 lbl_11_bss_AFC;                           /* 0x0AFC */
 static s32 lbl_11_bss_B00;                           /* 0x0B00 */
@@ -97,8 +102,15 @@ static f32 lbl_11_bss_B3C;                           /* 0x0B3C */
 s32 lbl_11_bss_B40;                                  /* 0x0B40 */
 static Vec lbl_11_bss_B44;                           /* 0x0B44 */
 static u16 lbl_11_bss_B50;                           /* 0x0B50 */
+#ifdef __MWERKS__
 static Vec lbl_11_bss_B54[30];                       /* 0x0B54 spline control points (fn_11_15FB4) */
 static Vec lbl_11_bss_CBC[50];                       /* 0x0CBC second trail (lbl_11_bss_60 used) */
+#else
+/* lbl_11_bss_CBC[count - 1] with count 0 is lbl_11_bss_B54[29] on GC */
+static struct { Vec b54[30]; Vec cbc[50]; } lbl_11_bss_B54_CBC;
+#define lbl_11_bss_B54 (lbl_11_bss_B54_CBC.b54)      /* 0x0B54 spline control points (fn_11_15FB4) */
+#define lbl_11_bss_CBC (lbl_11_bss_B54_CBC.cbc)      /* 0x0CBC second trail (lbl_11_bss_60 used) */
+#endif
 s32 lbl_11_bss_F14;                                  /* 0x0F14 frame stamp */
 static u8 lbl_11_bss_F18[0x1900];                    /* 0x0F18 unreferenced */
 static void *lbl_11_bss_2818;                        /* 0x2818 texture buffer (fn_11_13AC4) */
@@ -197,8 +209,16 @@ static s32 lbl_11_data_260[15] = {
     37, 37, 37, 26, 26, 26, 26, 26, 26, 26, 26, 26, 27, 27, 27,
 };
 /* strokes per player per hole */
+#ifdef __MWERKS__
 static u8 lbl_11_data_29C[4][18] = { 0 };
 static u8 lbl_11_data_2E4[8] = { 0 }; /* per player (0-3), then [4] */
+#else
+/* fn_11_D94C reads lbl_11_data_29C[player][18] after the last hole (player 3
+ * reaches lbl_11_data_2E4 on GC): one object on PC */
+static u8 lbl_11_data_29C_2E4[4 * 18 + 8] = { 0 };
+#define lbl_11_data_29C (*(u8 (*)[4][18])lbl_11_data_29C_2E4)
+#define lbl_11_data_2E4 (*(u8 (*)[8])&lbl_11_data_29C_2E4[4 * 18]) /* per player (0-3), then [4] */
+#endif
 /* power factor per lie */
 static f32 lbl_11_data_2EC[4] = { 1.0f, 0.9f, 0.7f, 1.0f };
 /* per club, per lie (row 12: lie 3) */

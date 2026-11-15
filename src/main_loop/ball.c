@@ -71,8 +71,15 @@ s32 lbl_1_bss_70E98[16];
 s32 active_monkey_id[4];
 s32 lbl_1_bss_70EE8;
 void (*g_some_menu_func_1)(struct Ball *);
+#ifdef __MWERKS__
 s32 player_pad_map[4];
 s32 lbl_1_bss_70F00[10];  /* per-player idle-chatter counters */
+#else
+/* boat's fn_14_65E4 reads player_pad_map[0..7]; on GC [4..7] are the
+ * idle-chatter counters that follow it in bss, so keep them one object */
+s32 player_pad_map[4 + 10];
+#define lbl_1_bss_70F00 (*(s32 (*)[10])&player_pad_map[4])  /* per-player idle-chatter counters */
+#endif
 
 FORCE_BSS_ORDER(g_effect_flag_ptr)
 FORCE_BSS_ORDER(lbl_1_bss_700BC)

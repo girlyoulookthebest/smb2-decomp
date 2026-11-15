@@ -7052,12 +7052,23 @@ void * lbl_1_data_4F87C[] = {
     0,
     0,
 };
+#ifdef __MWERKS__
 u32 lbl_1_data_4F8C0[] = {
     0x003761E2, 0x0019A871, 0x00FACE19, 0x00E2193E, 0x00962897,
 };
 u32 lbl_1_data_4F8D4[] = {
     0x007E421F, 0x00E2193E, 0x00FACE19, 0x00962897, 0x0019A871, 0x003761E2,
 };
+#else
+/* 6-row rules pages with page 0 (gameType 9 and 16, Monkey Dogfight's first
+ * page) read lbl_1_data_4F8C0[5], the next table's first colour on GC: one
+ * array on PC */
+u32 lbl_1_data_4F8C0[] = {
+    0x003761E2, 0x0019A871, 0x00FACE19, 0x00E2193E, 0x00962897,
+    0x007E421F, 0x00E2193E, 0x00FACE19, 0x00962897, 0x0019A871, 0x003761E2,
+};
+#define lbl_1_data_4F8D4 (&lbl_1_data_4F8C0[5])
+#endif
 u32 lbl_1_data_4F8EC[] = {
     0x003761E2, 0x0019A871, 0x00FACE19, 0x00E2193E,
 };

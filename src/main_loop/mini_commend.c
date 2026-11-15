@@ -547,7 +547,14 @@ void fn_1_E41A8(int textId)
             mtxa_from_mtx(mtx);
             mtxa_translate(&v);
             mtxa_rotate_y(-0x8000);
+#ifdef __MWERKS__
             model = work.gma->modelEntries[commendGlyphs[*str - '0']].model;
+#else
+            /* ' ' is below '0': on GC this read the byte 16 before the table
+             * (0x1C, the end of the debug string "\x1C [ %d / %d ]"); spaces
+             * are not drawn, but the model is used for the transform */
+            model = work.gma->modelEntries[*str == ' ' ? 0x1C : commendGlyphs[*str - '0']].model;
+#endif
             mtxa_translate(&model->boundSphereCenter);
             f = evaluate_stagedef_keyframe(g_font_char_var_3 % 200, 7, commendKeyframes);
             mtxa_rotate_y(182.04445f * f);

@@ -232,7 +232,14 @@ s32 g_active_pads_bitfield;
 u8 g_language_id;
 s32 locked_menu_items;
 struct SelNgcBss58 lbl_3_bss_58;
+#ifdef __MWERKS__
 u8 lbl_3_bss_68;
+#else
+/* used as 4 bytes, one per player ((&lbl_3_bss_68)[0..3]); on GC the other
+ * three are the padding before lbl_3_bss_6C */
+u8 lbl_3_bss_68_4[4];
+#define lbl_3_bss_68 (lbl_3_bss_68_4[0])
+#endif
 s32 lbl_3_bss_6C[3];
 char lbl_3_bss_78[0x100];
 struct SelNgcBss178 lbl_3_bss_178;

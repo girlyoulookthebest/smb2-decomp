@@ -330,8 +330,15 @@ s8 lbl_1_bss_D5D90;
 s8 lbl_1_bss_D5D91;
 s16 lbl_1_bss_D5D92;
 s32 lbl_1_bss_D5D94;
+#ifdef __MWERKS__
 s8 lbl_1_bss_D5D98[4];
 s8 lbl_1_bss_D5D9C;
+#else
+/* the rank table is used with index 4 (fn_1_13E908 and friends, the
+ * ranking draw), which is lbl_1_bss_D5D9C on GC: one object on PC */
+s8 lbl_1_bss_D5D98[5];
+#define lbl_1_bss_D5D9C (lbl_1_bss_D5D98[4])
+#endif
 s8 lbl_1_bss_D5D9D;
 s16 lbl_1_bss_D5D9E;
 struct NameEntryExtra lbl_1_bss_D5DA0[4];

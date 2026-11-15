@@ -24,7 +24,15 @@ struct TextBoxState
     /*0x00*/ s32 state;
     u8 unk4[4];
     /*0x08*/ u32 timer;
+#ifdef __MWERKS__
     u8 unkC[0x34 - 0xC];
+#else
+    /* textbox.c's struct TextBox has a function pointer at 0x1C: keep the
+     * same stride on 64-bit ([1] below would land inside box 0 otherwise) */
+    u8 unkC[0x1C - 0xC];
+    void *callback;
+    u8 unk20[0x34 - 0x20];
+#endif
 }; /* size = 0x34 */
 
 extern s32 active_monkey_id[];

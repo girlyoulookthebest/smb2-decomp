@@ -342,7 +342,7 @@ static const struct SpriteDrawRequest spr20[10] = {
     { 1552, 571.0f, 382.0f, 0.1f, 0.2f, 0.5f, 0.60000002f, 0.5f, 0.80000001f, 1.0f, 0, 1.0f, -1, 0xA, -1, 0 },
     { 1552, 594.0f, 382.0f, 0.1f, 0.2f, 0.5f, 0.80000001f, 0.5f, 1.0f, 1.0f, 0, 1.0f, -1, 0xA, -1, 0 },
 };
-static const struct SpriteDrawRequest spr2A[7] = {
+static const struct SpriteDrawRequest spr2A[] = {
     { 1536, 0.0f, 0.0f, 0.1f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0, 1.0f, -1, 0x5, -1, 0 },
     { 1536, 104.0f, 0.0f, 0.1f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 49152, 1.0f, -1, 0xD, -1, 0 },
     { 1536, 0.0f, 88.0f, 0.1f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 16384, 1.0f, -1, 0x7, -1, 0 },
@@ -350,10 +350,16 @@ static const struct SpriteDrawRequest spr2A[7] = {
     { 1537, 8.0f, 0.0f, 0.1f, 12.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0, 1.0f, -1, 0x5, -1, 0 },
     { 1537, 8.0f, 88.0f, 0.1f, 12.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 32768, 1.0f, -1, 0xF, -1, 0 },
     { 1537, 0.0f, 8.0f, 0.1f, 10.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 16384, 1.0f, -1, 0x7, -1, 0 },
+#ifndef __MWERKS__
+    /* spr31: the GC code reads it as spr2A[7], the next object */
+    { 1537, 104.0f, 8.0f, 0.1f, 10.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 49152, 1.0f, -1, 0xD, -1, 0 },
+#endif
 };
+#ifdef __MWERKS__
 static const struct SpriteDrawRequest spr31 = { 1537, 104.0f, 8.0f, 0.1f, 10.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 49152, 1.0f, -1, 0xD, -1, 0 };
+#endif
 static const struct SpriteDrawRequest spr32 = { 1551, 0.0f, 0.0f, 0.12f, 0.80000001f, 0.80000001f, 0.0f, 0.0f, 1.0f, 1.0f, 0, 1.0f, -1, 0x5, -1, 0 };
-static const struct SpriteDrawRequest spr33[9] = {
+static const struct SpriteDrawRequest spr33[] = {
     { 1552, 44.0f, 52.799999f, 0.11f, 0.16f, 0.40000001f, 0.0f, 0.0f, 0.2f, 0.5f, 0, 1.0f, -1, 0xA, -1, 0 },
     { 1552, 35.200001f, 38.400002f, 0.11f, 0.16f, 0.40000001f, 0.2f, 0.0f, 0.40000001f, 0.5f, 0, 1.0f, -1, 0xA, -1, 0 },
     { 1552, 52.799999f, 38.400002f, 0.11f, 0.16f, 0.40000001f, 0.40000001f, 0.0f, 0.60000002f, 0.5f, 0, 1.0f, -1, 0xA, -1, 0 },
@@ -363,20 +369,32 @@ static const struct SpriteDrawRequest spr33[9] = {
     { 1552, 16.799999f, 9.6000004f, 0.11f, 0.16f, 0.40000001f, 0.2f, 0.5f, 0.40000001f, 1.0f, 0, 1.0f, -1, 0xA, -1, 0 },
     { 1552, 35.200001f, 9.6000004f, 0.11f, 0.16f, 0.40000001f, 0.40000001f, 0.5f, 0.60000002f, 1.0f, 0, 1.0f, -1, 0xA, -1, 0 },
     { 1552, 52.799999f, 9.6000004f, 0.11f, 0.16f, 0.40000001f, 0.60000002f, 0.5f, 0.80000001f, 1.0f, 0, 1.0f, -1, 0xA, -1, 0 },
+#ifndef __MWERKS__
+    /* spr3C: the GC code reads it as spr33[9], the next object */
+    { 1552, 71.199997f, 9.6000004f, 0.11f, 0.16f, 0.40000001f, 0.80000001f, 0.5f, 1.0f, 1.0f, 0, 1.0f, -1, 0xA, -1, 0 },
+#endif
 };
+#ifdef __MWERKS__
 static const struct SpriteDrawRequest spr3C = { 1552, 71.199997f, 9.6000004f, 0.11f, 0.16f, 0.40000001f, 0.80000001f, 0.5f, 1.0f, 1.0f, 0, 1.0f, -1, 0xA, -1, 0 };
+#endif
 static const struct SpriteDrawRequest spr3D = { 1560, 2.0f, 2.0f, 0.12f, 1.25f, 0.875f, 0.0f, 0.0f, 1.0f, 1.0f, 0, 1.0f, -1, 0x5, -96, 0 };
 static const struct SpriteDrawRequest spr3E = { 1561, 0.0f, 0.0f, 0.13f, 0.375f, 0.359375f, 0.0f, 0.0f, 0.375f, 0.359375f, 0, 1.0f, -1, 0x5, -1, 0 };
 static const struct SpriteDrawRequest spr3F = { 1561, 57.0f, 0.0f, 0.13f, 0.26249999f, 0.359375f, 0.35624999f, 0.0f, 0.61874998f, 0.359375f, 0, 1.0f, -1, 0x5, -1, 0 };
 static const struct SpriteDrawRequest spr40 = { 1561, 57.0f, 0.0f, 0.13f, 0.35624999f, 0.359375f, 0.61874998f, 0.0f, 0.97500002f, 0.359375f, 0, 1.0f, -1, 0x5, -1, 0 };
 static const struct SpriteDrawRequest spr41 = { 1561, 57.0f, 0.0f, 0.13f, 0.025f, 0.359375f, 0.97500002f, 0.0f, 1.0f, 0.359375f, 0, 1.0f, -1, 0x5, -1, 0 };
 static const struct SpriteDrawRequest spr42 = { 1561, 0.0f, 23.0f, 0.13f, 0.35624999f, 0.46875f, 0.0f, 0.359375f, 0.35624999f, 0.828125f, 0, 1.0f, -1, 0x5, -1, 0 };
-static const struct SpriteDrawRequest spr43[3] = {
+static const struct SpriteDrawRequest spr43[] = {
     { 1562, 0.0f, 23.0f, 0.13f, 0.890625f, 0.25f, 0.0f, 0.0f, 0.890625f, 0.25f, 0, 1.0f, -1, 0x5, -1, 0 },
     { 1562, 0.0f, 23.0f, 0.13f, 0.890625f, 0.25f, 0.0f, 0.25f, 0.890625f, 0.5f, 0, 1.0f, -1, 0x5, -1, 0 },
     { 1562, 0.0f, 23.0f, 0.13f, 0.890625f, 0.25f, 0.0f, 0.5f, 0.890625f, 0.75f, 0, 1.0f, -1, 0x5, -1, 0 },
+#ifndef __MWERKS__
+    /* spr46: the GC code reads it as spr43[3], the next object */
+    { 1562, 0.0f, 23.0f, 0.13f, 0.890625f, 0.25f, 0.0f, 0.75f, 0.890625f, 1.0f, 0, 1.0f, -1, 0x5, -1, 0 },
+#endif
 };
+#ifdef __MWERKS__
 static const struct SpriteDrawRequest spr46 = { 1562, 0.0f, 23.0f, 0.13f, 0.890625f, 0.25f, 0.0f, 0.75f, 0.890625f, 1.0f, 0, 1.0f, -1, 0x5, -1, 0 };
+#endif
 static const struct SpriteDrawRequest spr47 = { 1561, 57.0f, 23.0f, 0.13f, 0.26249999f, 0.46875f, 0.35624999f, 0.359375f, 0.61874998f, 0.828125f, 0, 1.0f, -1, 0x5, -1, 0 };
 static const struct SpriteDrawRequest spr48 = { 1561, 57.0f, 23.0f, 0.13f, 0.35624999f, 0.46875f, 0.61874998f, 0.359375f, 0.97500002f, 0.828125f, 0, 1.0f, -1, 0x5, -1, 0 };
 static const struct SpriteDrawRequest spr49 = { 1561, 57.0f, 23.0f, 0.13f, 0.025f, 0.46875f, 0.97500002f, 0.359375f, 1.0f, 0.828125f, 0, 1.0f, -1, 0x5, -1, 0 };
@@ -385,12 +403,18 @@ static const struct SpriteDrawRequest spr4B = { 1561, 57.0f, 53.0f, 0.13f, 0.262
 static const struct SpriteDrawRequest spr4C = { 1561, 57.0f, 53.0f, 0.13f, 0.35624999f, 0.171875f, 0.61874998f, 0.828125f, 0.97500002f, 1.0f, 0, 1.0f, -1, 0x5, -1, 0 };
 static const struct SpriteDrawRequest spr4D = { 1561, 57.0f, 53.0f, 0.13f, 0.025f, 0.171875f, 0.97500002f, 0.828125f, 1.0f, 1.0f, 0, 1.0f, -1, 0x5, -1, 0 };
 static const struct SpriteDrawRequest spr4E = { 1563, 2.0f, 2.0f, 0.11f, 0.1923077f, 0.16249999f, 0.76923078f, 0.5f, 0.96153843f, 0.67500001f, 0, 1.0f, -1, 0x5, -9221598, 0 };
-static const struct SpriteDrawRequest spr4F[3] = {
+static const struct SpriteDrawRequest spr4F[] = {
     { 1563, 8.0f, 6.0f, 0.1f, 0.38461539f, 0.25f, 0.0f, 0.5f, 0.38461539f, 0.75f, 0, 1.0f, -1, 0x5, 6502930, 0 },
     { 1563, 8.0f, 6.0f, 0.1f, 0.38461539f, 0.25f, 0.38461539f, 0.5f, 0.76923078f, 0.75f, 0, 1.0f, -1, 0x5, 6502930, 0 },
     { 1563, 8.0f, 6.0f, 0.1f, 0.38461539f, 0.25f, 0.0f, 0.75f, 0.38461539f, 1.0f, 0, 1.0f, -1, 0x5, 6502930, 0 },
+#ifndef __MWERKS__
+    /* spr52: the GC code reads it as spr4F[3], the next object */
+    { 1563, 8.0f, 6.0f, 0.1f, 0.38461539f, 0.25f, 0.38461539f, 0.75f, 0.76923078f, 1.0f, 0, 1.0f, -1, 0x5, 6502930, 0 },
+#endif
 };
+#ifdef __MWERKS__
 static const struct SpriteDrawRequest spr52 = { 1563, 8.0f, 6.0f, 0.1f, 0.38461539f, 0.25f, 0.38461539f, 0.75f, 0.76923078f, 1.0f, 0, 1.0f, -1, 0x5, 6502930, 0 };
+#endif
 static const struct SpriteDrawRequest spr53 = { 1560, 2.0f, 2.0f, 0.12f, 0.59375f, 0.875f, 0.0f, 0.0f, 1.0f, 1.0f, 0, 1.0f, -1, 0x5, -96, 0 };
 static const struct SpriteDrawRequest spr54 = { 1561, 57.0f, 0.0f, 0.13f, 0.14375f, 0.359375f, 0.35624999f, 0.0f, 0.48750001f, 0.359375f, 0, 1.0f, -1, 0x5, -1, 0 };
 static const struct SpriteDrawRequest spr55 = { 1561, 57.0f, 23.0f, 0.13f, 0.14375f, 0.46875f, 0.35624999f, 0.609375f, 0.48750001f, 0.828125f, 0, 1.0f, -1, 0x5, -1, 0 };

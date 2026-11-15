@@ -46,6 +46,11 @@ int decompress_lz(void *src, void *dest)
             if (srcp - (u8 *)src >= srcSize)
                 break;
             srcp++;
+#ifndef __MWERKS__
+            /* PC: never write past the header's size (see below) */
+            if ((u32)(destp - (u8 *)dest) >= destSize)
+                break;
+#endif
             *destp++ = byte;
             ringBuf[bufPos++] = byte;
             bufPos %= 4096;
@@ -66,6 +71,14 @@ int decompress_lz(void *src, void *dest)
 
             for (i = 0; i <= length; i++)
             {
+#ifndef __MWERKS__
+                /* PC: some community stage tools end with a match running a
+                 * few bytes past the size in the header; on the GC those
+                 * bytes land in the next heap chunk's header (the packed
+                 * data, freed right after), here they are dropped */
+                if ((u32)(destp - (u8 *)dest) >= destSize)
+                    break;
+#endif
                 byte = ringBuf[(offset + i) % 4096];
                 *destp++ = byte;
                 ringBuf[bufPos++] = byte;

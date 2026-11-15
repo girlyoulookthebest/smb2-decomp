@@ -864,7 +864,9 @@ extern char *lbl_3_data_C568[25][6];
 /* .bss (defined in sel_ngc.c; the ones include/sel_ngc.h declares are not repeated here) */
 extern s32 lbl_3_bss_40;
 extern struct SelNgcBss44 lbl_3_bss_44;
+#ifndef lbl_3_bss_68  /* PC: a macro for 4 bytes, see sel_ngc.c */
 extern u8 lbl_3_bss_68;
+#endif
 extern s32 lbl_3_bss_6C[3];
 extern char lbl_3_bss_78[0x100];
 extern struct SelNgcBss178 lbl_3_bss_178;

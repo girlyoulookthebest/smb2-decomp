@@ -498,6 +498,13 @@ void fn_1_389AC(int channel, BOOL pause)
 
 BOOL fn_1_38A74(int channel)
 {
+#ifndef __MWERKS__
+    /* g_change_music_volume passes the -1 of a track that is not playing; on
+     * GC streams[-1].paused is the zero padding word after world_sound.c's
+     * lbl_1_bss_25C38, just before this bss */
+    if (channel < 0)
+        return FALSE;
+#endif
     return lbl_1_bss_25C40.streams[channel].paused;
 }
 

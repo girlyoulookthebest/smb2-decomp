@@ -602,7 +602,14 @@ s32 fn_14_8AA0(void *arg0, void *arg1)
 
 void fn_14_8D1C(void)
 {
+#ifdef __MWERKS__
     float out[2];
+#else
+    /* g_math_unk19 transforms into a whole Vec (mtxa_tf_point) before
+     * projecting: on GC the third float lands in the next stack slot, on PC
+     * it clobbered the caller's saved registers */
+    float out[3];
+#endif
     struct Ball *ball;
     struct BoatPlayer *pl;
     struct Camera *camera;

@@ -558,7 +558,18 @@ void g_draw_start_position_marker(void)
 /* SMB1's backgroundInfo; only the field used here is named. */
 struct WorldTheme
 {
+#ifdef __MWERKS__
     u8 unk0[0x8C];
+#else
+    /* struct BackgroundInfo's layout up to unk8C: it has native pointers, so
+     * on 64-bit drawFunc is at 0x98, not 0x8C */
+    u8 unk0[0x78];
+    void *unk78;
+    void *unk7C;
+    void *unk80;
+    float unk84;
+    u8 filler88[4];
+#endif
     /*0x8C*/ void *drawFunc;
 };
 
