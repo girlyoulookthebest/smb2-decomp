@@ -2983,22 +2983,8 @@ loop_23:
 
 void menu_character_select_tick(void) {
     struct TextBox tb;
-    s32 spC8;
-    s32 spC4;
-    s32 spC0;
-    s32 spBC;
-    f32 spB8;
-    s32 spB4;
-    f32 spB0;
-    f32 spAC;
-    f32 spA8;
-    f32 spA4;
-    f32 spA0;
-    f32 sp9C;
-    f32 sp98;
-    f32 sp94;
-    f32 sp90;
-    s32 sp8C;
+    /* PC: one struct, not 16 separate locals; their stack order is only the GC compiler's */
+    struct SpriteDrawRequest req;
     s8 sp14[4]; /* pad of each player slot */
     f32 temp_f28;
     f32 temp_f28_2;
@@ -4376,12 +4362,12 @@ block_641:
         set_ui_widescreen_scale_mtx(0x140);
         textdraw_reset();
         textdraw_set_alignment(4);
-        spA0 = 1.0f;
-        spB4 = 0;
-        spBC = -1;
-        spC0 = 0xA;
-        spC4 = -1;
-        spC8 = 0;
+        req.scaleY = 1.0f;
+        req.rotation = 0;
+        req.unk30 = -1;
+        req.flags = 0xA;
+        req.mulColor = -1;
+        req.addColor = 0;
         temp_r3 = (u32) (96.0 * fabs(math_sin((s16) (g_font_char_var_3 * 0x180))));
         temp_r25 = temp_r3 | ((temp_r3 << 0x10) | (temp_r3 << 8));
         var_r29_2 = 0;
@@ -4392,18 +4378,18 @@ loop_879:
                 temp_f31 = temp_r3_2->unk58;
                 temp_f30 = 9e+01f + temp_r3_2->y;
                 textdraw_set_alpha(temp_r3_2->opacity * temp_r3_2->scaleX);
-                spA4 = 0.0f;
-                spA8 = 0.0f;
-                spAC = 1.0f;
-                spB0 = 1.0f;
-                spB8 = temp_r3_2->opacity * temp_r3_2->scaleX;
+                req.u1 = 0.0f;
+                req.v1 = 0.0f;
+                req.u2 = 1.0f;
+                req.v2 = 1.0f;
+                req.opacity = temp_r3_2->opacity * temp_r3_2->scaleX;
                 if (var_r28 > 1) {
-                    sp8C = 0x1713;
-                    sp90 = temp_f31;
-                    sp94 = temp_f30;
-                    sp98 = 0.3f;
-                    sp9C = 2.66666f * (f32) var_r28;
-                    draw_sprite_draw_request((struct SpriteDrawRequest *) &sp8C);
+                    req.bmpId = 0x1713;
+                    req.x = temp_f31;
+                    req.y = temp_f30;
+                    req.z = 0.3f;
+                    req.scaleX = 2.66666f * (f32) var_r28;
+                    draw_sprite_draw_request(&req);
                 }
                 var_r31_2 = 0;
 loop_877:
@@ -4411,14 +4397,14 @@ loop_877:
                     temp_f29 = 3e+01f;
                     temp_f28 = temp_f31 - (0.5f * (f32) (var_r28 - 1) * temp_f29);
                     textdraw_set_scale(0.8f, 0.8f);
-                    sp8C = 0x1712;
+                    req.bmpId = 0x1712;
                     temp_r3_3 = (u32) var_r31_2 >> 0x1FU;
                     temp_r0_3 = (var_r31_2 << 0x1E) - temp_r3_3;
-                    sp90 = temp_f28 + ((f32) (((temp_r0_3 << 2) | (temp_r0_3 >> 0x1EU)) + temp_r3_3) * temp_f29);
-                    sp94 = temp_f30;
-                    sp98 = 0.2f;
-                    sp9C = 1.0f;
-                    draw_sprite_draw_request((struct SpriteDrawRequest *) &sp8C);
+                    req.x = temp_f28 + ((f32) (((temp_r0_3 << 2) | (temp_r0_3 >> 0x1EU)) + temp_r3_3) * temp_f29);
+                    req.y = temp_f30;
+                    req.z = 0.2f;
+                    req.scaleX = 1.0f;
+                    draw_sprite_draw_request(&req);
                     var_r4_63 = (s8) (u8) sel_menu_info.menuStackPtr - 1;
 loop_708:
                     if (var_r4_63 < 0) {

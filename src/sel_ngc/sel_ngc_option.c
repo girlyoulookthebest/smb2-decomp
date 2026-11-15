@@ -3580,22 +3580,8 @@ void fn_3_26F40(void) {
 }
 
 void fn_3_26FC0(void) {
-    s32 sp44;
-    s32 sp40;
-    s32 sp3C;
-    s32 sp38;
-    f32 sp34;
-    s32 sp30;
-    f32 sp2C;
-    f32 sp28;
-    f32 sp24;
-    f32 sp20;
-    f32 sp1C;
-    f32 sp18;
-    f32 sp14;
-    f32 sp10;
-    f32 spC;
-    s32 sp8;
+    /* PC: one struct, not 16 separate locals; their stack order is only the GC compiler's */
+    struct SpriteDrawRequest req;
     f32 temp_f0;
     f32 temp_f0_2;
     f32 temp_f31;
@@ -3706,38 +3692,38 @@ void fn_3_26FC0(void) {
     var_r30 = 0;
 loop_40:
     if (var_r30 < 6) {
-        sp8 = 0x170E;
-        spC = (f32) ((var_r30 * 0x4A) + 0x86);
-        sp10 = 20.0f + temp_f31_4;
-        sp14 = 0.1f;
-        sp20 = 0.0f;
-        sp24 = 0.0f;
-        sp28 = 1.0f;
-        sp2C = 1.0f;
-        sp18 = 0.5f;
-        sp1C = 0.5f;
-        sp30 = 0;
-        sp34 = 1.0f;
-        sp38 = -1;
-        sp3C = 0xA;
+        req.bmpId = 0x170E;
+        req.x = (f32) ((var_r30 * 0x4A) + 0x86);
+        req.y = 20.0f + temp_f31_4;
+        req.z = 0.1f;
+        req.u1 = 0.0f;
+        req.v1 = 0.0f;
+        req.u2 = 1.0f;
+        req.v2 = 1.0f;
+        req.scaleX = 0.5f;
+        req.scaleY = 0.5f;
+        req.rotation = 0;
+        req.opacity = 1.0f;
+        req.unk30 = -1;
+        req.flags = 0xA;
         if (g_check_if_partygame_unlocked(lbl_3_rodata_4[var_r30 + 6]) != 0) {
             var_r3 = 0xFFFFFF;
         } else {
             var_r3 = 0x202020;
         }
-        sp40 = var_r3;
-        sp44 = 0;
-        draw_sprite_draw_request((struct SpriteDrawRequest *) &sp8);
-        sp8 = 0x1731;
-        sp14 -= 0.01f;
-        sp18 *= 1.3f;
-        sp1C *= 1.3f;
+        req.mulColor = var_r3;
+        req.addColor = 0;
+        draw_sprite_draw_request(&req);
+        req.bmpId = 0x1731;
+        req.z -= 0.01f;
+        req.scaleX *= 1.3f;
+        req.scaleY *= 1.3f;
         if (g_check_if_partygame_unlocked(lbl_3_rodata_4[var_r30 + 6]) != 0) {
             var_r0_3 = 0x330000;
         } else {
             var_r0_3 = 0x60000;
         }
-        sp40 = var_r0_3;
+        req.mulColor = var_r0_3;
         if (var_r30 >= 6) {
             var_r3_2 = 1;
         } else {
@@ -3745,14 +3731,14 @@ loop_40:
         }
         temp_r0 = var_r3_2 + 7;
         temp_f0 = (f32) ((var_r30 + temp_r0) % 7) / 7.0f;
-        sp20 = temp_f0;
-        sp28 = 0.142857f + temp_f0;
+        req.u1 = temp_f0;
+        req.u2 = 0.142857f + temp_f0;
         temp_f0_2 = (f32) ((var_r30 + temp_r0) / 7) * 0.5f;
-        sp24 = temp_f0_2;
-        sp2C = 0.5f + temp_f0_2;
-        sp18 *= sp28 - temp_f0;
-        sp1C *= sp2C - temp_f0_2;
-        draw_sprite_draw_request((struct SpriteDrawRequest *) &sp8);
+        req.v1 = temp_f0_2;
+        req.v2 = 0.5f + temp_f0_2;
+        req.scaleX *= req.u2 - temp_f0;
+        req.scaleY *= req.v2 - temp_f0_2;
+        draw_sprite_draw_request(&req);
         var_r30 += 1;
         goto loop_40;
     }

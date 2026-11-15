@@ -7,6 +7,8 @@
 #ifndef __MWERKS__
 /* pc_port: undeclared in the original; an implicit declaration passes float args as double on x86 */
 u8 g_get_last_used_memcard_slot(void);
+void fn_8000A730(void *dst);       /* stick gates -> save (input_sdl2.c) */
+void fn_8000A75C(const void *src); /* save -> stick gates */
 #endif
 
 u8 fn_1_FD63C(void);

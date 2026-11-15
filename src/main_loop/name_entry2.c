@@ -531,8 +531,8 @@ extern char lbl_1_data_6BF48[];
 extern char lbl_1_data_6BF58[];
 extern char lbl_1_data_6BF68[];
 extern void *lbl_1_data_6BF78[];
-extern u32 lbl_1_data_6BFE0[];
-extern u32 lbl_1_data_6C03C[];
+extern u16 lbl_1_data_6BFE0[];
+extern char lbl_1_data_6C03C[];
 extern char lbl_1_data_6C06C[];
 extern char lbl_1_data_6C078[];
 extern char lbl_1_data_6C084[];
@@ -641,34 +641,34 @@ struct NERankEntry
 }; /* size = 0xC */
 
 extern struct NERankEntry lbl_1_data_6C2B4[];
-extern u32 lbl_1_data_6C440[];
-extern u32 lbl_1_data_6C47C[];
-extern u32 lbl_1_data_6C488[];
-extern u32 lbl_1_data_6C4C4[];
-extern u32 lbl_1_data_6C4D0[];
-extern u32 lbl_1_data_6C50C[];
-extern u32 lbl_1_data_6C518[];
-extern u32 lbl_1_data_6C554[];
-extern u32 lbl_1_data_6C560[];
-extern u32 lbl_1_data_6C59C[];
-extern u32 lbl_1_data_6C5A8[];
-extern u32 lbl_1_data_6C5E4[];
-extern u32 lbl_1_data_6C5F0[];
-extern u32 lbl_1_data_6C638[];
-extern u32 lbl_1_data_6C680[];
-extern u32 lbl_1_data_6C6C8[];
-extern u32 lbl_1_data_6C710[];
-extern u32 lbl_1_data_6C758[];
-extern u32 lbl_1_data_6C7A0[];
-extern u32 lbl_1_data_6C7F0[];
-extern u32 lbl_1_data_6C840[];
-extern u32 lbl_1_data_6C890[];
-extern u32 lbl_1_data_6CB40[];
-extern u32 lbl_1_data_6CB7C[];
-extern u32 lbl_1_data_6CBB8[];
-extern u32 lbl_1_data_6CBF4[];
-extern u32 lbl_1_data_6CC44[];
-extern u32 lbl_1_data_6CC94[];
+extern struct NETimeRecord lbl_1_data_6C440[];
+extern struct NETimeRecord lbl_1_data_6C47C;
+extern struct NETimeRecord lbl_1_data_6C488[];
+extern struct NETimeRecord lbl_1_data_6C4C4;
+extern struct NETimeRecord lbl_1_data_6C4D0[];
+extern struct NETimeRecord lbl_1_data_6C50C;
+extern struct NETimeRecord lbl_1_data_6C518[];
+extern struct NETimeRecord lbl_1_data_6C554;
+extern struct NETimeRecord lbl_1_data_6C560[];
+extern struct NETimeRecord lbl_1_data_6C59C;
+extern struct NETimeRecord lbl_1_data_6C5A8[];
+extern struct NETimeRecord lbl_1_data_6C5E4;
+extern struct NETimeRecord lbl_1_data_6C5F0[];
+extern struct NETimeRecord lbl_1_data_6C638[];
+extern struct NETimeRecord lbl_1_data_6C680[];
+extern struct NETimeRecord lbl_1_data_6C6C8[];
+extern struct NETimeRecord lbl_1_data_6C710[];
+extern struct NETimeRecord lbl_1_data_6C758[];
+extern struct NERankB lbl_1_data_6C7A0[];
+extern struct NERankB lbl_1_data_6C7F0[];
+extern struct NERankB lbl_1_data_6C840[];
+extern struct NERankB lbl_1_data_6C890[];
+extern struct NERankF lbl_1_data_6CB40[];
+extern struct NERankF lbl_1_data_6CB7C[];
+extern struct NERankF lbl_1_data_6CBB8[];
+extern struct NERankB lbl_1_data_6CBF4[];
+extern struct NERankB lbl_1_data_6CC44[];
+extern struct NERankB lbl_1_data_6CC94[];
 extern void *lbl_1_data_6CCE4[];
 extern void *lbl_1_data_6CCFC[];
 extern u32 lbl_1_data_6CD08[];
@@ -780,8 +780,12 @@ char lbl_1_data_6BF48[] = "NE_APE_DESERT";
 char lbl_1_data_6BF58[] = "NE_APE_IN_BALL";
 char lbl_1_data_6BF68[] = "NE_APE_ON_BALL";
 void *lbl_1_data_6BF78[] = { (void *)0x4E455F41, (void *)0x50455F52, (void *)0x45534554, (void *)0x0, lbl_1_data_6BEE8, lbl_1_data_6BEFC, lbl_1_data_6BF10, lbl_1_data_6BF1C, lbl_1_data_6BF2C, lbl_1_data_6BF38, lbl_1_data_6BF48, lbl_1_data_6BF58, lbl_1_data_6BF68, lbl_1_data_6BF78, (void *)0x204142, (void *)0x43444546, (void *)0x4748494A, (void *)0x4B4C4D4E, (void *)0x4F505152, (void *)0x53545556, (void *)0x5758595A, (void *)0x30313233, (void *)0x34353637, (void *)0x38392126, (void *)0x2D2E3F40, (void *)0x8000000 };
-u32 lbl_1_data_6BFE0[] = { 0x3C0000, 0x320037, 0x380039, 0x3A003E, 0x410042, 0x430044, 0x450046, 0x470049, 0x4B004D, 0x4F0051, 0x520055, 0x580059, 0x5A005B, 0x5C005D, 0x5E004C, 0x570056, 0x40003F, 0x540053, 0x3B004A, 0x3D0033, 0x48004E, 0x500036, 0x370000 };
-u32 lbl_1_data_6C03C[] = { 0x204142, 0x43444546, 0x4748494A, 0x4B4C4D4E, 0x4F505152, 0x53545556, 0x5758595A, 0x30313233, 0x34353637, 0x38392126, 0x2D2E3F40, 0x8000000 };
+/* letter ball model per wheel position (u16: read as u16 from u32 words, each pair came
+ * out swapped on little endian and the balls showed the next letter) */
+u16 lbl_1_data_6BFE0[] = { 0x3C, 0x0, 0x32, 0x37, 0x38, 0x39, 0x3A, 0x3E, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47, 0x49, 0x4B, 0x4D, 0x4F, 0x51, 0x52, 0x55, 0x58, 0x59, 0x5A, 0x5B, 0x5C, 0x5D, 0x5E, 0x4C, 0x57, 0x56, 0x40, 0x3F, 0x54, 0x53, 0x3B, 0x4A, 0x3D, 0x33, 0x48, 0x4E, 0x50, 0x36, 0x37, 0x0 };
+/* name entry letters by wheel position (bytes: as u32 words they came out byte-reversed
+ * on little endian, so the wheel entered the wrong letters) */
+char lbl_1_data_6C03C[] = { 0, ' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '!', '&', '-', '.', '?', '@', 0x08, 0, 0, 0 };
 char lbl_1_data_6C06C[] = "NAME_END";
 char lbl_1_data_6C078[] = "NAME_SPACE";
 char lbl_1_data_6C084[] = "NAME_A";
@@ -875,28 +879,130 @@ char *lbl_1_data_6C200[] = {
     lbl_1_data_6C1F0,
 };
 struct NERankEntry lbl_1_data_6C2B4[] = { fn_1_12A994, lbl_1_data_6C440, (void *)0xC, fn_1_12A994, lbl_1_data_6C488, (void *)0xC, fn_1_12A994, lbl_1_data_6C4D0, (void *)0xC, fn_1_12A994, lbl_1_data_6C518, (void *)0xC, fn_1_12A994, lbl_1_data_6C560, (void *)0xC, fn_1_12A994, lbl_1_data_6C5A8, (void *)0xC, fn_1_12A994, lbl_1_data_6C5F0, (void *)0xC, fn_1_12A994, lbl_1_data_6C638, (void *)0xC, fn_1_12A994, lbl_1_data_6C680, (void *)0xC, fn_1_12A994, lbl_1_data_6C6C8, (void *)0xC, fn_1_12A994, lbl_1_data_6C710, (void *)0xC, fn_1_12A994, lbl_1_data_6C758, (void *)0xC, fn_1_12AA00, lbl_1_data_6C7A0, (void *)0x10, fn_1_12AA00, lbl_1_data_6C7F0, (void *)0x10, fn_1_12AA00, lbl_1_data_6C840, (void *)0x10, fn_1_12AA00, lbl_1_data_6C890, (void *)0x10, fn_1_12AA6C, lbl_1_data_6C8E0.a[0], (void *)0xA, fn_1_12AA6C, lbl_1_data_6C8E0.a[1], (void *)0xA, fn_1_12AA6C, lbl_1_data_6C8E0.a[2], (void *)0xA, fn_1_12AA6C, lbl_1_data_6C8E0.a[3], (void *)0xA, fn_1_12AA6C, lbl_1_data_6C8E0.a[4], (void *)0xA, fn_1_12AA6C, lbl_1_data_6C8E0.a[5], (void *)0xA, fn_1_12AA6C, lbl_1_data_6C8E0.a[6], (void *)0xA, fn_1_12AAD8, lbl_1_data_6C8E0.b, (void *)0xC, fn_1_12AB44, lbl_1_data_6C8E0.c[0], (void *)0xB, fn_1_12AB44, lbl_1_data_6C8E0.c[1], (void *)0xB, fn_1_12AB44, lbl_1_data_6C8E0.c[2], (void *)0xB, fn_1_12ABB0, lbl_1_data_6CB40, (void *)0xC, fn_1_12ABB0, lbl_1_data_6CB7C, (void *)0xC, fn_1_12ABB0, lbl_1_data_6CBB8, (void *)0xC, fn_1_12AC1C, lbl_1_data_6CBF4, (void *)0x10, fn_1_12AC1C, lbl_1_data_6CC44, (void *)0x10, fn_1_12AC1C, lbl_1_data_6CC94, (void *)0x10 };
-u32 lbl_1_data_6C440[] = { 0x20414941, 0x49200000, 0x2000000, 0x4D45454D, 0x45450001, 0x2050000, 0x20424142, 0x59200002, 0x20A0000, 0x474F4E47, 0x4F4E0003, 0x20F0000, 0x42414E41, 0x4E410000, 0x2140000 };
-u32 lbl_1_data_6C47C[] = { 0x20414941, 0x49200000, 0x190000 };
-u32 lbl_1_data_6C488[] = { 0x20414941, 0x49200000, 0x1280000, 0x4D45454D, 0x45450001, 0x12D0000, 0x20424142, 0x59200002, 0x1320000, 0x474F4E47, 0x4F4E0003, 0x1370000, 0x42414E41, 0x4E410000, 0x2000000 };
-u32 lbl_1_data_6C4C4[] = { 0x20414941, 0x49200000, 0x140000 };
-u32 lbl_1_data_6C4D0[] = { 0x20414941, 0x49200000, 0x1280000, 0x4D45454D, 0x45450001, 0x12D0000, 0x20424142, 0x59200002, 0x1320000, 0x474F4E47, 0x4F4E0003, 0x1370000, 0x42414E41, 0x4E410000, 0x2000000 };
-u32 lbl_1_data_6C50C[] = { 0x20414941, 0x49200000, 0x190000 };
-u32 lbl_1_data_6C518[] = { 0x20414941, 0x49200000, 0x2000000, 0x4D45454D, 0x45450001, 0x2050000, 0x20424142, 0x59200002, 0x20A0000, 0x474F4E47, 0x4F4E0003, 0x20F0000, 0x42414E41, 0x4E410000, 0x2140000 };
-u32 lbl_1_data_6C554[] = { 0x20414941, 0x49200000, 0x280000 };
-u32 lbl_1_data_6C560[] = { 0x20414941, 0x49200000, 0x1280000, 0x4D45454D, 0x45450001, 0x12D0000, 0x20424142, 0x59200002, 0x1320000, 0x474F4E47, 0x4F4E0003, 0x1370000, 0x42414E41, 0x4E410000, 0x2000000 };
-u32 lbl_1_data_6C59C[] = { 0x20414941, 0x49200000, 0x320000 };
-u32 lbl_1_data_6C5A8[] = { 0x20414941, 0x49200000, 0x2000000, 0x4D45454D, 0x45450001, 0x2050000, 0x20424142, 0x59200002, 0x20A0000, 0x474F4E47, 0x4F4E0003, 0x20F0000, 0x42414E41, 0x4E410000, 0x2140000 };
-u32 lbl_1_data_6C5E4[] = { 0x20414941, 0x49200000, 0x370000 };
-u32 lbl_1_data_6C5F0[] = { 0x20414941, 0x49200000, 0x633B6300, 0x4D45454D, 0x45450001, 0x633B6300, 0x20424142, 0x59200002, 0x633B6300, 0x474F4E47, 0x4F4E0003, 0x633B6300, 0x42414E41, 0x4E410000, 0x633B6300, 0x20414941, 0x49200000, 0x633B6300 };
-u32 lbl_1_data_6C638[] = { 0x20414941, 0x49200000, 0x633B6300, 0x4D45454D, 0x45450001, 0x633B6300, 0x20424142, 0x59200002, 0x633B6300, 0x474F4E47, 0x4F4E0003, 0x633B6300, 0x42414E41, 0x4E410000, 0x633B6300, 0x20414941, 0x49200000, 0x633B6300 };
-u32 lbl_1_data_6C680[] = { 0x20414941, 0x49200000, 0x633B6300, 0x4D45454D, 0x45450001, 0x633B6300, 0x20424142, 0x59200002, 0x633B6300, 0x474F4E47, 0x4F4E0003, 0x633B6300, 0x42414E41, 0x4E410000, 0x633B6300, 0x20414941, 0x49200000, 0x633B6300 };
-u32 lbl_1_data_6C6C8[] = { 0x20414941, 0x49200000, 0x633B6300, 0x4D45454D, 0x45450001, 0x633B6300, 0x20424142, 0x59200002, 0x633B6300, 0x474F4E47, 0x4F4E0003, 0x633B6300, 0x42414E41, 0x4E410000, 0x633B6300, 0x20414941, 0x49200000, 0x633B6300 };
-u32 lbl_1_data_6C710[] = { 0x20414941, 0x49200000, 0x633B6300, 0x4D45454D, 0x45450001, 0x633B6300, 0x20424142, 0x59200002, 0x633B6300, 0x474F4E47, 0x4F4E0003, 0x633B6300, 0x42414E41, 0x4E410000, 0x633B6300, 0x20414941, 0x49200000, 0x633B6300 };
-u32 lbl_1_data_6C758[] = { 0x20414941, 0x49200000, 0x633B6300, 0x4D45454D, 0x45450001, 0x633B6300, 0x20424142, 0x59200002, 0x633B6300, 0x474F4E47, 0x4F4E0003, 0x633B6300, 0x42414E41, 0x4E410000, 0x633B6300, 0x20414941, 0x49200000, 0x633B6300 };
-u32 lbl_1_data_6C7A0[] = { 0x20414941, 0x49200000, 0x32, 0x0, 0x4D45454D, 0x45450001, 0x28, 0x0, 0x20424142, 0x59200002, 0x1E, 0x0, 0x474F4E47, 0x4F4E0003, 0x14, 0x0, 0x20414941, 0x49200000, 0xA, 0x0 };
-u32 lbl_1_data_6C7F0[] = { 0x20414941, 0x49200000, 0x32, 0x0, 0x4D45454D, 0x45450001, 0x28, 0x0, 0x20424142, 0x59200002, 0x1E, 0x0, 0x474F4E47, 0x4F4E0003, 0x14, 0x0, 0x20414941, 0x49200000, 0xA, 0x0 };
-u32 lbl_1_data_6C840[] = { 0x20414941, 0x49200000, 0x32, 0x0, 0x4D45454D, 0x45450001, 0x28, 0x0, 0x20424142, 0x59200002, 0x1E, 0x0, 0x474F4E47, 0x4F4E0003, 0x14, 0x0, 0x20414941, 0x49200000, 0xA, 0x0 };
-u32 lbl_1_data_6C890[] = { 0x20414941, 0x49200000, 0x32, 0x0, 0x4D45454D, 0x45450001, 0x28, 0x0, 0x20424142, 0x59200002, 0x1E, 0x0, 0x474F4E47, 0x4F4E0003, 0x14, 0x0, 0x20414941, 0x49200000, 0xA, 0x0 };
+struct NETimeRecord lbl_1_data_6C440[] = {
+    { " AIAI ", 0, 2, 0, 0, 0 },
+    { "MEEMEE", 1, 2, 5, 0, 0 },
+    { " BABY ", 2, 2, 10, 0, 0 },
+    { "GONGON", 3, 2, 15, 0, 0 },
+    { "BANANA", 0, 2, 20, 0, 0 },
+};
+struct NETimeRecord lbl_1_data_6C47C = { " AIAI ", 0, 0, 25, 0, 0 };
+struct NETimeRecord lbl_1_data_6C488[] = {
+    { " AIAI ", 0, 1, 40, 0, 0 },
+    { "MEEMEE", 1, 1, 45, 0, 0 },
+    { " BABY ", 2, 1, 50, 0, 0 },
+    { "GONGON", 3, 1, 55, 0, 0 },
+    { "BANANA", 0, 2, 0, 0, 0 },
+};
+struct NETimeRecord lbl_1_data_6C4C4 = { " AIAI ", 0, 0, 20, 0, 0 };
+struct NETimeRecord lbl_1_data_6C4D0[] = {
+    { " AIAI ", 0, 1, 40, 0, 0 },
+    { "MEEMEE", 1, 1, 45, 0, 0 },
+    { " BABY ", 2, 1, 50, 0, 0 },
+    { "GONGON", 3, 1, 55, 0, 0 },
+    { "BANANA", 0, 2, 0, 0, 0 },
+};
+struct NETimeRecord lbl_1_data_6C50C = { " AIAI ", 0, 0, 25, 0, 0 };
+struct NETimeRecord lbl_1_data_6C518[] = {
+    { " AIAI ", 0, 2, 0, 0, 0 },
+    { "MEEMEE", 1, 2, 5, 0, 0 },
+    { " BABY ", 2, 2, 10, 0, 0 },
+    { "GONGON", 3, 2, 15, 0, 0 },
+    { "BANANA", 0, 2, 20, 0, 0 },
+};
+struct NETimeRecord lbl_1_data_6C554 = { " AIAI ", 0, 0, 40, 0, 0 };
+struct NETimeRecord lbl_1_data_6C560[] = {
+    { " AIAI ", 0, 1, 40, 0, 0 },
+    { "MEEMEE", 1, 1, 45, 0, 0 },
+    { " BABY ", 2, 1, 50, 0, 0 },
+    { "GONGON", 3, 1, 55, 0, 0 },
+    { "BANANA", 0, 2, 0, 0, 0 },
+};
+struct NETimeRecord lbl_1_data_6C59C = { " AIAI ", 0, 0, 50, 0, 0 };
+struct NETimeRecord lbl_1_data_6C5A8[] = {
+    { " AIAI ", 0, 2, 0, 0, 0 },
+    { "MEEMEE", 1, 2, 5, 0, 0 },
+    { " BABY ", 2, 2, 10, 0, 0 },
+    { "GONGON", 3, 2, 15, 0, 0 },
+    { "BANANA", 0, 2, 20, 0, 0 },
+};
+struct NETimeRecord lbl_1_data_6C5E4 = { " AIAI ", 0, 0, 55, 0, 0 };
+struct NETimeRecord lbl_1_data_6C5F0[] = {
+    { " AIAI ", 0, 99, 59, 99, 0 },
+    { "MEEMEE", 1, 99, 59, 99, 0 },
+    { " BABY ", 2, 99, 59, 99, 0 },
+    { "GONGON", 3, 99, 59, 99, 0 },
+    { "BANANA", 0, 99, 59, 99, 0 },
+    { " AIAI ", 0, 99, 59, 99, 0 },
+};
+struct NETimeRecord lbl_1_data_6C638[] = {
+    { " AIAI ", 0, 99, 59, 99, 0 },
+    { "MEEMEE", 1, 99, 59, 99, 0 },
+    { " BABY ", 2, 99, 59, 99, 0 },
+    { "GONGON", 3, 99, 59, 99, 0 },
+    { "BANANA", 0, 99, 59, 99, 0 },
+    { " AIAI ", 0, 99, 59, 99, 0 },
+};
+struct NETimeRecord lbl_1_data_6C680[] = {
+    { " AIAI ", 0, 99, 59, 99, 0 },
+    { "MEEMEE", 1, 99, 59, 99, 0 },
+    { " BABY ", 2, 99, 59, 99, 0 },
+    { "GONGON", 3, 99, 59, 99, 0 },
+    { "BANANA", 0, 99, 59, 99, 0 },
+    { " AIAI ", 0, 99, 59, 99, 0 },
+};
+struct NETimeRecord lbl_1_data_6C6C8[] = {
+    { " AIAI ", 0, 99, 59, 99, 0 },
+    { "MEEMEE", 1, 99, 59, 99, 0 },
+    { " BABY ", 2, 99, 59, 99, 0 },
+    { "GONGON", 3, 99, 59, 99, 0 },
+    { "BANANA", 0, 99, 59, 99, 0 },
+    { " AIAI ", 0, 99, 59, 99, 0 },
+};
+struct NETimeRecord lbl_1_data_6C710[] = {
+    { " AIAI ", 0, 99, 59, 99, 0 },
+    { "MEEMEE", 1, 99, 59, 99, 0 },
+    { " BABY ", 2, 99, 59, 99, 0 },
+    { "GONGON", 3, 99, 59, 99, 0 },
+    { "BANANA", 0, 99, 59, 99, 0 },
+    { " AIAI ", 0, 99, 59, 99, 0 },
+};
+struct NETimeRecord lbl_1_data_6C758[] = {
+    { " AIAI ", 0, 99, 59, 99, 0 },
+    { "MEEMEE", 1, 99, 59, 99, 0 },
+    { " BABY ", 2, 99, 59, 99, 0 },
+    { "GONGON", 3, 99, 59, 99, 0 },
+    { "BANANA", 0, 99, 59, 99, 0 },
+    { " AIAI ", 0, 99, 59, 99, 0 },
+};
+struct NERankB lbl_1_data_6C7A0[] = {
+    { " AIAI ", 0, 50, 0 },
+    { "MEEMEE", 1, 40, 0 },
+    { " BABY ", 2, 30, 0 },
+    { "GONGON", 3, 20, 0 },
+    { " AIAI ", 0, 10, 0 },
+};
+struct NERankB lbl_1_data_6C7F0[] = {
+    { " AIAI ", 0, 50, 0 },
+    { "MEEMEE", 1, 40, 0 },
+    { " BABY ", 2, 30, 0 },
+    { "GONGON", 3, 20, 0 },
+    { " AIAI ", 0, 10, 0 },
+};
+struct NERankB lbl_1_data_6C840[] = {
+    { " AIAI ", 0, 50, 0 },
+    { "MEEMEE", 1, 40, 0 },
+    { " BABY ", 2, 30, 0 },
+    { "GONGON", 3, 20, 0 },
+    { " AIAI ", 0, 10, 0 },
+};
+struct NERankB lbl_1_data_6C890[] = {
+    { " AIAI ", 0, 50, 0 },
+    { "MEEMEE", 1, 40, 0 },
+    { " BABY ", 2, 30, 0 },
+    { "GONGON", 3, 20, 0 },
+    { " AIAI ", 0, 10, 0 },
+};
 struct NERankTables lbl_1_data_6C8E0 = {
     {
         {
@@ -983,13 +1089,49 @@ struct NERankTables lbl_1_data_6C8E0 = {
         },
     },
 };
-u32 lbl_1_data_6CB40[] = { 0x20414941, 0x49200000, 0x32, 0x4D45454D, 0x45450001, 0x28, 0x20424142, 0x59200002, 0x1E, 0x474F4E47, 0x4F4E0003, 0x14, 0x20414941, 0x49200000, 0xA };
-u32 lbl_1_data_6CB7C[] = { 0x20414941, 0x49200000, 0x32, 0x4D45454D, 0x45450001, 0x28, 0x20424142, 0x59200002, 0x1E, 0x474F4E47, 0x4F4E0003, 0x14, 0x20414941, 0x49200000, 0xA };
-u32 lbl_1_data_6CBB8[] = { 0x20414941, 0x49200000, 0x32, 0x4D45454D, 0x45450001, 0x28, 0x20424142, 0x59200002, 0x1E, 0x474F4E47, 0x4F4E0003, 0x14, 0x20414941, 0x49200000, 0xA };
-u32 lbl_1_data_6CBF4[] = { 0x20414941, 0x49200000, 0x32, 0x0, 0x4D45454D, 0x45450001, 0x28, 0x0, 0x20424142, 0x59200002, 0x1E, 0x0, 0x474F4E47, 0x4F4E0003, 0x14, 0x0, 0x20414941, 0x49200000, 0xA, 0x0 };
-u32 lbl_1_data_6CC44[] = { 0x20414941, 0x49200000, 0x32, 0x0, 0x4D45454D, 0x45450001, 0x28, 0x0, 0x20424142, 0x59200002, 0x1E, 0x0, 0x474F4E47, 0x4F4E0003, 0x14, 0x0, 0x20414941, 0x49200000, 0xA, 0x0 };
-u32 lbl_1_data_6CC94[] = { 0x20414941, 0x49200000, 0x32, 0x0, 0x4D45454D, 0x45450001, 0x28, 0x0, 0x20424142, 0x59200002, 0x1E, 0x0, 0x474F4E47, 0x4F4E0003, 0x14, 0x0, 0x20414941, 0x49200000, 0xA, 0x0 };
-void *lbl_1_data_6CCE4[] = { lbl_1_data_6C47C, lbl_1_data_6C4C4, lbl_1_data_6C50C, lbl_1_data_6C554, lbl_1_data_6C59C, lbl_1_data_6C5E4 };
+struct NERankF lbl_1_data_6CB40[] = {
+    { " AIAI ", 0, 50 },
+    { "MEEMEE", 1, 40 },
+    { " BABY ", 2, 30 },
+    { "GONGON", 3, 20 },
+    { " AIAI ", 0, 10 },
+};
+struct NERankF lbl_1_data_6CB7C[] = {
+    { " AIAI ", 0, 50 },
+    { "MEEMEE", 1, 40 },
+    { " BABY ", 2, 30 },
+    { "GONGON", 3, 20 },
+    { " AIAI ", 0, 10 },
+};
+struct NERankF lbl_1_data_6CBB8[] = {
+    { " AIAI ", 0, 50 },
+    { "MEEMEE", 1, 40 },
+    { " BABY ", 2, 30 },
+    { "GONGON", 3, 20 },
+    { " AIAI ", 0, 10 },
+};
+struct NERankB lbl_1_data_6CBF4[] = {
+    { " AIAI ", 0, 50, 0 },
+    { "MEEMEE", 1, 40, 0 },
+    { " BABY ", 2, 30, 0 },
+    { "GONGON", 3, 20, 0 },
+    { " AIAI ", 0, 10, 0 },
+};
+struct NERankB lbl_1_data_6CC44[] = {
+    { " AIAI ", 0, 50, 0 },
+    { "MEEMEE", 1, 40, 0 },
+    { " BABY ", 2, 30, 0 },
+    { "GONGON", 3, 20, 0 },
+    { " AIAI ", 0, 10, 0 },
+};
+struct NERankB lbl_1_data_6CC94[] = {
+    { " AIAI ", 0, 50, 0 },
+    { "MEEMEE", 1, 40, 0 },
+    { " BABY ", 2, 30, 0 },
+    { "GONGON", 3, 20, 0 },
+    { " AIAI ", 0, 10, 0 },
+};
+void *lbl_1_data_6CCE4[] = { &lbl_1_data_6C47C, &lbl_1_data_6C4C4, &lbl_1_data_6C50C, &lbl_1_data_6C554, &lbl_1_data_6C59C, &lbl_1_data_6C5E4 };
 void *lbl_1_data_6CCFC[] = { lbl_1_data_6C8E0.c[0] + 5, lbl_1_data_6C8E0.c[1] + 5, lbl_1_data_6C8E0.c[2] + 5 };
 u32 lbl_1_data_6CD08[] = { 0x319, 0x43A00000, 0x423C0000, 0x41100000, 0x3F800000, 0x3F800000, 0x0, 0x0, 0x3F800000, 0x3F800000, 0x0, 0x3F800000, 0xFFFFFFFF, 0xA, 0xFFFFFFFF, 0x0, 0x0, 0x0, 0x0, 0x0 };
 u32 lbl_1_data_6CD58[] = { 0x319, 0x43A00000, 0x43C80000, 0x41100000, 0x3F99999A, 0x3FC00000, 0x0, 0x0, 0x3F800000, 0x3F800000, 0x0, 0x3F800000, 0xFFFFFFFF, 0x6, 0xFFFFFFFF, 0x0, 0x0, 0x0, 0x0, 0x0 };
@@ -3826,7 +3968,7 @@ void fn_1_121EE0(void)
                 {
                     lbl_1_bss_D5FA8[j] = 0;
                     lbl_1_bss_DD058[j] = 1;
-                    lbl_1_bss_DD07C[j] = ((u16 *)lbl_1_data_6BFE0)[lbl_1_data_6B640[lbl_1_bss_D5C10.apeType][j]];
+                    lbl_1_bss_DD07C[j] = lbl_1_data_6BFE0[lbl_1_data_6B640[lbl_1_bss_D5C10.apeType][j]];
                 }
                 lbl_1_bss_D5FA4 = 1;
             }
@@ -3846,7 +3988,7 @@ void fn_1_121EE0(void)
                 {
                     strncpy((char *)lbl_1_bss_D5C10.name, lbl_1_data_6B630[lbl_1_bss_D5C10.apeType], 6);
                     for (i = 0; i < 6; i++)
-                        lbl_1_bss_DD07C[i] = ((u16 *)lbl_1_data_6BFE0)[lbl_1_data_6B640[lbl_1_bss_D5C10.apeType][i]];
+                        lbl_1_bss_DD07C[i] = lbl_1_data_6BFE0[lbl_1_data_6B640[lbl_1_bss_D5C10.apeType][i]];
                 }
             }
             else
@@ -3874,7 +4016,7 @@ void fn_1_121EE0(void)
                 {
                     strncpy((char *)lbl_1_bss_D5C10.name, lbl_1_data_6B630[lbl_1_bss_D5C10.apeType], 6);
                     for (i = 0; i < 6; i++)
-                        lbl_1_bss_DD07C[i] = ((u16 *)lbl_1_data_6BFE0)[lbl_1_data_6B640[lbl_1_bss_D5C10.apeType][i]];
+                        lbl_1_bss_DD07C[i] = lbl_1_data_6BFE0[lbl_1_data_6B640[lbl_1_bss_D5C10.apeType][i]];
                 }
             }
             lbl_1_bss_D5C10.unk45 = 1;
@@ -3887,7 +4029,7 @@ void fn_1_121EE0(void)
             lbl_1_bss_D5C10.name[lbl_1_bss_D5C10.unk9] = lbl_1_bss_D5F94.unk4;
             lbl_1_bss_D5C10.unk20[lbl_1_bss_D5C10.unk9] = lbl_1_bss_D5F94.unk0;
             lbl_1_bss_DD058[lbl_1_bss_D5C10.unk9] = 1;
-            lbl_1_bss_DD07C[lbl_1_bss_D5C10.unk9] = ((u16 *)lbl_1_data_6BFE0)[lbl_1_bss_D5F94.unk0];
+            lbl_1_bss_DD07C[lbl_1_bss_D5C10.unk9] = lbl_1_data_6BFE0[lbl_1_bss_D5F94.unk0];
             lbl_1_bss_D5C10.unk9++;
             if (lbl_1_bss_D5C10.unk9 == 6)
                 call_SoundReqID_arg_0(0x3BD);
@@ -4040,7 +4182,7 @@ void fn_1_122C60(void)
         lbl_1_bss_D6B00[i].rotY = (s16)(rand() & 0x7FFF);
         lbl_1_bss_D6B00[i].rotX = (s16)(rand() & 0x7FFF);
         lbl_1_bss_D6B00[i].rotZ = (s16)(rand() & 0x7FFF);
-        lbl_1_bss_D6A10[i] = ((u16 *)lbl_1_data_6BFE0)[(rand() & 0x7FFF) % 0x2D];
+        lbl_1_bss_D6A10[i] = lbl_1_data_6BFE0[(rand() & 0x7FFF) % 0x2D];
         lbl_1_bss_D6B00[i].pos = ((Vec *)lbl_1_data_6BAE4)[i];
     }
 }
@@ -8507,37 +8649,44 @@ void g_something_with_name_entry_get_course(int a)
  * are contiguous there. On PC they are separate objects in an order and with
  * padding chosen by the compiler (GCC places them in reverse), so a single
  * copy would overrun into other data. Copy each table at its GC offset. */
-static const struct { void *ptr; u32 size; } s_pcRankBlock[] = {
-    { &lbl_1_data_6C440, sizeof(lbl_1_data_6C440) },
-    { &lbl_1_data_6C47C, sizeof(lbl_1_data_6C47C) },
-    { &lbl_1_data_6C488, sizeof(lbl_1_data_6C488) },
-    { &lbl_1_data_6C4C4, sizeof(lbl_1_data_6C4C4) },
-    { &lbl_1_data_6C4D0, sizeof(lbl_1_data_6C4D0) },
-    { &lbl_1_data_6C50C, sizeof(lbl_1_data_6C50C) },
-    { &lbl_1_data_6C518, sizeof(lbl_1_data_6C518) },
-    { &lbl_1_data_6C554, sizeof(lbl_1_data_6C554) },
-    { &lbl_1_data_6C560, sizeof(lbl_1_data_6C560) },
-    { &lbl_1_data_6C59C, sizeof(lbl_1_data_6C59C) },
-    { &lbl_1_data_6C5A8, sizeof(lbl_1_data_6C5A8) },
-    { &lbl_1_data_6C5E4, sizeof(lbl_1_data_6C5E4) },
-    { &lbl_1_data_6C5F0, sizeof(lbl_1_data_6C5F0) },
-    { &lbl_1_data_6C638, sizeof(lbl_1_data_6C638) },
-    { &lbl_1_data_6C680, sizeof(lbl_1_data_6C680) },
-    { &lbl_1_data_6C6C8, sizeof(lbl_1_data_6C6C8) },
-    { &lbl_1_data_6C710, sizeof(lbl_1_data_6C710) },
-    { &lbl_1_data_6C758, sizeof(lbl_1_data_6C758) },
-    { &lbl_1_data_6C7A0, sizeof(lbl_1_data_6C7A0) },
-    { &lbl_1_data_6C7F0, sizeof(lbl_1_data_6C7F0) },
-    { &lbl_1_data_6C840, sizeof(lbl_1_data_6C840) },
-    { &lbl_1_data_6C890, sizeof(lbl_1_data_6C890) },
-    { &lbl_1_data_6C8E0, sizeof(lbl_1_data_6C8E0) },
-    { &lbl_1_data_6CB40, sizeof(lbl_1_data_6CB40) },
-    { &lbl_1_data_6CB7C, sizeof(lbl_1_data_6CB7C) },
-    { &lbl_1_data_6CBB8, sizeof(lbl_1_data_6CBB8) },
-    { &lbl_1_data_6CBF4, sizeof(lbl_1_data_6CBF4) },
-    { &lbl_1_data_6CC44, sizeof(lbl_1_data_6CC44) },
-    { &lbl_1_data_6CC94, sizeof(lbl_1_data_6CC94) }
+/* rec: record size; every record starts with name[7] and the ape number */
+static const struct { void *ptr; u32 size; u32 rec; } s_pcRankBlock[] = {
+    { &lbl_1_data_6C440, sizeof(lbl_1_data_6C440), sizeof(struct NETimeRecord) },
+    { &lbl_1_data_6C47C, sizeof(lbl_1_data_6C47C), sizeof(struct NETimeRecord) },
+    { &lbl_1_data_6C488, sizeof(lbl_1_data_6C488), sizeof(struct NETimeRecord) },
+    { &lbl_1_data_6C4C4, sizeof(lbl_1_data_6C4C4), sizeof(struct NETimeRecord) },
+    { &lbl_1_data_6C4D0, sizeof(lbl_1_data_6C4D0), sizeof(struct NETimeRecord) },
+    { &lbl_1_data_6C50C, sizeof(lbl_1_data_6C50C), sizeof(struct NETimeRecord) },
+    { &lbl_1_data_6C518, sizeof(lbl_1_data_6C518), sizeof(struct NETimeRecord) },
+    { &lbl_1_data_6C554, sizeof(lbl_1_data_6C554), sizeof(struct NETimeRecord) },
+    { &lbl_1_data_6C560, sizeof(lbl_1_data_6C560), sizeof(struct NETimeRecord) },
+    { &lbl_1_data_6C59C, sizeof(lbl_1_data_6C59C), sizeof(struct NETimeRecord) },
+    { &lbl_1_data_6C5A8, sizeof(lbl_1_data_6C5A8), sizeof(struct NETimeRecord) },
+    { &lbl_1_data_6C5E4, sizeof(lbl_1_data_6C5E4), sizeof(struct NETimeRecord) },
+    { &lbl_1_data_6C5F0, sizeof(lbl_1_data_6C5F0), sizeof(struct NETimeRecord) },
+    { &lbl_1_data_6C638, sizeof(lbl_1_data_6C638), sizeof(struct NETimeRecord) },
+    { &lbl_1_data_6C680, sizeof(lbl_1_data_6C680), sizeof(struct NETimeRecord) },
+    { &lbl_1_data_6C6C8, sizeof(lbl_1_data_6C6C8), sizeof(struct NETimeRecord) },
+    { &lbl_1_data_6C710, sizeof(lbl_1_data_6C710), sizeof(struct NETimeRecord) },
+    { &lbl_1_data_6C758, sizeof(lbl_1_data_6C758), sizeof(struct NETimeRecord) },
+    { &lbl_1_data_6C7A0, sizeof(lbl_1_data_6C7A0), sizeof(struct NERankB) },
+    { &lbl_1_data_6C7F0, sizeof(lbl_1_data_6C7F0), sizeof(struct NERankB) },
+    { &lbl_1_data_6C840, sizeof(lbl_1_data_6C840), sizeof(struct NERankB) },
+    { &lbl_1_data_6C890, sizeof(lbl_1_data_6C890), sizeof(struct NERankB) },
+    { &lbl_1_data_6C8E0.a, sizeof(lbl_1_data_6C8E0.a), sizeof(struct NEA) },
+    { &lbl_1_data_6C8E0.b, sizeof(lbl_1_data_6C8E0.b), sizeof(struct NEB) },
+    { &lbl_1_data_6C8E0.c, sizeof(lbl_1_data_6C8E0.c), sizeof(struct NEC) },
+    { &lbl_1_data_6CB40, sizeof(lbl_1_data_6CB40), sizeof(struct NERankF) },
+    { &lbl_1_data_6CB7C, sizeof(lbl_1_data_6CB7C), sizeof(struct NERankF) },
+    { &lbl_1_data_6CBB8, sizeof(lbl_1_data_6CBB8), sizeof(struct NERankF) },
+    { &lbl_1_data_6CBF4, sizeof(lbl_1_data_6CBF4), sizeof(struct NERankB) },
+    { &lbl_1_data_6CC44, sizeof(lbl_1_data_6CC44), sizeof(struct NERankB) },
+    { &lbl_1_data_6CC94, sizeof(lbl_1_data_6CC94), sizeof(struct NERankB) }
 };
+
+int pc_save_rank_fix(u8 *story); /* pc_gci.c */
+void pc_save_rank_mark(u8 *story);
+int pc_save_rank_rec_ok(const u8 *r);
 
 static void pc_rank_block_copy(u8 *save, int toSave)
 {
@@ -8549,7 +8698,21 @@ static void pc_rank_block_copy(u8 *save, int toSave)
         if (toSave)
             memcpy_handler(save + off, s_pcRankBlock[i].ptr, s_pcRankBlock[i].size);
         else
-            memcpy_handler(s_pcRankBlock[i].ptr, save + off, s_pcRankBlock[i].size);
+        {
+            /* port builds before the per-table copy saved whatever followed
+             * the first table in memory here: keep the current (at boot: the
+             * default) table when any of its records is not a name record */
+            u32 r;
+
+            for (r = 0; r < s_pcRankBlock[i].size; r += s_pcRankBlock[i].rec)
+                if (!pc_save_rank_rec_ok(save + off + r))
+                    break;
+            if (r >= s_pcRankBlock[i].size)
+                memcpy_handler(s_pcRankBlock[i].ptr, save + off, s_pcRankBlock[i].size);
+            else
+                printf("[rank-migrate] ranking table at save offset 0x%X is not name records, kept the defaults\n",
+                       (unsigned)(0x5F4 + off));
+        }
         off += s_pcRankBlock[i].size;
     }
 }
@@ -8574,6 +8737,7 @@ void fn_1_13FCFC(void)
     memcpy_handler(storymode_save_files + 0x5F4, lbl_1_data_6C440, 0x8A4);
 #else
     pc_rank_block_copy(storymode_save_files + 0x5F4, 1);
+    pc_save_rank_mark(storymode_save_files); /* tells this layout from the pre-1.1.3 one */
 #endif
 }
 
@@ -8592,6 +8756,8 @@ void fn_1_13FD84(void)
 #ifdef __MWERKS__
     memcpy_handler(lbl_1_data_6C440, storymode_save_files + 0x5F4, 0x8A4);
 #else
+    /* saves of port builds before 1.1.3 hold these tables byte-reversed */
+    pc_save_rank_fix(storymode_save_files);
     pc_rank_block_copy(storymode_save_files + 0x5F4, 0);
 #endif
     def = lbl_1_bss_D5ABC;

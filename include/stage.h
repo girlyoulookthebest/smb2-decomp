@@ -372,7 +372,7 @@ struct StageExtraData
 
 struct StageExtraAnims
 {
-    u8 unk0[0xC];
+    /*0x00*/ Vec cupPos;  /* golf stages: position of the cup */
     /*0x0C*/ struct StageItemGroupAnim * DPTR animA;
     /*0x10*/ struct StageItemGroupAnim * DPTR animB;
 };

@@ -622,6 +622,18 @@ config.libs = [
             Object(Matching, "dogfight/dogfight_7.c"),
         ],
     ),
+    Rel(
+        "golf2",
+        [
+            Object(Matching, "golf2/golf.c"),
+            Object(Matching, "golf2/golf_1.c"),
+            Object(Matching, "golf2/golf_2.c"),
+            Object(Matching, "golf2/golf_3.c"),
+            Object(Matching, "golf2/golf_4.c"),
+            Object(Matching, "golf2/golf_5.c"),
+            Object(Matching, "golf2/golf_6.c"),
+        ],
+    ),
 ]
 
 

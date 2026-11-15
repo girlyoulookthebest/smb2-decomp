@@ -8,7 +8,9 @@
 
 struct ShadowTexInfo
 {
-    /*0x00*/ u32 unk0;
+    /*0x00*/ u8 unk0;    /* 0: perspective, otherwise orthographic (shadow_tex.c) */
+    /*0x01*/ u8 ramp;
+    /*0x02*/ u16 flags;  /* bytes: as one u32 the initializer was byte-swapped on little endian */
     /*0x04*/ GXTexObj texObj;
 };  /* size = 0x24 */
 
@@ -1115,11 +1117,13 @@ void fn_10_D6F0(void)
     }
 }
 
-static u32 lbl_10_data_E5C[10] = {
-    0x475F5FFF, 0x5F5747FF, 0x47495FFF, 0x5F4B5FFF, 0x5F4B4BFF,
-    0x475F4BFF, 0x5C5A5AFF, 0x474749FF, 0, 0,
+/* GXColor (a u32 table read as GXColor gave a byte-swapped colour on little endian) */
+static GXColor lbl_10_data_E5C[10] = {
+    { 0x47, 0x5F, 0x5F, 0xFF }, { 0x5F, 0x57, 0x47, 0xFF }, { 0x47, 0x49, 0x5F, 0xFF },
+    { 0x5F, 0x4B, 0x5F, 0xFF }, { 0x5F, 0x4B, 0x4B, 0xFF }, { 0x47, 0x5F, 0x4B, 0xFF },
+    { 0x5C, 0x5A, 0x5A, 0xFF }, { 0x47, 0x47, 0x49, 0xFF }, { 0 }, { 0 },
 };
-static struct ShadowTexInfo lbl_10_data_E84 = { 0x01000000 };
+static struct ShadowTexInfo lbl_10_data_E84 = { 1 };
 
 void fn_10_D838(void)
 {
@@ -1156,7 +1160,7 @@ void fn_10_DA50(struct Ball *ball)
 {
     if (ball->unk154 != 0xE) {
         lbl_10_bss_174.obj = ball;
-        lbl_10_bss_174.color = *(GXColor *)&lbl_10_data_E5C[ball->colorId];
+        lbl_10_bss_174.color = lbl_10_data_E5C[ball->colorId];
         lbl_10_bss_174.lightPos.x = lbl_10_bss_168.x + ball->pos.x;
         lbl_10_bss_174.lightPos.y = lbl_10_bss_168.y + ball->pos.y;
         lbl_10_bss_174.lightPos.z = lbl_10_bss_168.z + ball->pos.z;
@@ -1184,7 +1188,7 @@ void fn_10_DB84(struct Ball *ball)
         if ((s32)raycast_stage_down(&ball->pos, &hit, &normal) != 0) {
             a = 1.0 - (0.2 * (ball->pos.y - hit.pos.y));
             if (!(a < 0.0f)) {
-                req.color = *(GXColor *)&lbl_10_data_E5C[ball->colorId];
+                req.color = lbl_10_data_E5C[ball->colorId];
                 req.color.r = (float)req.color.r * a;
                 req.color.g = (float)req.color.g * a;
                 req.color.b = (float)req.color.b * a;
