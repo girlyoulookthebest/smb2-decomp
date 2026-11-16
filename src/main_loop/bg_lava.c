@@ -13,6 +13,7 @@
 #include "mathutil.h"
 #include "mode.h"
 #include "nl2ngc.h"
+#include "pc_hfr.h"
 #include "rand.h"
 #include "stage.h"
 #include "stcoli.h"
@@ -1005,6 +1006,9 @@ void g_draw_lava_particles(struct BgLavaWork *work)
                         mtxa_tf_point(&quad[2], &quad[2]);
                         mtxa_tf_point(&quad[3], &quad[3]);
                     }
+                    /* PC HFR: the embers are anonymous identical quads; the tag
+                     * keeps each one paired with itself, not a neighbour */
+                    HFR_TAG(HFR_K_BG, 0x4C450000 | (u32)(ember - work->embers));
                     color.r = 216.75f * alpha;
                     color.g = 122.399994f * alpha;
                     color.b = 76.5f * alpha;
@@ -1024,6 +1028,7 @@ void g_draw_lava_particles(struct BgLavaWork *work)
                     GXTexCoord2f32(1.0f, 1.0f);
                     GXPosition3f32(quad[3].x, quad[3].y, quad[3].z);
                     GXTexCoord2f32(0.0f, 1.0f);
+                    HFR_UNTAG();
                 }
             }
         }

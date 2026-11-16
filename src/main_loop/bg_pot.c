@@ -10,6 +10,7 @@
 #include "gx.h"
 #include "light.h"
 #include "mathutil.h"
+#include "pc_hfr.h"
 #include "mode.h"
 #include "nl2ngc.h"
 #include "pool.h"
@@ -1567,6 +1568,8 @@ void fn_1_92A70(struct OrdTblNode *arg)
         mtxa_tf_point(&lbl_1_data_3291C[2], &v2);
         mtxa_tf_point(&lbl_1_data_3291C[3], &v3);
         mtxa_pop();
+        /* PC HFR: anonymous identical quads, paired per bubble */
+        HFR_TAG(HFR_K_BG, 0x504F0000 | (u32)(bubble - pot->bubbles));
         color.r = 255.0f * (bubble->unk28 * t);
         color.g = color.r;
         color.b = color.r;
@@ -1582,6 +1585,7 @@ void fn_1_92A70(struct OrdTblNode *arg)
         GXTexCoord2f32(1.0f, 1.0f);
         GXPosition3f32(v3.x, v3.y, v3.z);
         GXTexCoord2f32(0.0f, 1.0f);
+        HFR_UNTAG();
     }
 }
 

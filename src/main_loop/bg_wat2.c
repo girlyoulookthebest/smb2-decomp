@@ -11,6 +11,7 @@
 #include "gx.h"
 #include "libc.h"
 #include "mathutil.h"
+#include "pc_hfr.h"
 #include "mode.h"
 #include "nl2ngc.h"
 #include "pool.h"
@@ -1079,6 +1080,9 @@ void fn_1_853FC(struct BgWat2BubbleNode *node)
                         mtxa_tf_point(&quad[2], &quad[2]);
                         mtxa_tf_point(&quad[3], &quad[3]);
                     }
+                    /* PC HFR: anonymous identical quads; the tag keeps each
+                     * particle paired with itself, not a neighbour */
+                    HFR_TAG(HFR_K_BG, 0x57410000 | (u32)(p - b->ambient));
                     sp10.r = 255;
                     sp10.g = 255;
                     sp10.b = 255;
@@ -1098,6 +1102,7 @@ void fn_1_853FC(struct BgWat2BubbleNode *node)
                     GXTexCoord2f32(1.0f, 1.0f);
                     GXPosition3f32(quad[3].x, quad[3].y, quad[3].z);
                     GXTexCoord2f32(0.0f, 1.0f);
+                    HFR_UNTAG();
                 }
             }
         }
