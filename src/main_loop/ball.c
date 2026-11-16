@@ -77,7 +77,7 @@ s32 lbl_1_bss_70F00[10];  /* per-player idle-chatter counters */
 #else
 /* boat's fn_14_65E4 reads player_pad_map[0..7]; on GC [4..7] are the
  * idle-chatter counters that follow it in bss, so keep them one object */
-s32 player_pad_map[4 + 10];
+extern s32 player_pad_map[4 + 10];  /* defined in the port's input code */
 #define lbl_1_bss_70F00 (*(s32 (*)[10])&player_pad_map[4])  /* per-player idle-chatter counters */
 #endif
 
