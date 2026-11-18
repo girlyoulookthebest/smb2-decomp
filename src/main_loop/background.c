@@ -10,6 +10,7 @@
 #include "light.h"
 #include "macros.h"
 #include "mode.h"
+#include "pc_hfr.h"
 #include "mathutil.h"
 #include "nl2ngc.h"
 #include "rand.h"
@@ -1677,6 +1678,9 @@ void g_render_foreground_objects(Mtx viewFromWorld, struct StageBgModel *bgObj, 
             continue;
         customLightGroup = bgObj->flags >> 28;
         effect = bgObj->effect;
+        /* PC HFR: background models repeat one mesh (palms, rocks); one
+         * leaving the view shifted the pairing of all the copies after it */
+        HFR_TAG(HFR_K_BG, 0x42470000 | ((bgObj - i == stagedef->fgModels) << 15) | (u32)(i & 0x7FFF));
         load_gx_pos_nrm_mtx(mtxa->mtxA, 0);
         if (customLightGroup > 0)
         {
@@ -1713,6 +1717,7 @@ void g_render_foreground_objects(Mtx viewFromWorld, struct StageBgModel *bgObj, 
             g_yet_another_unk_draw_func(NULL);
         if (customLightGroup > 0)
             pop_light_group();
+        HFR_UNTAG();
     }
     if (scrollActive != 0)
         g_something_with_texture_scroll_2(0);

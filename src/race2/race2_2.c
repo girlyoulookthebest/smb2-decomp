@@ -5,6 +5,7 @@
 #include "shadow.h"
 #include "event.h"
 #include "input.h"
+#include "pc_hfr.h"
 
 struct ShadowTexInfo
 {
@@ -792,7 +793,11 @@ void fn_10_C69C(void)
             mtxa_rotate_z(a->rotZ);
             mtxa_rotate_y(a->rotY);
             mtxa_rotate_x(a->rotX);
+            /* PC HFR: identical plates, re-ordered by the depth sort as the
+             * camera moves; the tag pairs each plate with itself */
+            HFR_TAG(HFR_K_MINI, 0x53500000 | (u32)i);
             avdisp_draw_model_culled_sort_always(minigameGma->modelEntries[0xA].model);
+            HFR_UNTAG();
         }
     }
     for (i = 0; i < data->unk30.count; i++, b++) {
@@ -801,7 +806,9 @@ void fn_10_C69C(void)
         mtxa_rotate_y(b->rotY);
         mtxa_rotate_x(b->rotX);
         load_gx_pos_nrm_mtx(mtxa->mtxA, 0);
+        HFR_TAG(HFR_K_MINI, 0x52500000 | (u32)i);
         avdisp_draw_model_culled_sort_auto(minigameGma->modelEntries[0x8].model);
+        HFR_UNTAG();
     }
 }
 
@@ -958,6 +965,9 @@ void fn_10_D090(struct Ball *ball, Vec *pos, float scale, s16 rot)
     mtxa_rotate_x(rot);
     mtxa_scale_s(scale);
     avdisp_set_scale_factor(scale);
+    /* PC HFR: the COM labels are one model, depth-sorted; the tag pairs
+     * each racer's label with itself */
+    HFR_TAG(HFR_K_MINI, 0x4C420000 | (u32)ball->playerId);
     if (ball->flags & (1ULL << 43)) {
         color = lbl_1_data_2E418[ball->playerId];
         set_post_mult_color(color[0], color[1], color[2], 1.0f);
@@ -966,6 +976,7 @@ void fn_10_D090(struct Ball *ball, Vec *pos, float scale, s16 rot)
     } else {
         avdisp_draw_model_unculled_sort_always(init_common_gma->modelEntries[lbl_10_bss_134[ball->playerId]].model);
     }
+    HFR_UNTAG();
 }
 
 void fn_10_D208(struct Camera *camera, Vec *pos, float x, float y)

@@ -170,6 +170,7 @@ void g_draw_stage_models(void)
                 continue;
             if (!g_is_sphere_visible(&model->boundSphereCenter, model->boundSphereRadius))
                 continue;
+            HFR_TAG(HFR_K_STAGE_INST, 0x10000 | j);   /* PC HFR: as the instances below */
             if (coll->textureScroll != NULL)
                 g_something_with_texture_scroll(coll->textureScroll);
             if (!mtxLoaded)
@@ -197,6 +198,7 @@ void g_draw_stage_models(void)
                 s.model = model;
                 g_some_shadow_draw_func(&s);
             }
+            HFR_UNTAG();
         }
 
         mask = g_smth_with_challenge_mode_var_and_3p();
@@ -222,6 +224,9 @@ void g_draw_stage_models(void)
                 continue;
             if (!g_is_sphere_visible(&model->boundSphereCenter, model->boundSphereRadius * scale))
                 continue;
+            /* PC HFR: instances repeat one model (palms); one leaving the
+             * view shifted the pairing of the copies after it */
+            HFR_TAG(HFR_K_STAGE_INST, j);
             load_gx_pos_nrm_mtx(mtxa->mtxA, 0);
             avdisp_draw_model_unculled_sort_never(model);
             if (shadow)
@@ -234,6 +239,7 @@ void g_draw_stage_models(void)
                 s.model = model;
                 g_some_shadow_draw_func(&s);
             }
+            HFR_UNTAG();
         }
         mtxa_pop();
         HFR_UNTAG();
