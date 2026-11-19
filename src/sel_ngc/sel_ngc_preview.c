@@ -49,6 +49,16 @@ struct SelNgcUnusedEntry
 
 void fn_3_1EF64(void); /* see the note at its prototype slot in sel_ngc.h */
 
+#ifndef __MWERKS__
+/* The preview sprites below are SPRITE_TYPE_TEXTURE sprites whose tex is a
+ * struct Preview; draw_texture_sprite/calc_sprite_bounds read it as a
+ * struct SpriteTexture, so the shared fields must line up on every target. */
+_Static_assert(__builtin_offsetof(struct SpriteTexture, texObj) == __builtin_offsetof(struct Preview, texObj)
+            && __builtin_offsetof(struct SpriteTexture, width) == __builtin_offsetof(struct Preview, width)
+            && __builtin_offsetof(struct SpriteTexture, height) == __builtin_offsetof(struct Preview, height),
+               "struct SpriteTexture must mirror struct Preview");
+#endif
+
 /* ---- .bss ----
  * Defined before everything else. MWCC places the objects that functions/data
  * reference first in that order, and the rest in reverse definition order,

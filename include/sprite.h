@@ -72,13 +72,18 @@ struct Sprite
     /*0xA0*/ char text[0x30];
 };
 
-/* Texture drawn by SPRITE_TYPE_TEXTURE sprites. */
+/* Texture drawn by SPRITE_TYPE_TEXTURE sprites. Every such texture is a
+ * struct Preview (main_loop/preview.c: state, isLoading, flags, index, texObj,
+ * imagePtr, size, width, height, ...) cast to this type, so the fields up to
+ * height mirror it: imagePtr is a native pointer, which moves width/height to
+ * 0x34/0x36 on x64 (a u8 pad here read Preview::size as width and height). */
 struct SpriteTexture
 {
     /*0x00*/ s8 type;
     u8 unk1[8 - 1];
     /*0x08*/ GXTexObj texObj;
-    u8 unk28[0x30 - 0x28];
+    /*0x28*/ void *imagePtr;
+    /*0x2C*/ u32 size;
     /*0x30*/ u16 width;
     /*0x32*/ u16 height;
 };
