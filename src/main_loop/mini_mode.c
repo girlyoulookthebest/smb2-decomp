@@ -58,6 +58,11 @@ void game_nameentry_draw_func(void);
 void fn_1_D5FF4(void);
 void g_smd_mini_generic_init(void);
 void g_smd_mini_generic_tick(void);
+#ifndef __MWERKS__
+void g_return_to_sel_ngc(int a);
+void call_SoundReqID_arg_0(int soundId);
+int printf(const char *fmt, ...);
+#endif
 
 /* Nothing here reads this; it is what the .data pool base lands on. */
 static u8 lbl_1_data_52D58[0x170] =
@@ -99,7 +104,13 @@ static s32 lbl_1_bss_CE0B0;
 static void (*g_minigame_tick_func)(void);
 static void (*g_mini_draw_func_ptr)(void);
 static void (*lbl_1_bss_CE0BC)(void);
+#ifdef __MWERKS__
 static u8 lbl_1_bss_CE0C0[8];
+#else
+/* PC: holds a struct RelInfo (relocation.c), two native pointers: 16 bytes
+ * on x64, where [8] let load_additional_rel write past it */
+static u8 lbl_1_bss_CE0C0[2 * sizeof(void *)] __attribute__((aligned(8)));
+#endif
 static s16 lbl_1_bss_CE0C8;
 
 static void *unused(void)
@@ -174,6 +185,20 @@ void g_smd_mini_generic_init(void)
         {
             g_something_with_sound7_and_game_heaps(entry->heapGroup);
             load_additional_rel(entry->fileName, lbl_1_bss_CE0C0);
+#ifndef __MWERKS__
+            /* PC: the game's REL isn't in this build (not decompiled yet;
+             * the menus don't offer it, this catches any other path): go
+             * back to the menu instead of idling here with no game, where
+             * the next start panics with "multiple relocation" */
+            if (*(void **)lbl_1_bss_CE0C0 == NULL)
+            {
+                printf("[REL] %s is not available in the PC version yet - back to the menu\n", entry->fileName);
+                g_something_with_sound7_and_game_heaps(0);
+                call_SoundReqID_arg_0(0x64);
+                g_return_to_sel_ngc(-1);
+                return;
+            }
+#endif
             break;
         }
         entry++;

@@ -634,6 +634,23 @@ config.libs = [
             Object(Matching, "golf2/golf_6.c"),
         ],
     ),
+    Rel(
+        "mini_fight2",
+        [
+            Object(NonMatching, "fight/fight.c"),
+            Object(Matching, "fight/fight_1.c"),
+            Object(NonMatching, "fight/fight_2.c"),
+            Object(NonMatching, "fight/fight_3.c"),
+            Object(Matching, "fight/fight_4.c"),
+            Object(Matching, "fight/fight_5.c"),
+            Object(Matching, "fight/fight_6.c"),
+            Object(Matching, "fight/fight_7.c"),
+            Object(Matching, "fight/fight_8.c"),
+            Object(Matching, "fight/fight_9.c"),
+            Object(NonMatching, "fight/fight_10.c"),
+            Object(Matching, "fight/fight_11.c"),
+        ],
+    ),
 ]
 
 

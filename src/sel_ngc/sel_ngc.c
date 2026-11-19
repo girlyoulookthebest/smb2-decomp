@@ -1083,6 +1083,17 @@ void g_b_button_pressed_on_menu(s32 arg0) {
     g_something_with_menus5();
 }
 
+#ifndef __MWERKS__
+int pc_party_game_available(int gameType);    /* pc_port pc_party_avail.c */
+const char *pc_party_unavail_desc(int canOpen);
+
+/* PC: entry <entry> of the current screen is a party game the port can't run */
+static int pc_sel_ngc_entry_unavailable(s8 entry) {
+    return (s8) g_currently_visible_menu_screen.currScreen == MENUSCREEN_PARTY_GAME_SELECT
+        && entry >= 0 && entry < 12 && !pc_party_game_available(lbl_3_rodata_4[entry]);
+}
+#endif
+
 void fn_3_32E0(s32 arg0) {
     s32 temp_r25;
     s32 temp_r25_2;
@@ -1122,6 +1133,13 @@ void fn_3_32E0(s32 arg0) {
         var_r25 = 0;
     }
     if ((did_any_pad_press_input(6U) != 0) && ((s32) g_currently_visible_menu_screen.unkC == 0) && ((s32) g_currently_visible_menu_screen.unk18 == 0) && ((u32) (temp_r26->bitflag & 8) == 0)) {
+#ifndef __MWERKS__
+        /* PC: a party game that isn't decompiled yet can't start: buzz (a
+         * locked one still takes the unlock path below) */
+        if (pc_sel_ngc_entry_unavailable(*temp_r31) && ((u32) (locked_menu_items & (1 << (s8) *temp_r31)) == 0)) {
+            call_SoundReqID_arg_0(0x64);
+        } else
+#endif
         if ((u32) (locked_menu_items & (1 << (s8) *temp_r31)) != 0) {
             if (var_r25 != 0) {
                 call_SoundReqID_arg_0(0x64);
@@ -1998,7 +2016,15 @@ void menu_party_game_select_tick(void) {
                 create_how_to_sprite();
             }
         }
-        if ((g_check_if_partygame_unlocked(temp_r29) == 0) && (is_able_to_unlock_party_game() != 0) && ((s32) lbl_3_bss_58.unkC == 0) && (did_any_pad_press_input(6U) != 0) && ((s32) g_currently_visible_menu_screen.unkC == 0) && ((s32) g_currently_visible_menu_screen.unk18 == 0)) {
+        if ((g_check_if_partygame_unlocked(temp_r29) == 0) && (is_able_to_unlock_party_game() != 0) && ((s32) lbl_3_bss_58.unkC == 0) && (did_any_pad_press_input(6U) != 0) && ((s32) g_currently_visible_menu_screen.unkC == 0) && ((s32) g_currently_visible_menu_screen.unk18 == 0)
+#ifndef __MWERKS__
+            /* PC: A on an unavailable game that isn't locked (the first six
+             * never are) only buzzes; the original starts those instead, so
+             * this never ran for them */
+            && !(pc_sel_ngc_entry_unavailable((s8) g_focused_root_menu.unk0[(s8) g_currently_visible_menu_screen.currScreen])
+                 && ((u32) (locked_menu_items & (1 << (s8) g_focused_root_menu.unk0[(s8) g_currently_visible_menu_screen.currScreen])) == 0))
+#endif
+            ) {
             temp_r3 = get_sprite_with_unique_id(0xC);
             if (temp_r3 != NULL) {
                 temp_r3->userVar = 0;
@@ -2025,6 +2051,16 @@ void menu_party_game_select_tick(void) {
     if ((s32) lbl_3_bss_58.unkC > 0) {
         lbl_3_bss_58.unkC = (s32) (lbl_3_bss_58.unkC - 1);
     }
+#ifndef __MWERKS__
+    /* PC: the description box says why a not yet decompiled game can't be
+     * played (and that it can still be opened with Play Points) */
+    temp_r4 = g_focused_root_menu.unk0[(s8) g_currently_visible_menu_screen.currScreen];
+    if (pc_sel_ngc_entry_unavailable((s8) temp_r4)) {
+        g_currently_visible_menu_screen.unk38 = (char *) pc_party_unavail_desc(
+            ((u32) (locked_menu_items & (1 << (s8) temp_r4)) != 0) && is_able_to_unlock_party_game() != 0);
+        return;
+    }
+#endif
     if ((u32) (locked_menu_items & (1 << (s8) g_focused_root_menu.unk0[(s8) g_currently_visible_menu_screen.currScreen])) != 0) {
         if (is_able_to_unlock_party_game() != 0) {
             g_currently_visible_menu_screen.unk38 = lbl_3_data_1BAC[(s8) g_language_id];

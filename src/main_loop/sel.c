@@ -169,7 +169,13 @@ struct SelSettingsI lbl_1_bss_1738;
 struct SelStageChoice lbl_1_bss_1744;
 void (*menu_tick_func)(void);
 void (*menu_draw_func)(void);
+#ifdef __MWERKS__
 u8 g_some_sel_ngc_rel_buffer[8];
+#else
+/* PC: holds a struct RelInfo (relocation.c), two native pointers: 16 bytes
+ * on x64, where [8] let load_additional_rel write past it */
+u8 g_some_sel_ngc_rel_buffer[2 * sizeof(void *)] __attribute__((aligned(8)));
+#endif
 u8 lbl_1_bss_175C[0xC];
 
 void g_set_lots_of_initial_state(void)

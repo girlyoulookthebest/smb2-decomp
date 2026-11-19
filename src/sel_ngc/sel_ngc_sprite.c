@@ -983,6 +983,11 @@ u8 lbl_3_data_CEA0[4][5] = {
     { 1, 1, 1, 2, 3 },
 };
 
+#ifndef __MWERKS__
+int pc_party_game_available(int gameType);    /* pc_port pc_party_avail.c */
+const char *pc_party_unavail_tag(void);
+#endif
+
 void sprite_menu_basic_disp(struct Sprite *sprite)
 {
     struct SpriteDrawRequest req;
@@ -996,6 +1001,9 @@ void sprite_menu_basic_disp(struct Sprite *sprite)
     int i;
     float f;
     int badge;
+#ifndef __MWERKS__
+    int pcUnavail = 0;
+#endif
 
     entry = sprite->tag - 0x3C;
     item = sprite->unk54 & 0xFF;
@@ -1007,6 +1015,15 @@ void sprite_menu_basic_disp(struct Sprite *sprite)
     /* entries the selected player count can't use are dimmed */
     if (menuWork->currScreen == 4 && sprite->tag < 0x49 && item >= (s8)sel_menu_info.unkB)
         shift = 2;
+#ifndef __MWERKS__
+    /* PC: so are the party games that aren't decompiled yet */
+    if (screen == MENUSCREEN_PARTY_GAME_SELECT && sprite->tag < 0x49 && item >= 0 && item < 12
+     && !pc_party_game_available(lbl_3_rodata_4[item]))
+    {
+        pcUnavail = 1;
+        shift = 1;
+    }
+#endif
 
     req.bmpId = 0x170E;
     req.x = sprite->unk58;
@@ -1381,6 +1398,23 @@ void sprite_menu_basic_disp(struct Sprite *sprite)
         draw_sprite_draw_request(&req);
     }
     req = saved;
+#ifndef __MWERKS__
+    /* PC: and tagged "not yet" (the description box says why) */
+    if (pcUnavail)
+    {
+        textdraw_reset();
+        textdraw_set_font(3);
+        textdraw_set_scale(0.5f * sprite->scaleX, 0.5f * sprite->scaleY);
+        textdraw_set_alignment(4);
+        textdraw_set_flags(0x80000000);
+        textdraw_set_alpha(MIN(sprite->opacity * sprite->scaleX, 1.0f));
+        textdraw_set_depth(sprite->depth - 0.02f);
+        textdraw_set_border();
+        textdraw_set_mul_color(0xFFFFFF);
+        textdraw_set_pos(sprite->unk58, sprite->y + 26.0f * sprite->scaleY);
+        textdraw_print((char *)pc_party_unavail_tag());
+    }
+#endif
 
     if (sprite->userVar != 2 && sprite->userVar != 0x29)
     {

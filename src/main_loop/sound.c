@@ -1760,7 +1760,21 @@ s16 fn_1_32DC8(void)
 {
     s16 theme = (world_theme < 0) ? 0 : (world_theme > 42) ? 42 : world_theme;
 
+#ifdef __MWERKS__
     return g_bgm_id_lookup_table[theme];
+#else
+    /* The GC clamps to 42 but the table has 42 entries (0..41), so theme 42
+     * reads the first halfword of the next .rodata object (lbl_1_rodata_1284):
+     * the high half of the relocated pointer to "GRPse04", a 0x80xx address,
+     * i.e. a large negative track id that SoftStreamStart would use to index
+     * SEL_WORLD_PTR far out of bounds. No stage has theme 42 (the highest in
+     * STAGE_WORLD_THEMES is 41 and every stage select stops at 420), so it
+     * takes an invalid stage id to get here; give such themes no BGM (-1),
+     * like the other bg-less themes, instead of reading past the table. */
+    if (theme >= (s16)(sizeof(g_bgm_id_lookup_table) / sizeof(g_bgm_id_lookup_table[0])))
+        return -1;
+    return g_bgm_id_lookup_table[theme];
+#endif
 }
 
 /* Music request: the low 16 bits pick the track, the high 16 bits are a parameter. */

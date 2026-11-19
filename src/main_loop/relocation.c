@@ -62,6 +62,13 @@ void load_additional_rel(char *name, struct RelInfo *rel)
         }
         DVDClose(&file);
     }
+#ifndef __MWERKS__
+    /* PC: a REL that failed to load (not linked into the port) must not stay
+     * on the loaded list: g_purge_rel skips it (info NULL), so the next purge
+     * of the REL below it would panic "illeagal purge order" */
+    if (rel->info == NULL && g_loaded_rel_count > 0 && g_loaded_rel_infos[g_loaded_rel_count - 1] == rel)
+        g_loaded_rel_count--;
+#endif
 }
 
 void g_purge_rel(struct RelInfo *rel)

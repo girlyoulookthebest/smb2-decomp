@@ -5,3 +5,70 @@ Sections:
 	.rodata     type:rodata align:8
 	.data       type:data align:8
 	.bss        type:bss align:8
+
+fight/fight.c:
+	.text       start:0x00000000 end:0x00005AF8
+	.rodata     start:0x00000000 end:0x000000E8
+	.data       start:0x00000000 end:0x00000328
+	.bss        start:0x00000000 end:0x0001ACA0
+
+fight/fight_1.c:
+	.text       start:0x00005AF8 end:0x00008ED0
+	.rodata     start:0x000000E8 end:0x00000188
+	.data       start:0x00000328 end:0x00000390
+
+fight/fight_2.c:
+	.text       start:0x00008ED0 end:0x00011300
+	.rodata     start:0x00000188 end:0x00000338
+	.data       start:0x00000390 end:0x00000608
+
+fight/fight_3.c:
+	.text       start:0x00011300 end:0x00017714
+	.rodata     start:0x00000338 end:0x00000430
+	.data       start:0x00000608 end:0x000006E0
+	.bss        start:0x0001ACA0 end:0x0001EDF0
+
+fight/fight_4.c:
+	.text       start:0x00017714 end:0x0001B40C
+	.rodata     start:0x00000430 end:0x00000530
+	.data       start:0x000006E0 end:0x000099B0
+	.bss        start:0x0001EDF0 end:0x0001EE70
+
+fight/fight_5.c:
+	.text       start:0x0001B40C end:0x0001D534
+	.rodata     start:0x00000530 end:0x000005E8
+	.data       start:0x000099B0 end:0x00009D28
+
+fight/fight_6.c:
+	.text       start:0x0001D534 end:0x000205E8
+	.rodata     start:0x000005E8 end:0x00000710
+	.data       start:0x00009D28 end:0x00009DD0
+	.bss        start:0x0001EE70 end:0x0001EE90
+
+fight/fight_7.c:
+	.text       start:0x000205E8 end:0x0002301C
+	.rodata     start:0x00000710 end:0x000007F0
+	.data       start:0x00009DD0 end:0x00009E20
+	.bss        start:0x0001EE90 end:0x0001EED8
+
+fight/fight_8.c:
+	.text       start:0x0002301C end:0x00023858
+	.rodata     start:0x000007F0 end:0x00000840
+	.data       start:0x00009E20 end:0x00009E48
+
+fight/fight_9.c:
+	.text       start:0x00023858 end:0x00029F68
+	.rodata     start:0x00000840 end:0x00000A68
+	.data       start:0x00009E48 end:0x0000A2C0
+	.bss        start:0x0001EED8 end:0x0001F968
+
+fight/fight_10.c:
+	.text       start:0x00029F68 end:0x0002B3BC
+	.rodata     start:0x00000A68 end:0x00000B10
+	.bss        start:0x0001F968 end:0x0001F9D8
+
+fight/fight_11.c:
+	.text       start:0x0002B3BC end:0x0002DF18
+	.rodata     start:0x00000B10 end:0x00000B58
+	.data       start:0x0000A2C0 end:0x0000A488
+	.bss        start:0x0001F9D8 end:0x00020088

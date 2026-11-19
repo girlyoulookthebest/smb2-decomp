@@ -12,7 +12,7 @@ struct Stobj
     /*0x00*/ s16 id;
     s16 unk2;
     /*0x04*/ s16 type;
-    u8 filler6[2];
+    /*0x06*/ s16 unk6;  /* mini_fight2: player of a glove stobj */
     u32 unk8;
     /*0x0C*/ s16 state;
     /*0x0E*/ s16 counter;
@@ -33,7 +33,7 @@ struct Stobj
     /*0x74*/ s16 rotZ;
     s16 unk76;
     s16 unk78;
-    u8 filler7A[0x7C - 0x7A];
+    /*0x7A*/ s16 unk7A;
     Vec unk7C;
     s16 unk88;
     s16 unk8A;
