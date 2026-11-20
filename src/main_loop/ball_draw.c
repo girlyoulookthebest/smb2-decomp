@@ -532,6 +532,7 @@ struct BallShellDrawNode
 };
 
 /* SMB1's backgroundInfo; its first field is the s16 world theme */
+#ifdef __MWERKS__
 struct BackgroundInfo
 {
     /*0x00*/ s16 bgId;
@@ -539,6 +540,12 @@ struct BackgroundInfo
     /*0x94*/ void *ballEnvFunc;
 };
 extern struct BackgroundInfo world_theme;
+#else
+/* PC: the real declaration (background.h).  It has native pointers before
+ * ballEnvFunc, so on 64-bit the field is not at 0x94 (a local copy read
+ * world_theme.unk8C there, and the ball environment pass never ran). */
+#include "background.h"
+#endif
 
 extern struct
 {

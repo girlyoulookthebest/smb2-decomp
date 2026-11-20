@@ -39,6 +39,10 @@ struct PauseMemcardRequest
     /*0x10*/ u32 size;
     /*0x14*/ char *name;
 };
+#ifndef __MWERKS__
+/* must match memcard.c's struct MemcardRequest */
+_Static_assert(sizeof(struct PauseMemcardRequest) == (sizeof(void *) == 8 ? 0x28 : 0x18), "PauseMemcardRequest");
+#endif
 
 struct PauseReplayInfo
 {

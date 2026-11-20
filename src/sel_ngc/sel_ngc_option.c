@@ -28,6 +28,9 @@ struct MemcardRequest { /* layout as in src/main_loop/memcard.c */
     /* 0x10 */ u32 size;
     /* 0x14 */ char *name;
 }; /* size = 0x18 */
+#ifndef __MWERKS__
+_Static_assert(sizeof(struct MemcardRequest) == (sizeof(void *) == 8 ? 0x28 : 0x18), "MemcardRequest");
+#endif
 
 /* sel.c lbl_1_bss_175C: replay list state kept across menu visits */
 struct SelReplayListState {

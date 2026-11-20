@@ -61,6 +61,14 @@ void fn_1_CCBFC(float offset)
     g_ord_tbl_stuff->depthOffset += offset;
 }
 
+#ifndef __MWERKS__
+/* PC port: a NaN depth (e.g. an effect at a NaN position) gives index
+ * 0x80000000 (PPC fctiwz, x86 cvttss2si).  &entries[0x80000000] wraps to
+ * &entries[0] in 32-bit address arithmetic, so the GC (and the 32-bit port)
+ * uses entry 0; on x64 the pointer would leave the table.  Use entry 0. */
+#define ORD_TBL_NAN_INDEX(index) do { if ((index) < 0) (index) = 0; } while (0)
+#endif
+
 struct OrdTblNode *fn_1_CCC18(float z)
 {
     int index;
@@ -74,6 +82,9 @@ struct OrdTblNode *fn_1_CCC18(float z)
         index = g_ord_tbl_stuff->maxEntries * z / (z + g_ord_tbl_stuff->depthRange);
         if (index >= g_ord_tbl_stuff->maxEntries)
             index = g_ord_tbl_stuff->maxEntries - 1;
+#ifndef __MWERKS__
+        ORD_TBL_NAN_INDEX(index);
+#endif
     }
 
     entry = &g_ord_tbl_stuff->entries[index];
@@ -116,6 +127,9 @@ struct OrdTblNode *fn_1_CCDC8(Vec *pos)
         index = g_ord_tbl_stuff->maxEntries * depth / (depth + g_ord_tbl_stuff->depthRange);
         if (index >= g_ord_tbl_stuff->maxEntries)
             index = g_ord_tbl_stuff->maxEntries - 1;
+#ifndef __MWERKS__
+        ORD_TBL_NAN_INDEX(index);
+#endif
     }
 
     entry = &g_ord_tbl_stuff->entries[index];
@@ -148,6 +162,9 @@ struct OrdTblNode *ord_tbl_get_entry_for_pos(Vec *pos)
         index = g_ord_tbl_stuff->maxEntries * depth / (depth + g_ord_tbl_stuff->depthRange);
         if (index >= g_ord_tbl_stuff->maxEntries)
             index = g_ord_tbl_stuff->maxEntries - 1;
+#ifndef __MWERKS__
+        ORD_TBL_NAN_INDEX(index);
+#endif
     }
 
     entry = &g_ord_tbl_stuff->entries[index];

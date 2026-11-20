@@ -220,11 +220,27 @@ void fn_1_461C0(struct Ape *ape, float speed);
 void textdraw_print(char *str);
 extern s32 lbl_5_bss_1BB94;
 extern u32 g_some_render_flag;
+/* SMB1's backgroundInfo; only the field used here is named. */
 struct WorldTheme
 {
+#ifdef __MWERKS__
     u8 unk0[0x8C];
+#else
+    /* struct BackgroundInfo's layout up to unk8C (as in stage_draw.c): it
+     * has native pointers, so on 64-bit drawFunc is at 0x98, not 0x8C */
+    u8 unk0[0x78];
+    void *unk78;
+    void *unk7C;
+    void *unk80;
+    float unk84;
+    u8 filler88[4];
+#endif
     /*0x8C*/ void *drawFunc;
 };
+#ifndef __MWERKS__
+/* must match background.h's struct BackgroundInfo unk8C */
+_Static_assert(__builtin_offsetof(struct WorldTheme, drawFunc) == (sizeof(void *) == 8 ? 0x98 : 0x8C), "WorldTheme");
+#endif
 int g_check_some_condition(int a);
 void g_something_with_texture_scroll(void *scroll);
 extern u32 monkey_flags;

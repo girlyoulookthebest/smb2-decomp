@@ -33,13 +33,29 @@ struct ExOptionLoadRequest
     /*0x10*/ u32 size;
     /*0x14*/ u8 *name;
 }; /* size = 0x18 */
+#ifndef __MWERKS__
+/* must match memcard.c's struct MemcardRequest */
+_Static_assert(sizeof(struct ExOptionLoadRequest) == (sizeof(void *) == 8 ? 0x28 : 0x18), "ExOptionLoadRequest");
+_Static_assert(__builtin_offsetof(struct ExOptionLoadRequest, name) == (sizeof(void *) == 8 ? 0x20 : 0x14), "ExOptionLoadRequest");
+#endif
 
 struct RendEfcRequest
 {
     u8 filler0[6];
     /*0x06*/ u16 unk6;
+#ifdef __MWERKS__
     u8 filler8[0x10];
+#else
+    /* PC: same layout as rend_efc.c's struct RenderEffect (fn_1_D8130 copies
+     * sizeof(struct RenderEffect), 0x20 on x64) */
+    u8 filler8[8];
+    void *work;
+    void *funcs;
+#endif
 }; /* size = 0x18 */
+#ifndef __MWERKS__
+_Static_assert(sizeof(struct RendEfcRequest) == (sizeof(void *) == 8 ? 0x20 : 0x18), "RendEfcRequest");
+#endif
 
 /* decoded from the hex digits of the file name */
 struct ExOptionFileId

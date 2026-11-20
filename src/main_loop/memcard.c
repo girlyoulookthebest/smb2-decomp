@@ -140,6 +140,11 @@ struct MemcardRequest
     u32 size;
     char *name;
 };
+#ifndef __MWERKS__
+/* the callers' copies (game_mode.c, adv.c, scen_stage.c, sel_ngc.c,
+ * sel_ngc_option.c, exoption.c) must have this size */
+_Static_assert(sizeof(struct MemcardRequest) == (sizeof(void *) == 8 ? 0x28 : 0x18), "MemcardRequest");
+#endif
 
 void *alloc_from_heap_or_panic(void *heap, u32 size, const char *file, int line);
 void g_something_with_locked_cache_2(void *dest, int value, u32 size);

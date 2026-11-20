@@ -129,12 +129,27 @@ void g_setup_and_create_game_heaps(void)
     create_game_heaps(0);
 }
 
+#ifndef __MWERKS__
+/* PC port, SMB2_PC_STAGE test hook (pc_launcher.c): nonzero when the hooked
+ * stage is one no Challenge/Story course plays */
+int pc_stage_hook_needs_shared_heap(void);
+#endif
+
 void g_something_with_sound7_and_game_heaps(int config)
 {
     u32 size;
     u32 ptr;
     u32 end;
 
+#ifndef __MWERKS__
+    /* The hook can force any stage id into a Challenge.  The cutscene sets,
+     * attract-demo sets, party-game courses and test stages live on the GC
+     * under other heap configs, and several outgrow config 0's heaps (the GC
+     * panics like the port then): play those under config 8, everything in
+     * one main heap, like author mode. */
+    if (config == 0 && pc_stage_hook_needs_shared_heap())
+        config = 8;
+#endif
     if (config != (int)g_some_other_heap_lo[4])
     {
         g_something_with_sound9();

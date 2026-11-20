@@ -42,6 +42,14 @@ const struct LightGroupInfo lightGroupInfos[LIGHT_GROUP_COUNT] =
     { LIGHT_GROUP_DEFAULT, 3 },
 };
 
+#ifndef __MWERKS__
+/* address names used by window_menu.inc (light names) and background.c
+ * (bg_bil model light groups) */
+#define lightTypeNames lbl_1_data_739C
+#define lightIdNames lbl_1_data_7408
+#define lightGroupNames lbl_1_data_7500
+#define s_bilLightGroupNames lbl_1_data_11008
+#endif
 char *lightTypeNames[] =
 {
     "INFINITE", "POINT", "SPOT", "POINT_POW", "SPOT_POW",
@@ -89,6 +97,22 @@ struct Light stageLights[512] =
 
 
 /* .bss, addressed from one base register (order matters). */
+#ifndef __MWERKS__
+/* The GC build links light.c from asm, where these objects are only known by
+ * their address names; the other units reference them that way (shadow and
+ * ball code read the theme's ambient colour and light direction from
+ * lbl_1_bss_2F48).  Give the C definitions those names here, so the port has
+ * one object instead of a zeroed stub (stubs_gen.c) beside the real one. */
+#define s_bgLightInfo lbl_1_bss_2F48
+#define s_lightGroupsInitialized lbl_1_bss_6F00
+/* the debug window menu (window_menu.inc) edits these by address name */
+#define u_printLight lbl_1_bss_2EEC
+#define lightingStageId lbl_1_bss_2EF0
+#define u_lightToCopy lbl_1_bss_2EF4
+#define u_copyLight lbl_1_bss_2EF8
+#define s_numLightObjsLoaded lbl_1_bss_6EFC
+#define u_drawLightMarker lbl_1_bss_6F04
+#endif
 struct Light s_lightPool[32];
 s32 u_lightToPrint;
 s32 u_printLight;

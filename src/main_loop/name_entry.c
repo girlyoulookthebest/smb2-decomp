@@ -191,7 +191,15 @@ static struct
     float unk3C;
 } s_nameEntry;
 
+#ifdef __MWERKS__
 static struct ScoreRecordSet s_records[4];
+#else
+/* GC: name_entry.c is linked from asm and game_mode.c reads this object by
+ * its address name (challenge game over fades to white when the score makes
+ * the ranking); one object instead of a zeroed stub (stubs_gen.c) */
+#define s_records lbl_1_bss_D30FC
+struct ScoreRecordSet s_records[4];
+#endif
 
 /* If any of these names is entered, it will be replaced with "---". */
 static char *s_censoredNames[] =

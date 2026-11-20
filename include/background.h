@@ -44,6 +44,11 @@ struct BackgroundInfo
     u8 fillerBD[0xC0 - 0xBD];
     /*0xC0*/ float timers[4];
 };
+#ifndef __MWERKS__
+/* stage_draw.c and bowling.c read unk8C through their own struct WorldTheme
+ * and assert the same offset */
+_Static_assert(__builtin_offsetof(struct BackgroundInfo, unk8C) == (sizeof(void *) == 8 ? 0x98 : 0x8C), "BackgroundInfo");
+#endif
 
 enum
 {

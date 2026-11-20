@@ -578,6 +578,10 @@ struct WorldTheme
 #endif
     /*0x8C*/ void *drawFunc;
 };
+#ifndef __MWERKS__
+/* must match background.h's struct BackgroundInfo unk8C */
+_Static_assert(__builtin_offsetof(struct WorldTheme, drawFunc) == (sizeof(void *) == 8 ? 0x98 : 0x8C), "WorldTheme");
+#endif
 
 void g_draw_stage(void)
 {

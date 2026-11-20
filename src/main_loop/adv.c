@@ -103,8 +103,18 @@ struct MemcardRequest
     /*0x04*/ u32 flags;
     /*0x08*/ char *fileName;
     /*0x0C*/ void *files;
+#ifdef __MWERKS__
     u8 filler10[8];
+#else
+    /* PC: memcard.c's size / name (pointer-sized on 64-bit) */
+    u32 filler10;
+    char *filler14;
+#endif
 }; /* size = 0x18 */
+#ifndef __MWERKS__
+/* must match memcard.c's struct MemcardRequest */
+_Static_assert(sizeof(struct MemcardRequest) == (sizeof(void *) == 8 ? 0x28 : 0x18), "MemcardRequest");
+#endif
 
 struct RendEfcRequest
 {
@@ -120,6 +130,10 @@ struct RendEfcRequest
     void *funcs;
 #endif
 }; /* size = 0x18 */
+#ifndef __MWERKS__
+/* must match rend_efc.c's struct RenderEffect */
+_Static_assert(sizeof(struct RendEfcRequest) == (sizeof(void *) == 8 ? 0x20 : 0x18), "RendEfcRequest");
+#endif
 
 extern void (*sub_mode_funcs[])(void);
 extern s32 active_monkey_id[];

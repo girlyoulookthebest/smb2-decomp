@@ -66,7 +66,11 @@ void g_avdisp_set_ambient(float r, float g, float b);
 void fn_80066BE0(u32 lightMask);
 void fn_80066BF0(Vec *dir);
 void fn_80066C30(float r, float g, float b);
+#ifdef __MWERKS__
 void fn_80066A58(int);
+#else
+u32 fn_80066A58(u32);
+#endif
 void fn_80069860(float alpha);
 void fn_80069AC0(u32);
 void fn_80069AD0(int);
@@ -439,11 +443,21 @@ void avdisp_set_fog_color(u8 r, u8 g, u8 b)
     s_state.fogColor.b = b;
 }
 
+#ifdef __MWERKS__
 void g_yet_another_unk_draw_func(int a)
 {
     s_state.unk38 = a;
     fn_80066A58(a);
 }
+#else
+/* returns the previous TEV material callback (fn_80066A58's result, left
+ * in r3 on GC); callers restore it with a second call */
+void *g_yet_another_unk_draw_func(void *a)
+{
+    s_state.unk38 = (u32)(uintptr_t)a;
+    return (void *)(uintptr_t)fn_80066A58((u32)(uintptr_t)a);
+}
+#endif
 
 void fn_1_10A69C(u32 a)
 {

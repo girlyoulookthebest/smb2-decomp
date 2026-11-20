@@ -137,8 +137,18 @@ struct MemcardSaveRequest
     u32 flags;
     char *msg;
     void *data;
+#ifdef __MWERKS__
     u8 filler10[8];
+#else
+    /* PC: memcard.c's size / name (pointer-sized on 64-bit) */
+    u32 filler10;
+    char *filler14;
+#endif
 };
+#ifndef __MWERKS__
+/* must match memcard.c's struct MemcardRequest */
+_Static_assert(sizeof(struct MemcardSaveRequest) == (sizeof(void *) == 8 ? 0x28 : 0x18), "MemcardSaveRequest");
+#endif
 void g_save_game_data(void);
 void g_sprintf_memcard_error(int a, char *buf);
 void g_some_replay_func4(int a, int slot, struct MemcardSaveRequest *req);

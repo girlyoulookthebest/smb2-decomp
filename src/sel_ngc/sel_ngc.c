@@ -100,8 +100,18 @@ struct MemcardRequest
     /*0x04*/ u32 flags;
     /*0x08*/ char *fileName;
     /*0x0C*/ void *files;
+#ifdef __MWERKS__
     u8 filler10[8];
+#else
+    /* PC: memcard.c's size / name (pointer-sized on 64-bit) */
+    u32 filler10;
+    char *filler14;
+#endif
 }; /* size = 0x18 */
+#ifndef __MWERKS__
+/* must match memcard.c's struct MemcardRequest */
+_Static_assert(sizeof(struct MemcardRequest) == (sizeof(void *) == 8 ? 0x28 : 0x18), "MemcardRequest");
+#endif
 
 /* main.dol (src/main_loop/unlock.c); sel_ngc.h declares these without a prototype */
 int fn_1_16C4F8(void);

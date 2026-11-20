@@ -23,6 +23,11 @@ struct RenderEffect
     /*0x10*/ void *work;  /* effect-specific data */
     /*0x14*/ struct RenderEffectFuncs *funcs;
 };  /* size = 0x18 */
+#ifndef __MWERKS__
+/* fn_1_D8130 copies a whole struct RenderEffect from its caller's request
+ * (adv.c, exoption.c struct RendEfcRequest assert the same size) */
+_Static_assert(sizeof(struct RenderEffect) == (sizeof(void *) == 8 ? 0x20 : 0x18), "RenderEffect");
+#endif
 
 struct RenderEffectFuncs
 {
